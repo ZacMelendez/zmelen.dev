@@ -1,0 +1,12 @@
+.Home {
+    width: 85%;
+    height: 100%;
+    position: relative;
+    top: 150px;
+    left: 5%;
+    overflow: hidden;
+}
+
+.Home > p {
+    font-size: 35px;
+}

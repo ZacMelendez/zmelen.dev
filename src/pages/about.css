@@ -1,0 +1,21 @@
+.About {
+    width: 85%;
+    height: 100%;
+    position: relative;
+    top: 130px;
+    left: 5%;
+    overflow: hidden;
+}
+
+.About>p {
+    position: relative;
+    font-size: 30px;
+}
+
+.About>.text_entry {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    align-items: center;
+}

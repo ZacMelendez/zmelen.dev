@@ -1,0 +1,167 @@
+#nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    height: 50px;
+    padding-top: 25px;
+}
+
+#header>button {
+    color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+.logo {
+    position: absolute;
+    fill: rgb(233, 233, 233);
+    height: 50px;
+    width: 50px;
+    left: 5%;
+    transition: all 0.5s ease-in-out;
+    z-index: 105;
+}
+
+#hamburger {
+    z-index: 105;
+}
+
+.logo:hover {
+    fill: rgb(233, 233, 233);
+    animation: spinLogo 0.5s ease-in-out;
+}
+
+#themeToggle {
+    padding: 5px 0 0 10px;
+    cursor: pointer;
+}
+
+
+#navWrapper {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+    z-index: 90;
+}
+
+
+#blinker {
+    background-color: rgb(233, 233, 233);
+    ;
+    width: 25px;
+    height: 40px;
+    margin-left: 1rem;
+    animation: blink 1s steps(2, start) infinite;
+}
+
+
+#nav>.text_entry {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 30px;
+    margin-right: auto;
+    left: 5%;
+    top: 75px;
+}
+
+
+@media screen and (min-width: 600px) {
+    #hamburger {
+        display: none;
+    }
+
+    #navList {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0px;
+        list-style-type: none;
+        margin-right: 2rem;
+        height: auto;
+    }
+
+    #navList>li>a {
+        text-decoration: none;
+        text-align: center;
+        font-weight: 400;
+        color: rgb(233, 233, 233);
+        ;
+        padding: 0.6rem;
+        margin: 0.4rem;
+        transition: all 0.5s ease-out;
+
+    }
+
+    #navList>li>a:hover {
+        background-color: rgba(255, 255, 255, 0.4);
+        border-radius: 15%
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    #navWrapper.open {
+        top: 100%;
+    }
+
+    #navWrapper {
+        top: -1000%;
+        padding: 125px 0 25px 0;
+        margin-top: -75px;
+        background-color: rgb(26, 26, 26);
+    }
+
+    #navList {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        gap: 2rem;
+        list-style-type: none;
+        right: 0;
+        width: 100%;
+        height: auto;
+        transition: all 0.5s ease-out;
+        z-index: 95;
+    }
+
+    #navList>li>a {
+        text-decoration: none;
+        text-align: center;
+        font-weight: 400;
+        color: rgb(233, 233, 233);
+        padding: 0.6rem;
+        margin: 0.5rem;
+        transition: all 0.5s ease-in-out;
+    }
+}
+
+@keyframes spinLogo {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}

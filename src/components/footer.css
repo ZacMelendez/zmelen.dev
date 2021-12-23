@@ -1,0 +1,56 @@
+#footer {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    height: 30px;
+    width: 100%
+}
+
+.icon {
+    fill: rgb(233, 233, 233);
+    height: 25px;
+    margin-top: 2px;
+    width: 25px;
+}
+
+#list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    z-index: 105;
+}
+
+#list > a {
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10%;
+    border: none;
+    margin: 0 0.5rem 0 0.5rem;
+    padding: 0.5rem;
+    height: 100%;
+    cursor: pointer;
+    transition: all 0.5s linear;
+}
+
+#list > a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    border: none;
+}
+
+@media screen and (max-width: 600px) {
+    #footer > p {
+        display: none
+    }
+
+    #footer {
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    #list {
+        margin-left: 5%
+    }
+}
