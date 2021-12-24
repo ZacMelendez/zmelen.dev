@@ -18,15 +18,15 @@ export default function Contact() {
             <div id='entry_form'>
                 <div id='name_entry'>
                     <p className='entry_prompt'>Please enter your name: </p>
-                    <p className='filler_prompt'>Peter Parker</p>
+                    <p className='filler_prompt'>Luke Skywalker</p>
                 </div>
                 <div id='email_entry'>
                     <p className='entry_prompt'>Please enter your e-mail: </p>
-                    <p className='filler_prompt'>peterp@midtown.edu</p>
+                    <p className='filler_prompt'>onlyhope@galaxy.edu</p>
                 </div>
                 <div id='msg_entry'>
                     <p className='entry_prompt'>Please enter your message: </p>
-                    <p className='filler_prompt'>I am in desperate need of a portfolio website to show off my photography. My current job is barely paying me enough money for me to cover my rent, and my boss thinks I'm a criminal!</p>
+                    <p className='filler_prompt'>I am in desperate need of a website! Ever since I tried to murder my nephew, nobody has been asking me to train their jedi children. Please, you're my only hope!</p>
                 </div>
                 <div id='blinker' />
             </div>

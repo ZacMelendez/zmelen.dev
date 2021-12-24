@@ -11,9 +11,11 @@ const themeReducer = (state, action) => {
     case "LIGHTMODE":
       document.documentElement.style.setProperty('--background', 'rgb(233, 233, 233)');
       document.documentElement.style.setProperty('--content', 'rgb(26, 26, 26)');
+      document.documentElement.style.setProperty('--hover', 'rgba(26, 26, 26, 0.4)');
       return { darkMode: false };
     case "DARKMODE":
       document.documentElement.style.setProperty('--content', 'rgb(233, 233, 233)');
+      document.documentElement.style.setProperty('--hover', 'rgba(233, 233, 233, 0.4)');
       document.documentElement.style.setProperty('--background', 'rgb(26, 26, 26)');
       return { darkMode: true };
     default:

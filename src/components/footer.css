@@ -1,5 +1,6 @@
 :root {
     --background: rgb(26, 26, 26);
+    --hover: rgba(233, 233, 233, 0.4);
     --content: rgb(233, 233, 233);
 }
 
@@ -40,7 +41,7 @@
 }
 
 #list > a:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: var(--hover);
     border: none;
 }
 
