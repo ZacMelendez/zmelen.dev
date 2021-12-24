@@ -1,8 +1,13 @@
+:root {
+    --background: rgb(26, 26, 26);
+    --content: rgb(233, 233, 233);
+}
+
 .Home {
     width: 85%;
     height: 100%;
     position: relative;
-    top: 150px;
+    top: 100px;
     left: 5%;
     overflow: hidden;
 }

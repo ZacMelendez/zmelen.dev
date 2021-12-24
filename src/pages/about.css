@@ -1,15 +1,15 @@
+:root {
+    --background: rgb(26, 26, 26);
+    --content: rgb(233, 233, 233);
+}
+
 .About {
     width: 85%;
     height: 100%;
     position: relative;
-    top: 130px;
+    top: 100px;
     left: 5%;
     overflow: hidden;
-}
-
-.About>p {
-    position: relative;
-    font-size: 30px;
 }
 
 .About>.text_entry {
@@ -18,4 +18,16 @@
     flex-direction: row;
     font-size: 30px;
     align-items: center;
+    
+}
+
+.About > .text_entry > p {
+    white-space: pre;
+}
+
+.About > .text_entry > p, .About > p {
+    position: relative;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
 }

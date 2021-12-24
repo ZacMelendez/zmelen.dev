@@ -1,3 +1,8 @@
+:root {
+    --background: rgb(26, 26, 26);
+    --content: rgb(233, 233, 233);
+}
+
 .hamburger{
     width: 2rem;
     height: 2rem;
@@ -10,7 +15,7 @@
     width: 2rem;
     height: 0.25rem;
     border-radius: 10px;
-    background-color: rgb(233, 233, 233);
+    background-color: var(--content);
     transform-origin: 1px;
     transition: all 0.3s linear;
 }

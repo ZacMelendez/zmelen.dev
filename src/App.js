@@ -1,10 +1,11 @@
 import './App.css';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import React, {useState} from 'react';
-import ThemeContext from './themeContext'
+import React, {useContext} from 'react';
+import {ThemeContext} from './ThemeContext'
 
 import Home from './pages/home';
 import About from './pages/about';
+import Contact from './pages/contact';
 
 import Header from './components/header';
 import Footer from './components/footer';
@@ -12,10 +13,10 @@ import Footer from './components/footer';
 
 export default function App() {
 
-  const [theme, toggleTheme] = useState('light')
+  const theme = useContext(ThemeContext);
+  console.log(theme);
 
     return (
-    <ThemeContext.Provider value={{theme, toggleTheme}}>
       <HashRouter>
         <div className="App">
           <div className="header">
@@ -24,12 +25,12 @@ export default function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
           <div className='footer'>
             <Footer />
           </div>
         </div>
       </HashRouter>
-      </ThemeContext.Provider>
     );
   }

@@ -5,23 +5,31 @@ import './header.css'
 import Hamburger from './hamburger'
 import Darkmode from './darkmode'
 
-import ThemeContext from "../themeContext";
+import {ThemeContext} from "../ThemeContext";
 
 export default function Header() {
 
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
     const [themeButton, setThemeButton] = useState(false);
 
+    const theme = useContext(ThemeContext);
+    const darkMode = theme.state.darkMode;
+
     const toggleHamburger = () => {
         setHamburgerOpen(!hamburgerOpen)
     };
-
 
     const toggleThemeButton = () => {
         setThemeButton(!themeButton)
     }
 
-    const { theme, toggleTheme } = useContext(ThemeContext)
+    const onClick = () => {
+        if (darkMode) {
+          theme.dispatch({ type: "LIGHTMODE" });
+        } else {
+          theme.dispatch({ type: "DARKMODE" });
+        }
+    };
 
     return (
         <div id='nav'>
@@ -42,9 +50,8 @@ export default function Header() {
                     <li onClick={toggleHamburger}>
                         <Link to="/contact">contact</Link>
                     </li>
-
-                    <li id='themeToggle' onClick={toggleThemeButton}>
-                        <Darkmode themeVal={themeButton}/>
+                    <li id='themeToggle' onClick={() => {toggleThemeButton(); onClick()}}>
+                        <Darkmode themeVal={themeButton} />
                     </li>
                 </ul>
             </div>

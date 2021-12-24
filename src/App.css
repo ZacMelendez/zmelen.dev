@@ -1,13 +1,15 @@
 :root {
-  color: white;
+  --background: rgb(26, 26, 26);
+  --content: rgb(233, 233, 233);
 }
 
 * {
   font-family: Lucida Console, monospace;
+  color: var(--content);
 }
 
 .App {
-  background-color: rgb(26, 26, 26);
+  background-color: var(--background);
   height: 100vh;
   width: 100vw;
   position: relative;
@@ -30,6 +32,58 @@
   position: fixed;
   height: 30px;
   width: 100%;
-  bottom: 25px;
+  padding: 25px 0 25px 0;
+  bottom: 0;
   z-index: 105;
+  background-color: var(--background);
+}
+
+#user {
+  color: green;
+}
+
+#bash_prefix {
+  color: blue;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+#blinker {
+  background-color: var(--content);
+  ;
+  width: 25px;
+  height: 40px;
+  margin-left: 1rem;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+
+@media screen and (max-width: 600px) {
+  p {
+    font-size: 24px !important;
+  }
+  .About {
+    bottom: 80px;
+  }
+}
+
+@keyframes blink {
+  to {
+      visibility: hidden;
+  }
+}
+
+@-webkit-keyframes blink {
+  to {
+      visibility: hidden;
+  }
 }

@@ -1,3 +1,8 @@
+:root {
+    --background: rgb(26, 26, 26);
+    --content: rgb(233, 233, 233);
+}
+
 #footer {
     position: absolute;
     display: flex;
@@ -9,7 +14,7 @@
 }
 
 .icon {
-    fill: rgb(233, 233, 233);
+    fill: var(--content);
     height: 25px;
     margin-top: 2px;
     width: 25px;

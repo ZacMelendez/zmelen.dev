@@ -1,18 +1,30 @@
+:root {
+    --background: rgb(26, 26, 26);
+    --content: rgb(233, 233, 233);
+}
+
 .themeDiv{
     position: relative;
 }
-
+/* 
 .dark{
-    background-color: white;
-}
+    background-color: var(--content);
+} */
 .sunny, .moon{
     width: 100%;
     height: 100%;
 }
-.moon{
+
+.sunny {
+    fill: var(--content)
+}
+
+.moon {
     position: absolute;
     inset: 0;
+    fill: var(--content);
 }
+
 .moon-logo{
     opacity: 0;
     transform: translateY(20%) rotateZ(50deg);
@@ -32,8 +44,8 @@
     transform: translateY(0%) rotateZ(0deg);
 }
 .animate-moon path{
-  fill: white;
+  fill: var(--content);
 }
 .animate-sunny path{
-  fill: black;
+  fill: var(--background);
 }
