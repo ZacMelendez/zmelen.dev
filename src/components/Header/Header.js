@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import React, { useState, useContext } from 'react';
-import { ReactComponent as Logo } from '../images/logo.svg';
-import './header.css'
-import Hamburger from './hamburger'
-import Darkmode from './darkmode'
+import { ReactComponent as Logo } from '../../images/logo.svg';
+import './Header.scss'
+import {Hamburger, Darkmode} from '../components'
 
-import {ThemeContext} from "../ThemeContext";
+import {ThemeContext} from "../../ThemeContext";
 
 export default function Header() {
 

@@ -1,11 +1,10 @@
-:root {
-  --background: rgb(26, 26, 26);
-  --content: rgb(233, 233, 233);
-}
+@import url('./sassStyles/_animations.scss');
 
 * {
   font-family: Lucida Console, monospace;
   color: var(--content);
+  fill: var(--content);
+  transition: all 0.5s;
 }
 
 .App {
@@ -18,7 +17,6 @@
 
 .header {
   position: fixed;
-  /* height: 50px; */
   width: 100%;
   z-index: 105;
 }
@@ -46,26 +44,22 @@
   color: blue;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
 *::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
 * {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 #blinker {
   background-color: var(--content);
-  ;
   width: 25px;
   height: 40px;
   margin-left: 1rem;
   animation: blink 1s steps(2, start) infinite;
 }
-
 
 @media screen and (max-width: 600px) {
   p {
@@ -76,14 +70,3 @@
   }
 }
 
-@keyframes blink {
-  to {
-      visibility: hidden;
-  }
-}
-
-@-webkit-keyframes blink {
-  to {
-      visibility: hidden;
-  }
-}

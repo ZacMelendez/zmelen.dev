@@ -1,0 +1,8 @@
+{
+	"system": "win32",
+	"executablePath": "C:Program Files (x86)GoogleChromeApplicationchrome.exe",
+	"localhost": "localhost:3000",
+	"headless_browser": false,
+	"headless_embedded": true,
+	"reactTheme": "dark"
+}

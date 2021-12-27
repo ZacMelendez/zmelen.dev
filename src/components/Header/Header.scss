@@ -1,8 +1,5 @@
-:root {
-    --background: rgb(26, 26, 26);
-    --content: rgb(233, 233, 233);
-    --hover: rgba(233, 233, 233, 0.4);
-}
+// @import '../../sassStyles/variables';
+// @import '../../sassStyles/animations';
 
 #nav {
     display: flex;
@@ -13,15 +10,17 @@
     padding-top: 25px;
 }
 
-#header>button {
+#header
+{
+    button {
     color: rgba(0, 0, 0, 0);
     background-color: rgba(0, 0, 0, 0);
     border: none;
 }
+}
 
 .logo {
     position: absolute;
-    fill: var(--content);
     height: 50px;
     width: 50px;
     left: 5%;
@@ -52,7 +51,9 @@
     z-index: 90;
 }
 
-#nav>.text_entry {
+#nav
+{
+.text_entry {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -61,6 +62,7 @@
     margin-right: auto;
     left: 5%;
     top: 75px;
+}
 }
 
 
@@ -78,25 +80,21 @@
         list-style-type: none;
         margin-right: 2rem;
         height: auto;
+        li {
+            a {
+                text-decoration: none;
+                text-align: center;
+                font-weight: 400;
+                padding: 0.6rem;
+                margin: 0.4rem;
+                transition: all 0.5s ease-out;
+            };
+            a:hover {
+                background-color: var(--hover);
+                border-radius: 15%
+            }
+        }
     }
-
-    #navList>li>a {
-        text-decoration: none;
-        text-align: center;
-        font-weight: 400;
-        /* color: rgb(233, 233, 233); */
-        ;
-        padding: 0.6rem;
-        margin: 0.4rem;
-        transition: all 0.5s ease-out;
-
-    }
-
-    #navList>li>a:hover {
-        background-color: var(--hover);
-        border-radius: 15%
-    }
-
 }
 
 @media screen and (max-width: 600px) {
@@ -124,26 +122,15 @@
         height: auto;
         transition: all 0.5s ease-out;
         z-index: 95;
+        li {
+            a {
+                text-decoration: none;
+                text-align: center;
+                font-weight: 400;
+                padding: 0.6rem;
+                margin: 0.5rem;
+                transition: all 0.5s ease-in-out;
+            }
+        }
     }
-
-    #navList>li>a {
-        text-decoration: none;
-        text-align: center;
-        font-weight: 400;
-        /* color: rgb(233, 233, 233); */
-        padding: 0.6rem;
-        margin: 0.5rem;
-        transition: all 0.5s ease-in-out;
-    }
-}
-
-@keyframes spinLogo {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-
 }

@@ -1,7 +1,4 @@
-:root {
-    --background: rgb(26, 26, 26);
-    --content: rgb(233, 233, 233);
-}
+@import '../../sassStyles/variables';
 
 .hamburger{
     width: 2rem;
@@ -15,7 +12,7 @@
     width: 2rem;
     height: 0.25rem;
     border-radius: 10px;
-    background-color: var(--content);
+    background-color: var(--background);
     transform-origin: 1px;
     transition: all 0.3s linear;
 }

@@ -1,14 +1,11 @@
-import './App.css';
+import './App.scss';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import React, {useContext} from 'react';
 import {ThemeContext} from './ThemeContext'
 
-import Home from './pages/home';
-import About from './pages/about';
-import Contact from './pages/contact';
+import {Home, About, Contact} from './pages/pages';
 
-import Header from './components/header';
-import Footer from './components/footer';
+import {Header, Footer} from './components/components';
 
 
 export default function App() {

@@ -1,10 +1,10 @@
 import React from 'react';
-import './footer.css';
+import './Footer.scss';
 
-import { ReactComponent as Instagram } from '../graphics/instagram.svg'
-import { ReactComponent as CodePen } from '../graphics/codepen.svg'
-import { ReactComponent as GitHub } from '../graphics/github.svg'
-import { ReactComponent as LinkedIn } from '../graphics/linkedin.svg'
+import { ReactComponent as Instagram } from '../../graphics/instagram.svg'
+import { ReactComponent as CodePen } from '../../graphics/codepen.svg'
+import { ReactComponent as GitHub } from '../../graphics/github.svg'
+import { ReactComponent as LinkedIn } from '../../graphics/linkedin.svg'
 
 export default function Footer() {
     return (
