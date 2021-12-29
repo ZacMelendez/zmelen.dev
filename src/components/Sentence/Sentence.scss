@@ -55,19 +55,20 @@
 
 }
 
-#span:after, #span:before
-{  content: '';
+#span:after {  
+  content: '';
   display: inline-block;
   width: 20px;
   height: 10px;
-  vertical-align: middle}
-    
-#span:after {
+  vertical-align: middle;
   position: relative;
+  padding: 0 0 0 0;
+  margin: 0 0 -25px -19px;
   bottom: 8px;
-  left: 8px;
+  left: 20px;
   background: var(--content);
   animation: blink 1s steps(2, start) infinite;
   -moz-animation: blink 1s steps(2, start) infinite;
   -webkit-animation: blink 1s steps(2, start) infinite;
+  z-index: 105;
 }
