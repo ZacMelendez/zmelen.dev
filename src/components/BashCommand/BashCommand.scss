@@ -1,14 +1,17 @@
 .bash_command {
     position: relative;
-    display: flex;
-    flex-direction: row;
+    display: inline-flex;
+    flex-wrap: wrap;
     font-size: 30px;
-    align-items: center;
+    word-break: break-all;
+    overflow-wrap: break-word;
     p {
         white-space: pre;
         position: relative;
         margin: 0;
         padding: 0;
+        word-break: break-all;
+        overflow-wrap: break-word;
     }
 };
 
@@ -37,3 +40,11 @@
   .bash_prefix {
     color: rgb(61, 122, 235);
   }
+
+@media screen and (max-width: 600px) {
+  .after:after {
+    width: 16px;
+    height: 8px;
+    left: 16px
+  }
+}

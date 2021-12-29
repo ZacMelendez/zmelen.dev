@@ -39,7 +39,7 @@ export default function Header() {
                     </Link>
                 </li>
                 <li>
-                    <div className={`navWrapper, ${hamburgerOpen ? 'open' : ''}`}>
+                    <div className={`navWrapper ${hamburgerOpen ? 'open' : ''}`}>
                         <ul className='navList'>
                             <li onClick={toggleHamburger}>
                                 <Link to="/">home</Link>
