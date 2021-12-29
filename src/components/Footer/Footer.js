@@ -8,7 +8,7 @@ import { ReactComponent as LinkedIn } from '../../graphics/linkedin.svg'
 
 export default function Footer() {
     return (
-        <div id='footer'>
+        <footer>
             <div id='list'>
                 <a href="https://github.com/ZacMelendez/" target="_blank" rel="noreferrer">
                     <GitHub className='icon'/>
@@ -23,6 +23,6 @@ export default function Footer() {
                     <Instagram className='icon'/>
                 </a>
             </div>
-        </div >
+        </footer >
     )
 }

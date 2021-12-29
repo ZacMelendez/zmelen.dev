@@ -2,11 +2,10 @@
     width: 85%;
     height: 100%;
     position: relative;
-    top: 100px;
+    // top: 100px;
     left: 5%;
-    overflow: hidden;
+    // overflow: scroll;
     p {
-        font-size: 30px;
         margin: 0;
         padding: 0;
     };
@@ -14,7 +13,6 @@
         position: relative;
         display: flex;
         flex-direction: row;
-        font-size: 30px;
         align-items: center;
         margin: 0;
         padding: 0;
@@ -22,4 +20,8 @@
             white-space: pre;
         }
     }
+}
+
+.about_me {
+    padding: 15px 0 15px 0 !important;
 }

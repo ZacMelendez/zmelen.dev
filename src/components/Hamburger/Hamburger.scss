@@ -1,14 +1,16 @@
 .hamburger{
-    width: 2rem;
-    height: 2rem;
+    width: 30px;
+    height: 30px;
     display: flex;
     justify-content: space-around;
     flex-flow: column nowrap;
-    margin-right: 1rem;
+    margin-right: 5%;
+    z-index: 105;
 }
+
 .burger{
-    width: 2rem;
-    height: 0.25rem;
+    width: 30px;
+    height: 5px;
     border-radius: 10px;
     background-color: var(--content);
     transform-origin: 1px;
@@ -39,4 +41,10 @@
 
 .b3open {
     transform: rotate(-45deg);
+}
+
+@media screen and (min-width: 600px) {
+    .hamburger {
+        display: none;
+    }
 }

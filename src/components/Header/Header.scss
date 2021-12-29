@@ -1,15 +1,15 @@
-#nav {
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 105;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
     height: 50px;
-    padding-top: 25px;
-}
-
-#header
-    {
-        button {
+    background-color: var(--background);
+    padding: 25px 0 25px 0;
+    button {
         color: rgba(0, 0, 0, 0);
         background-color: rgba(0, 0, 0, 0);
         border: none;
@@ -23,23 +23,22 @@
     left: 5%;
     transition: all 0.5s ease-in-out;
     z-index: 105;
+    &:hover {
+        animation: spinLogo 0.5s ease-in-out;
+
+    }
 }
 
-#hamburger {
-    z-index: 105;
-}
-
-.logo:hover {
-    animation: spinLogo 0.5s ease-in-out;
-}
-
-#themeToggle {
+.themeToggle {
     padding: 5px 0 0 10px;
     cursor: pointer;
 }
 
+.nav {
+    margin-right: 5%;
+}
 
-#navWrapper {
+.navWrapper {
     position: absolute;
     left: 0;
     width: 100%;
@@ -48,71 +47,49 @@
     z-index: 90;
 }
 
-#nav {
-    .text_entry {
-        position: relative;
-        display: flex;
-        flex-direction: row;
+.navList {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0px;
+    height: 50px;
+    li {
+        display: inline-flex;
         align-items: center;
-        font-size: 30px;
-        margin-right: auto;
-        left: 5%;
-        top: 75px;
-    }
-}
-
-
-@media screen and (min-width: 600px) {
-    #hamburger {
-        display: none;
-    }
-
-    #navList {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-end;
-        padding: 0px;
-        list-style-type: none;
-        margin-right: 5%;
-        height: auto;
-        li {
-            a {
-                text-decoration: none;
-                text-align: center;
-                font-weight: 400;
-                padding: 0.6rem;
-                margin: 0.4rem;
-                transition: all 0.5s ease-out;
-            };
-            a:hover {
-                background-color: var(--hover);
-                border-radius: 15%
-            }
+        a {
+            text-decoration: none;
+            text-align: center;
+            font-weight: 400;
+            padding: 10px;
+            margin: 5px;
+            font-size: 18px;
+        };
+        a:hover {
+            color: var(--hover);
         }
     }
 }
 
 @media screen and (max-width: 600px) {
-    #navWrapper.open {
+    .navWrapper.open {
         top: 100%;
     }
 
-    #navWrapper {
-        top: -1000%;
+    .navWrapper {
+        top: -2000%;
         padding: 125px 0 25px 0;
         margin-top: -75px;
         background-color: var(--background);
     }
 
-    #navList {
+    .navList {
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 0;
         margin: 0;
         gap: 2rem;
-        list-style-type: none;
         right: 0;
         width: 100%;
         height: auto;
@@ -125,7 +102,6 @@
                 font-weight: 400;
                 padding: 0.6rem;
                 margin: 0.5rem;
-                transition: all 0.5s ease-in-out;
             }
         }
     }

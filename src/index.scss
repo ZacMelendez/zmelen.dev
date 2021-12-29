@@ -13,7 +13,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  list-style-type: none;
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media screen and (max-width: 600px) {
+  * {
+    font-size: 24px !important;
+  }
+  .About {
+    bottom: 80px;
+  }
 }

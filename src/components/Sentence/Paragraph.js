@@ -13,6 +13,7 @@ const Paragraph = ({ initialValue }) => {
             setValue(event.target.value)
           }}
           onInput={() => {'this.style.height = "";this.style.height = this.scrollHeight + "px"'}}
+          autoComplete='off'
         />
       </label>
     )

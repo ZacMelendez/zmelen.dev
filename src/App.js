@@ -16,18 +16,14 @@ export default function App() {
   return (
     <HashRouter>
       <div className="App">
-        <div className="header">
-          <Header />
-        </div>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-        <div className='footer'>
-          <Footer />
-        </div>
+        <Header />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        <Footer />
       </div>
     </HashRouter>
   );

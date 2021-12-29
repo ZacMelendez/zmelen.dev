@@ -14,14 +14,12 @@
         p {
             white-space: pre;
             position: relative;
-            font-size: 30px;
             margin: 0;
             padding: 0;
         }
     };
     p {
         position: relative;
-        font-size: 30px;
         margin: 0;
         padding: 0;
     }
@@ -31,7 +29,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    font-size: 30px;
     align-items: flex-start;
     div { * {
         margin: 0;
@@ -54,7 +51,6 @@
     color: rgb(153, 153, 153);
     border: none;
     background-color: var(--background);
-    font-size: 30px;
     &:focus {
         outline: none;
     }

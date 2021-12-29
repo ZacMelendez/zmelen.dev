@@ -27,6 +27,7 @@ const Sentence = ({ initialValue, autoFocus }) => {
           onChange={(event) => {
             setValue(event.target.value)
           }}
+          autoComplete='off'
         />
       </label>
     )

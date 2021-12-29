@@ -1,4 +1,4 @@
-.Home {
+.pageNotFound {
     width: 85%;
     height: 100%;
     position: relative;
@@ -6,6 +6,9 @@
     left: 5%;
     overflow: hidden;
     p {
-        font-size: 30px;
+        position: relative;
+        margin: 0;
+        padding: 0;
     }
+
 }
