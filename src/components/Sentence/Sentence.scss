@@ -1,0 +1,73 @@
+@import url('../../sassStyles/_animations.scss');
+
+#input {
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    position: absolute;
+    vertical-align: bottom;
+    top: 0;
+    left: 0;
+    width: 100%;
+    // background: white;
+    &::placeholder{
+    color: rgb(153, 153, 153);}
+    border: none;
+    background-color: var(--background);
+    font-size: 30px;
+    &:focus {
+        outline: none;
+    };
+    caret-color: rgba(0, 0, 0, 0);
+}
+
+#textarea {
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  position: absolute;
+  vertical-align: bottom;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  // background: white;
+  color: rgb(153, 153, 153);
+  border: none;
+  background-color: var(--background);
+  font-size: 30px;
+  &:focus {
+      outline: none;
+  };
+  caret-color: rgba(0, 0, 0, 0);
+  resize: none;
+}
+
+#label {
+  display: inline-block;
+  position: relative;
+  min-width: 2em;
+  min-height: 30px;
+}
+
+#span {
+  white-space: normal;
+
+}
+
+#span:after, #span:before
+{  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  vertical-align: middle}
+    
+#span:after {
+  position: relative;
+  bottom: 8px;
+  left: 8px;
+  background: var(--content);
+  animation: blink 1s steps(2, start) infinite;
+  -moz-animation: blink 1s steps(2, start) infinite;
+  -webkit-animation: blink 1s steps(2, start) infinite;
+}

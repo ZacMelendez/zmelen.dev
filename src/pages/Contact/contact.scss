@@ -1,0 +1,61 @@
+.Contact {
+    width: 85%;
+    height: 100%;
+    position: relative;
+    top: 100px;
+    left: 5%;
+    overflow: hidden;
+    .text_entry {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        font-size: 30px;
+        align-items: center;
+        p {
+            white-space: pre;
+            position: relative;
+            font-size: 30px;
+            margin: 0;
+            padding: 0;
+        }
+    };
+    p {
+        position: relative;
+        font-size: 30px;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+#entry_form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    align-items: flex-start;
+    div { * {
+        margin: 0;
+        padding: 0;
+    }
+}
+}
+
+#name_entry, #email_entry, #msg_entry {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.entry_prompt {
+    white-space: pre;
+}
+
+.filler_prompt {
+    color: rgb(153, 153, 153);
+    border: none;
+    background-color: var(--background);
+    font-size: 30px;
+    &:focus {
+        outline: none;
+    }
+}

@@ -1,0 +1,25 @@
+.About {
+    width: 85%;
+    height: 100%;
+    position: relative;
+    top: 100px;
+    left: 5%;
+    overflow: hidden;
+    p {
+        font-size: 30px;
+        margin: 0;
+        padding: 0;
+    };
+    .text_entry {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        font-size: 30px;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        p {
+            white-space: pre;
+        }
+    }
+}

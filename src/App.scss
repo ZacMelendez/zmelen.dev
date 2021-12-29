@@ -37,11 +37,11 @@
 }
 
 #user {
-  color: green;
+  color: rgb(48, 199, 106);
 }
 
 #bash_prefix {
-  color: blue;
+  color: rgb(61, 122, 235);
 }
 
 *::-webkit-scrollbar {
@@ -56,8 +56,9 @@
 #blinker {
   background-color: var(--content);
   width: 25px;
-  height: 40px;
+  height: 10px;
   margin-left: 1rem;
+  bottom: 0;
   animation: blink 1s steps(2, start) infinite;
 }
 

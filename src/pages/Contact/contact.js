@@ -1,12 +1,8 @@
-import './contact.css';
+import './contact.scss';
 import React from 'react';
-// import React, { useContext } from 'react';
-// import ThemeContext from '../themeContext'
+import { Sentence, Paragraph } from '../../components/components'
 
 export default function Contact() {
-    // const theme = useContext(ThemeContext)
-
-
     return (
         <div className="Contact">
             <div className='text_entry'>
@@ -18,17 +14,17 @@ export default function Contact() {
             <div id='entry_form'>
                 <div id='name_entry'>
                     <p className='entry_prompt'>Please enter your name: </p>
-                    <p className='filler_prompt'>Luke Skywalker</p>
+                    <Sentence initialValue={'Luke Skywalker'} autoFocus={true}/>
+                    {/* <div id='blinker' /> */}
                 </div>
                 <div id='email_entry'>
                     <p className='entry_prompt'>Please enter your e-mail: </p>
-                    <p className='filler_prompt'>onlyhope@galaxy.edu</p>
+                    <Sentence initialValue={'theonlyhope@galaxy.edu'}/>
                 </div>
                 <div id='msg_entry'>
                     <p className='entry_prompt'>Please enter your message: </p>
-                    <p className='filler_prompt'>I am in desperate need of a website! Ever since I tried to murder my nephew, nobody has been asking me to train their jedi children. Please, you're my only hope!</p>
+                    <Paragraph initialValue={'I am in desperate need of a website! Ever since the incident with my nephew, nobody has been asking me to train their jedi children. Please, you\'re my only hope!'}/>
                 </div>
-                <div id='blinker' />
             </div>
         </div>
     );
