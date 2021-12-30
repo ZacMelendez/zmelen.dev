@@ -1,15 +1,17 @@
 import './contact.scss';
 import React from 'react';
 import { Sentence, Paragraph, BashCommand } from '../../components/components'
+
+
 export default function Contact() {
+
     return (
         <div className='content'>
             <BashCommand/>
             <form id='entry_form' autoComplete='off'>
                 <div id='name_entry'>
                     <p className='entry_prompt'>Please enter your name: </p>
-                    <Sentence initialValue={'Luke Skywalker'} autoFocus={true}/>
-                    {/* <div id='blinker' /> */}
+                    <Sentence initialValue={'Luke Skywalker'} autoFocus={true} />
                 </div>
                 <div id='email_entry'>
                     <p className='entry_prompt'>Please enter your e-mail: </p>

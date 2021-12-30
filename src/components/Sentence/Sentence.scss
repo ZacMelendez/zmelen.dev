@@ -57,7 +57,7 @@
   white-space: normal;
 }
 
-#span:after {  
+.span-after:after {  
   content: '';
   display: inline-block;
   width: 20px;
@@ -72,5 +72,5 @@
   animation: blink 1s steps(2, start) infinite;
   -moz-animation: blink 1s steps(2, start) infinite;
   -webkit-animation: blink 1s steps(2, start) infinite;
-  z-index: 105;
+  z-index: 90;
 }

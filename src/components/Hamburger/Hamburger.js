@@ -1,7 +1,6 @@
 import React from 'react';
 import './Hamburger.scss'
 
-
 export default function Hamburger({ isOpen }){
     return(
             <div className="hamburger">

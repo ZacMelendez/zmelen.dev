@@ -59,7 +59,7 @@ export default function Header() {
                         </ul>
                     </div>
                 </li>
-                <li onClick={toggleHamburger}>
+                <li className='hamburger-flex' onClick={toggleHamburger}>
                     <Hamburger isOpen={hamburgerOpen} />
                 </li>
             </ul>
