@@ -10,47 +10,51 @@ footer {
     bottom: 0;
     z-index: 105;
     background-color: var(--background);
-  }
-
-.icon {
-    fill: var(--content);
-    height: 25px;
-    margin-top: 2px;
-    width: 25px;
-    &:hover {
-        fill: var(--hover)
-    }
-}
-
-#list {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 100%;
-    z-index: 105;
-    a {
-        background-color: rgba(0, 0, 0, 0);
-        border-radius: 10%;
-        border: none;
-        margin: 0 10px 0 10px;
-        padding: 10px;
+    li {
+        margin-top: 2px;
+        width: 25px;
         height: 100%;
-        cursor: pointer;
-        transition: all 0.5s linear;
-    };
-}
+        path {
+            fill: var(--content);
+  
+        }
+        &:hover {
+            path {
+                fill: var(--hover);
+            }
+        }
+    }
+    ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 25px;
+        z-index: 105;
+        gap: 30px;
+        a {
+            background-color: rgba(0, 0, 0, 0);
+            border-radius: 10%;
+            border: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            cursor: pointer;
+            transition: all 0.5s linear;
+        };
+    }
+  }
 
 @media screen and (max-width: 600px) {
     footer {
+        padding: 20px 0 45px 0;
         justify-content: center;
-        p {
-            display: none
-        }
     }
 }
 
 @media screen and (min-width: 600px) {
-    #list {
-        margin-left: 5%
+    footer {
+        ul {
+            margin-left: 5%
+        }
     }
 }

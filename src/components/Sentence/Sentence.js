@@ -1,23 +1,12 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import './Sentence.scss';
 
-function handleEnter(event) {
-  if (event.keyCode === 13) {
-    const form = event.target.form;
-    const index = Array.prototype.indexOf.call(form, event.target);
-    form.elements[index + 1].focus();
-    event.preventDefault();
-  }
-}
 
-const Sentence = ({ initialValue, autoFocus, onComplete}) => {
+const Sentence = ({ initialValue, autoFocus, onComplete, handleEnter, refer}) => {
   const [value, setValue] = useState(initialValue);
   const [focus, setFocus] = useState();
   // Look into useEffect, Refs
-
-  useEffect(() => {
-    console.log('focus changed')
-}, [focus])
+  const unchanged = value === initialValue;
 
   const toggleFocus = () => {
     setFocus(!focus);
@@ -26,34 +15,36 @@ const Sentence = ({ initialValue, autoFocus, onComplete}) => {
   if (autoFocus) {
     return (
       <label id="label">
-        <span id="span" className={`${focus ? 'span-after' : ''}`}>{value}</span>
+        <span id="span" className={`${(focus & unchanged) ? 'span-before' : focus ? 'span-after' : ''}`}>{value.slice(0, 30)}</span>
         <input id="input"
           type="text"
-          placeholder={value}
+          placeholder={initialValue}
           onChange={(event) => {
-            setValue(event.target.value)
+            setValue(event.target.value.slice(0, 30))
           }}
           autoFocus
           onKeyDown={handleEnter}
           onFocus={toggleFocus}
           onBlur={toggleFocus}
+          ref = {refer}
         />
       </label>
     )
   } else {
     return (
       <label id="label">
-        <span id="span" className={`${focus ? 'span-after' : ''}`}>{value}</span>
+        <span id="span" className={`${(focus & unchanged) ? 'span-before' : focus ? 'span-after' : ''}`}>{value.slice(0, 30)}</span>
         <input id="input"
           type="text"
-          placeholder={value}
+          placeholder={initialValue}
           onChange={(event) => {
-            setValue(event.target.value)
+            setValue(event.target.value.slice(0, 30))
           }}
           autoComplete='off'
           onKeyDown={handleEnter}
           onFocus={toggleFocus}
           onBlur={toggleFocus}
+          ref = {refer}
         />
       </label>
     )

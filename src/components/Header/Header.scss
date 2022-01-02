@@ -71,6 +71,10 @@ header {
 }
 
 @media screen and (max-width: 600px) {
+    header {
+        align-items: flex-start;
+    }
+
     .navWrapper.open {
         top: 100%;
     }
@@ -102,6 +106,10 @@ header {
                 padding: 12px;
                 margin: 10px;
             }
+            svg {
+                padding: 12px;
+            }
         }
     }
+
 }

@@ -9,7 +9,6 @@
     top: 0;
     left: 0;
     width: 100%;
-    // background: white;
     &::placeholder{
     color: rgb(153, 153, 153);
   }
@@ -49,12 +48,30 @@
 #label {
   display: inline-block;
   position: relative;
-  min-width: 2em;
-  min-height: 30px;
+  min-width: fit-content;
+  min-height: 24px;
 }
 
 #span {
   white-space: normal;
+}
+
+.span-before:before {  
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 10px;
+  vertical-align: middle;
+  position: relative;
+  padding: 0 0 0 0;
+  margin: 0 0 -25px -19px;
+  bottom: 8px;
+  left: 19px;
+  background: var(--content);
+  animation: blink 1s steps(2, start) infinite;
+  -moz-animation: blink 1s steps(2, start) infinite;
+  -webkit-animation: blink 1s steps(2, start) infinite;
+  z-index: 90;
 }
 
 .span-after:after {  
@@ -73,4 +90,30 @@
   -moz-animation: blink 1s steps(2, start) infinite;
   -webkit-animation: blink 1s steps(2, start) infinite;
   z-index: 90;
+}
+
+@media screen and (max-width: 600px) {
+  .span-after:after {
+    content: '';
+    width: 12px;
+    height: 5px;
+    margin: 0 0 -20px -12px;
+    bottom: 4px;
+    left: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+  }
+  
+  .span-before:before {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    content: '';
+    width: 12px;
+    height: 5px;
+    margin: 0 0 -20px -12px;
+    bottom: 4px;
+    left: 12px;
+  }
 }
