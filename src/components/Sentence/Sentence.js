@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Sentence.scss';
 
 
-const Sentence = ({ initialValue, autoFocus, onComplete, handleEnter, refer}) => {
+const Sentence = ({ initialValue, autoFocus, onComplete, handleEnter, refer, clsName}) => {
   const [value, setValue] = useState(initialValue);
   const [focus, setFocus] = useState();
   // Look into useEffect, Refs
@@ -17,6 +17,7 @@ const Sentence = ({ initialValue, autoFocus, onComplete, handleEnter, refer}) =>
       <label id="label">
         <span id="span" className={`${(focus & unchanged) ? 'span-before' : focus ? 'span-after' : ''}`}>{value.slice(0, 30)}</span>
         <input id="input"
+          className={clsName}
           type="text"
           placeholder={initialValue}
           onChange={(event) => {
@@ -35,6 +36,7 @@ const Sentence = ({ initialValue, autoFocus, onComplete, handleEnter, refer}) =>
       <label id="label">
         <span id="span" className={`${(focus & unchanged) ? 'span-before' : focus ? 'span-after' : ''}`}>{value.slice(0, 30)}</span>
         <input id="input"
+          className={clsName}
           type="text"
           placeholder={initialValue}
           onChange={(event) => {

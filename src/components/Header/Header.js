@@ -47,7 +47,7 @@ export default function Header() {
                             <li onClick={toggleHamburger}>
                                 <Link to="/about">about</Link>
                             </li>
-                            <li onClick={toggleHamburger}>
+                            <li style={{display: 'none'}} onClick={toggleHamburger}>
                                 <Link to="/projects">projects</Link>
                             </li>
                             <li onClick={toggleHamburger}>
