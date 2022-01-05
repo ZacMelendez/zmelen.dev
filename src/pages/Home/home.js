@@ -26,7 +26,7 @@ export default function Home() {
         <div className='content'>
             <p>Welcome to my website!</p>
             {/* <p>Last login: {days[today.getDay()]} {months[today.getMonth()]} {today.getDate()} {today.getHours()}:{today.getMinutes()}:{today.getSeconds()} {today.getFullYear()} from {ip}</p> */}
-            <p>Last login: {days[today.getDay()]} {months[today.getMonth()]} {today.getDate()} {today.getHours()}:{today.getMinutes()}:{today.getSeconds()} {today.getFullYear()} from {ip}</p>
+            <p>Last login: {days[today.getDay()]} {months[today.getMonth()]} {today.getDate()} {String(today.getHours()).padStart(2, '0')}:{String(today.getMinutes()).padStart(2, '0')}:{String(today.getSeconds()).padStart(2, '0')} {today.getFullYear()} from {ip}</p>
             <BashCommand blink={true}/>
         </div>
     );

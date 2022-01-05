@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Sentence.scss';
 
-const Paragraph = ({ initialValue, refer }) => {
+const Paragraph = ({ initialValue, refer, clsName }) => {
   const [value, setValue] = useState(initialValue);
   const [focus, setFocus] = useState();
 
@@ -15,6 +15,7 @@ const Paragraph = ({ initialValue, refer }) => {
       <label id="label">
         <span id="span" className={`${(focus & unchanged) ? 'span-before' : focus ? 'span-after' : ''}`}>{value}</span>
         <textarea id="textarea"
+          className={clsName}
           type="text"
           placeholder={value}
           onChange={(event) => {
@@ -25,6 +26,7 @@ const Paragraph = ({ initialValue, refer }) => {
           onFocus={toggleFocus}
           onBlur={toggleFocus}
           ref = {refer}
+          rows={'5'}
         />
       </label>
     )

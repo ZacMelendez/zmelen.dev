@@ -1,0 +1,19 @@
+#output {
+    // background-image: radial-gradient(
+    //   circle farthest-corner at 75% 75%,
+    //   rgba(0,0,16,1) 0%,
+    //   rgba(0,16,32,1) 50%,
+    //   rgba(0,64,48,1) 100%
+    // );
+    border-radius: 100%;
+    color: rgb(32, 220, 128);
+    font-family: "Inconsolata", monospace;
+    font-size: 3vmin;
+    line-height: .55em;
+    text-rendering: optimizeSpeed;
+    will-change: contents;
+    white-space: pre;
+  }
+  canvas {
+    display: none;
+  }

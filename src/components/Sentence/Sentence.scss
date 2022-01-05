@@ -30,8 +30,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 300px;
-  // background: white;    
+  max-width: 85vw;
   &::placeholder{
     color: rgb(153, 153, 153);
   }
@@ -53,7 +52,11 @@
 }
 
 #span {
-  white-space: normal;
+  white-space: break-space;
+  width: 100%;
+  max-width: 84vw;
+  height: max-content;
+  overflow-wrap: anywhere;
 }
 
 .span-before:before {  

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Sentence.scss';
 
 
-const Sentence = ({ initialValue, autoFocus, onComplete, handleEnter, refer, clsName}) => {
+const Sentence = ({ initialValue, autoFocus, onComplete, refer, clsName}) => {
   const [value, setValue] = useState(initialValue);
   const [focus, setFocus] = useState();
   // Look into useEffect, Refs
@@ -24,7 +24,6 @@ const Sentence = ({ initialValue, autoFocus, onComplete, handleEnter, refer, cls
             setValue(event.target.value.slice(0, 30))
           }}
           autoFocus
-          onKeyDown={handleEnter}
           onFocus={toggleFocus}
           onBlur={toggleFocus}
           ref = {refer}
@@ -43,7 +42,6 @@ const Sentence = ({ initialValue, autoFocus, onComplete, handleEnter, refer, cls
             setValue(event.target.value.slice(0, 30))
           }}
           autoComplete='off'
-          onKeyDown={handleEnter}
           onFocus={toggleFocus}
           onBlur={toggleFocus}
           ref = {refer}
