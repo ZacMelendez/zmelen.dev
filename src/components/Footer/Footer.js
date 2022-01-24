@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.scss';
 
-import {Instagram, GitHub, LinkedIn, CodePen} from '../Icons'
+import { GitHub, LinkedIn, CodePen } from '../Icons'
 
 export default function Footer() {
     return (
@@ -20,11 +20,6 @@ export default function Footer() {
                 <li>
                     <a href="https://codepen.io/ZacMelendez" target="_blank" rel="noreferrer">
                         <CodePen />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/zacmelendez/" target="_blank" rel="noreferrer">
-                        <Instagram />
                     </a>
                 </li>
             </ul>

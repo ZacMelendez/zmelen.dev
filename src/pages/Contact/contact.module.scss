@@ -1,0 +1,133 @@
+@import "../../sassStyles/variables.scss";
+@import "../../sassStyles/breakpoints.scss";
+
+.contact {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 45%;
+  left: 50%;
+  display: flex;
+  flex-flow: row wrap;
+
+  font-family: $montserrat;
+  font-weight: bold;
+  font-style: normal;
+
+  .inner {
+    padding-top: 15%;
+
+    h1 {
+      font-size: 64px;
+      line-height: 78px;
+      letter-spacing: -0.035em;
+      padding: 0 0 30px 0;
+      @include sm-max {
+        font-size: 75px;
+      }
+    }
+
+    .entryForm {
+      display: grid;
+      justify-items: stretch;
+      column-gap: 35px;
+      row-gap: 25px;
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "fname lname"
+        "email phone"
+        "message message"
+        "submit submit";
+
+      label {
+        font-size: 24px;
+        line-height: 38px;
+        color: $white;
+      }
+
+      input {
+        height: 62px;
+      }
+
+      button {
+        width: 165px;
+        height: 62px;
+
+        font-family: $montserrat;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 29px;
+        text-align: center;
+        letter-spacing: -0.035em;
+        color: $white;
+
+        background: $yellow;
+        box-shadow: 0px 8px 7px 2px rgba(0, 0, 0, 0.125);
+        border-radius: 15px;
+        border: none;
+        
+        &:hover, &:focus {
+          transform: scale(1.05);
+          cursor: pointer;
+        }
+      }
+
+      textarea {
+        height: 300px;
+        padding: 18px 0 0 19px !important;
+        box-sizing: border-box;
+        width: 100%;
+      }
+
+      input,
+      textarea {
+        padding: 0 19px;
+        background: rgba(239, 237, 228, 0.2);
+        box-shadow: 0px 8px 7px 2px rgba(0, 0, 0, 0.125);
+        border-radius: 15px;
+        border: none;
+
+        color: #efede4;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 29px;
+        letter-spacing: -0.035em;
+
+        &::placeholder {
+          color: #efede45b;
+          font-family: Montserrat;
+          font-style: normal;
+          font-weight: 300;
+          font-size: 24px;
+          line-height: 29px;
+          letter-spacing: -0.035em;
+        }
+      }
+
+      .fnameEntry {
+        grid-area: fname;
+      }
+      .lnameEntry {
+        grid-area: lname;
+      }
+      .emailEntry {
+        grid-area: email;
+      }
+      .phoneEntry {
+        grid-area: phone;
+      }
+      .msgEntry {
+        grid-area: message;
+      }
+      .submit {
+        justify-self: center;
+        grid-area: submit;
+      }
+    }
+  }
+}

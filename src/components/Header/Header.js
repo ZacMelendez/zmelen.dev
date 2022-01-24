@@ -1,65 +1,45 @@
-import { Link } from "react-router-dom";
-import React, { useState, useContext } from 'react';
-import { ReactComponent as Logo } from '../../images/logo.svg';
-import './Header.scss'
-import { Hamburger, Darkmode } from '../components'
+import React, { useState } from 'react';
+import styles from './Header.module.scss'
+import { Hamburger } from '../components'
 
-import { ThemeContext } from "../../ThemeContext";
+import { Logo } from '../Icons';
+
 
 export default function Header() {
 
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
-    const [themeButton, setThemeButton] = useState(false);
-
-    const theme = useContext(ThemeContext);
-    const darkMode = theme.state.darkMode;
 
     const toggleHamburger = () => {
         setHamburgerOpen(!hamburgerOpen)
     };
 
-    const toggleThemeButton = () => {
-        setThemeButton(!themeButton)
-    }
-
-    const onClick = () => {
-        if (darkMode) {
-            theme.dispatch({ type: "LIGHTMODE" });
-        } else {
-            theme.dispatch({ type: "DARKMODE" });
-        }
-    };
-
     return (
         <header>
-            <ul className='nav'>
+            <ul className={styles.nav}>
                 <li>
-                    <Link to='/' className='logo'>
+                    <a href='#home' className={styles.logo}>
                         <Logo />
-                    </Link>
+                    </a>
                 </li>
                 <li>
-                    <div className={`navWrapper ${hamburgerOpen ? 'open' : ''}`}>
-                        <ul className='navList'>
+                    <div className={`${styles.navWrapper} ${hamburgerOpen ? styles.navWrapperOpen : ''}`}>
+                        <ul className={styles.navList}>
                             <li onClick={toggleHamburger}>
-                                <Link to="/">home</Link>
+                                <a href="#home">home</a>
                             </li>
                             <li onClick={toggleHamburger}>
-                                <Link to="/about">about</Link>
+                                <a href="#about">about</a>
                             </li>
                             <li style={{display: 'none'}} onClick={toggleHamburger}>
-                                <Link to="/projects">projects</Link>
+                                <a href="#work">work</a>
                             </li>
                             <li onClick={toggleHamburger}>
-                                <Link to="/contact">contact</Link>
-                            </li>
-                            <li className='themeToggle' onClick={() => { toggleThemeButton(); onClick() }}>
-                                <Darkmode themeVal={themeButton} />
+                                <a href="#contact">contact</a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li className='hamburger-flex' onClick={toggleHamburger}>
+                <li className={styles.hamburgerFlex} onClick={toggleHamburger}>
                     <Hamburger isOpen={hamburgerOpen} />
                 </li>
             </ul>

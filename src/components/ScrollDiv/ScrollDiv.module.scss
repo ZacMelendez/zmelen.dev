@@ -1,0 +1,13 @@
+@import '../../sassStyles/variables.scss';
+@import '../../sassStyles/breakpoints.scss';
+
+.scrollDiv {
+    position: fixed;
+    height: 40vw;
+    width: 40vw;
+    top: 50%;
+left: 25%;
+transform: translate(-50%, -50%);
+    background-color: $grey;
+    border-radius: 50%;
+}

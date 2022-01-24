@@ -1,25 +1,26 @@
-import './App.scss';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import styles from './App.module.scss';
 import React from 'react';
 
-import { Home, About, Contact, PageNotFound } from './pages/pages';
+import { Home, About, Contact } from './pages/pages';
 
-import { Header, Footer } from './components/components';
+import { Header, Footer, ScrollDiv } from './components/components';
 
+const wheel = (e) => {
+  console.log(e.deltaY);
+}
 
 export default function App() {
+  React.useEffect(() => {
+    document.onwheel = wheel;
+  })
   return (
-    <HashRouter>
-      <div className="App">
-        <Header />
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-        <Footer />
-      </div>
-    </HashRouter>
+    <div className={styles.App}>
+      <ScrollDiv />
+      <Header />
+      <Home />
+      <About />
+      <Contact />
+      <Footer />
+    </div>
   );
 }

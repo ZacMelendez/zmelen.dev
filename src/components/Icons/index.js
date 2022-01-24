@@ -1,6 +1,6 @@
-import Instagram from './Instagram';
 import GitHub from './GitHub';
 import LinkedIn from './LinkedIn';
 import CodePen from './CodePen';
+import Logo from './Logo'
 
-export {Instagram, GitHub, LinkedIn, CodePen};
+export {GitHub, LinkedIn, CodePen, Logo};

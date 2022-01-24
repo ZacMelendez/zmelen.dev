@@ -9,13 +9,12 @@ footer {
     padding: 20px 0 25px 0;
     bottom: 0;
     z-index: 105;
-    background-color: var(--background);
     li {
         margin-top: 2px;
         width: 25px;
         height: 100%;
         path {
-            fill: var(--content);
+            fill: var(--light-content);
   
         }
         &:hover {

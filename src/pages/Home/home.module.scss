@@ -1,0 +1,61 @@
+@import "../../sassStyles/breakpoints.scss";
+@import "../../sassStyles/variables.scss";
+
+.home {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 45%;
+    left: 50%;
+    display: flex;
+    flex-flow: row wrap;
+    overflow: hidden;
+    .title {
+        position: absolute;
+        top: 35%;
+        left: 0;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold;
+        color: $white;
+        text-align: left;
+
+        h1 {
+            font-size: 144px;
+            line-height: 126px;
+            letter-spacing: -0.065em;
+            @include sm-max {
+                font-size: 75px;
+            }
+        }
+        h2 {
+            font-size: 64px;
+            line-height: 78px;
+            letter-spacing: -0.035em;
+            @include sm-max {
+                font-size: 75px;
+            }
+        }
+    }
+}
+
+.lightDiv {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background-color: var(--light-content);
+}
+
+.chevDiv {
+    position: absolute;
+    right: 0%;
+    top: 28%;
+    svg {
+        width: 120vw;
+        height: 120vh;
+        mix-blend-mode: normal;
+    }
+}

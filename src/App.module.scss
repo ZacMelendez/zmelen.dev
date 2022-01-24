@@ -1,0 +1,35 @@
+@import './sassStyles/animations.scss';
+@import './sassStyles/variables.scss';
+
+* {
+  font-family: $montserrat;
+  transition: all 0.5s;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p, svg, a {
+  color: $white;
+  fill: $white;
+}
+
+.App {
+  background-color: $blue;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: scroll;
+}
+
+@media screen and (max-width: 600px) {
+  .content {
+    margin: 100px 5% 100px 5%;
+  }
+  
+}
+
+

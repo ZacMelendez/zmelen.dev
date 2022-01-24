@@ -1,0 +1,38 @@
+@import "../../sassStyles/variables.scss";
+@import "../../sassStyles/breakpoints.scss";
+
+.about {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 45%;
+  left: 50%;
+  display: flex;
+  flex-flow: row wrap;
+
+  font-family: $montserrat;
+  font-weight: bold;
+  font-style: normal;
+
+  .inner {
+    padding-top: 15%;
+
+    h1 {
+      font-size: 64px;
+      line-height: 78px;
+      letter-spacing: -0.035em;
+      padding: 0 0 30px 0;
+      @include sm-max {
+        font-size: 75px;
+      }
+    }
+
+    p {
+      font-size: 30px;
+      line-height: 37px;
+      letter-spacing: -0.035em;
+      height: auto;
+    }
+  }
+}
