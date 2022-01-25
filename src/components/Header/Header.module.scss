@@ -26,6 +26,7 @@ header {
 
 .logo {
     position: absolute;
+    align-self: center;
     svg {
         width: 40px;
         height: 40px;
@@ -44,12 +45,21 @@ header {
 
 .nav {
     margin-right: 5%;
+    li {
+        display: inline-flex;
+        align-items: center;
+        a {
+            display: flex;
+        align-items: center;
+
+        }
+    }
 }
 
 .navWrapper {
     left: 0;
     width: 100%;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.25s ease-in-out;
     overflow: hidden;
     z-index: 75;
 }
@@ -72,11 +82,11 @@ header {
             padding: 10px;
             margin: 5px;
             font-size: 18px;
-            transition: all 0.5s ease-in-out;
+            transition: all 0.25s ease-in-out;
             cursor: pointer;
         }
         a:hover {
-            color: var(--hover);
+            color: $hover;
         }
     }
 }
@@ -97,7 +107,7 @@ header {
         top: -2000%;
         padding: 75px 0 25px 0;
         margin-top: -75px;
-        background-color: var(--dark-content);
+        background-color: $blue;
     }
 
     .navWrapperOpen {

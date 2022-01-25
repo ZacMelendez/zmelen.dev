@@ -19,6 +19,7 @@ footer {
         height: 100%;
         path {
             fill: $white;
+            transition: all 0.25s ease-in-out;
   
         }
         &:hover {
@@ -49,7 +50,7 @@ footer {
 
 @media screen and (max-width: 600px) {
     footer {
-        padding: 15px 0 45px 0;
+        padding: 15px 0 35px 0;
         justify-content: center;
     }
 }

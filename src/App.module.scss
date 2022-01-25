@@ -32,7 +32,7 @@ a {
   position: relative;
   overflow: hidden;
   @include sm-max {
-    padding-bottom: 50px;
+    padding-bottom: 0px;
   }
 }
 
@@ -51,6 +51,6 @@ a {
   @include sm-max {
     left: 7.5%;
     width: 85%;
-    height: 100%;
+    height: auto;
   }
 }

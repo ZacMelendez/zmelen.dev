@@ -36,6 +36,21 @@
         width: 500px;
     }
 
+    @include lg-max {
+        min-height: 400px;
+        min-width: 400px;
+        height: 400px;
+        width: 400px;
+    }
+
+    @include sm-max {
+        top: 50%;
+        left: 50%;
+        opacity: 0.3;
+        min-height: 500px;
+        min-width: 500px;
+    }
+
     .inner {
         position: absolute;
         height: 100%;

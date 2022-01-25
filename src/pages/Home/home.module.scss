@@ -37,6 +37,11 @@
                 line-height: 104px;
                 letter-spacing: -0.065em;
             }
+            @include lg-max {
+                font-size: 86px;
+                line-height: 70px;
+                letter-spacing: -0.065em;
+            }
             @include sm-max {
                 font-size: 64px;
                 line-height: 60px;
@@ -56,6 +61,11 @@
             @include hi-res {
                 font-size: 56px;
                 line-height: 64px;
+                letter-spacing: -0.065em;
+            }
+            @include lg-max {
+                font-size: 46px;
+                line-height: 40px;
                 letter-spacing: -0.065em;
             }
             @include sm-max {
