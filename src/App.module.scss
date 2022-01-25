@@ -43,7 +43,7 @@ a {
   left: 50%;
   height: auto;
 
-  @include laptop {
+  @include hi-res {
     width: 45%;
     left: 45%;
   }

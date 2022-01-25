@@ -6,7 +6,8 @@
   scroll-snap-align: start;
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
@@ -34,7 +35,14 @@
         line-height: 30px;
         letter-spacing: -0.065em;
       }
-      @include laptop {
+
+      @include xl-max {
+        font-size: 54px;
+        line-height: 50px;
+        letter-spacing: -0.065em;
+      }
+
+      @include hi-res {
         font-size: 54px;
         line-height: 50px;
         letter-spacing: -0.065em;
@@ -51,9 +59,14 @@
         line-height: 24px;
         letter-spacing: -0.065em;
       }
-      @include laptop {
-        font-size: 36px;
-        line-height: 36px;
+      @include xl-max {
+        font-size: 26px;
+        line-height: 26px;
+        letter-spacing: -0.065em;
+      }
+      @include hi-res {
+        font-size: 26px;
+        line-height: 26px;
         letter-spacing: -0.065em;
       }
     }

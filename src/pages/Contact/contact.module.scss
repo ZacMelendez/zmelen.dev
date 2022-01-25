@@ -6,7 +6,8 @@
   scroll-snap-align: start;
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
@@ -40,6 +41,13 @@
         letter-spacing: -0.065em;
         padding: 0;
       }
+
+      @include hi-res {
+        font-size: 54px;
+        line-height: 50px;
+        letter-spacing: -0.065em;
+        padding: 0;
+      }
     }
 
     .entryForm {
@@ -67,12 +75,22 @@
         width: 100%;
       }
 
+      @include hi-res {
+        row-gap: 5px;
+      }
+
       label {
         font-size: 24px;
         line-height: 38px;
         color: $white;
         overflow-wrap: break-word;
         @include sm-max {
+          font-size: 18px;
+          line-height: 0.2;
+          letter-spacing: -0.065em;
+        }
+        
+        @include hi-res {
           font-size: 18px;
           line-height: 0.2;
           letter-spacing: -0.065em;
@@ -110,6 +128,10 @@
         @include sm-max {
           height: 45px;
         }
+
+        @include hi-res {
+          height: 45px;
+        }
       }
 
       textarea {
@@ -119,6 +141,11 @@
         width: 100%;
         resize: none;
         @include sm-max {
+          padding: 12px !important;
+          height: 200px;
+        }
+
+        @include hi-res {
           padding: 12px !important;
           height: 200px;
         }
@@ -156,6 +183,24 @@
         }
 
         @include sm-max {
+          padding: 0 12px;
+          border-radius: 6px;
+          background: $blueOpaq;
+          font-size: 20px;
+          line-height: 24px;
+          letter-spacing: -0.035em;
+          &::placeholder {
+            color: #efede45b;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 24px;
+            letter-spacing: -0.035em;
+          }
+        }
+
+        @include hi-res {
           padding: 0 12px;
           border-radius: 6px;
           background: $blueOpaq;

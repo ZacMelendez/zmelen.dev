@@ -6,15 +6,14 @@
     scroll-snap-align: start;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     flex-flow: row wrap;
     display: flex;
     align-items: center;
 
-
-    
     .inner {
         left: 0;
         font-family: Montserrat;
@@ -33,7 +32,7 @@
                 letter-spacing: -0.065em;
             }
 
-            @include laptop {
+            @include hi-res {
                 font-size: 120px;
                 line-height: 104px;
                 letter-spacing: -0.065em;
@@ -49,7 +48,7 @@
                 letter-spacing: -0.065em;
             }
 
-            @include laptop {
+            @include hi-res {
                 font-size: 56px;
                 line-height: 64px;
                 letter-spacing: -0.065em;

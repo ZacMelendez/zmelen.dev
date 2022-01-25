@@ -4,8 +4,8 @@
 .scrollDiv {
     position: fixed;
     height: 40vw;
-    min-height: 600px;
-    min-width: 600px;
+    min-height: 500px;
+    min-width: 500px;
     width: 40vw;
     top: 50%;
     left: 25%;
@@ -22,8 +22,16 @@
         min-width: 500px;
     }
 
-    @include laptop {
-        opacity: 0.3;
+    @include xl-max {
+        min-height: 500px;
+        min-width: 500px;
+        height: 500px;
+        width: 500px;
+    }
+
+    @include hi-res {
+        min-height: 500px;
+        min-width: 500px;
         height: 500px;
         width: 500px;
     }

@@ -300,7 +300,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
             x: () => pctToPx(waveThRef, -100)
         },
         {
-            y: () => pctToPx(waveThRef, 45),
+            y: () => pctToPx(waveThRef, 55),
             ease: 'none',
             x: () => pctToPx(waveThRef, 20)
         }
@@ -309,7 +309,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
     waveThree.fromTo(
         waveThRef.current,
         {
-            y: () => pctToPx(waveThRef, 45),
+            y: () => pctToPx(waveThRef, 55),
             x: () => pctToPx(waveThRef, 20)
         },
         {
@@ -324,7 +324,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
         mounORef.current,
         {
             scale: 2,
-            y: () => pctToPx(mounORef, 60),
+            y: () => pctToPx(mounORef, 80),
             zIndex: 4,
             x: () => pctToPx(mounORef, 100)
         },
@@ -367,7 +367,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
         mounThRef.current,
         {
             scale: 2,
-            y: () => pctToPx(mounORef, 90),
+            y: () => pctToPx(mounORef, 110),
             zIndex: 2,
             x: () => pctToPx(mounORef, -80)
         },
