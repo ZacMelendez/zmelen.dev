@@ -117,14 +117,14 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
 
     sun.fromTo(
         sunRef.current, {
-        y: "-100%",
-        x: "-100%",
+        y: () => pctToPx(waveORef, -25),
+        x: () => pctToPx(waveORef, -25),
         scale: 1.25,
         ease: 'none',
         fill: "#D6D047"
     },
         {
-            y: "50%",
+            y: () => pctToPx(waveORef, 20),
             x: 0,
             scale: 2.25,
             fill: "#D69447"
@@ -133,10 +133,10 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
 
     sun.fromTo(
         sunRef.current, {
-        y: "50%",
+        y: () => pctToPx(waveORef, 20),
         scale: 2.25,
     }, {
-        y: "400%",
+        y: () => pctToPx(waveORef, 200),
         scale: 2.25,
     }
     )
@@ -146,7 +146,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
         treeORef.current,
         {
             scale: 2,
-            y: "65%",
+            y: () => pctToPx(waveORef, 15),
             zIndex: 10,
             x: 0
         },
@@ -158,10 +158,10 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
                 scrub: 2,
                 toggleActions: "restart pause reverse pause"
             },
-            y: "300%",
+            y: () => pctToPx(waveORef, 100),
             scale: 2,
             ease: 'none',
-            x: 300
+            x: () => pctToPx(waveORef, 100)
         }
     )
 
@@ -169,7 +169,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
         treeTwRef.current,
         {
             scale: 2,
-            y: "60%",
+            y: () => pctToPx(waveORef, 20),
             zIndex: 9,
             x: 0
         },
@@ -181,10 +181,10 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
                 scrub: 2,
                 toggleActions: "restart pause reverse pause"
             },
-            y: "400%",
+            y: () => pctToPx(waveORef, 200),
             scale: 2,
             ease: 'none',
-            x: '-400'
+            x: () => pctToPx(waveORef, -200)
         }
     )
 
@@ -192,7 +192,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
         treeThRef.current,
         {
             scale: 2,
-            y: "50%",
+            y: () => pctToPx(waveORef, 10),
             zIndex: 8
         },
         {
@@ -203,7 +203,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
                 scrub: 2,
                 toggleActions: "restart pause reverse pause"
             },
-            y: "600%",
+            y: () => pctToPx(waveORef, 200),
             scale: 2,
             ease: 'none',
         }
@@ -239,7 +239,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
             y: () => pctToPx(waveORef, 45),
         },
         {
-            y: () => pctToPx(waveORef, 75),
+            y: () => pctToPx(waveORef, 100),
             ease: 'none',
         }
     )
@@ -276,7 +276,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
             x: () => pctToPx(waveORef, 0)
         },
         {
-            y: () => pctToPx(waveORef, 75),
+            y: () => pctToPx(waveORef, 100),
             ease: 'none',
         }
     )
@@ -313,7 +313,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
             x: () => pctToPx(waveThRef, 20)
         },
         {
-            y: () => pctToPx(waveThRef, 75),
+            y: () => pctToPx(waveThRef, 100),
             ease: 'none',
             x: () => pctToPx(waveThRef, 100)
         }

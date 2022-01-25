@@ -1,3 +1,6 @@
+@import '../../sassStyles/breakpoints.scss';
+@import '../../sassStyles/variables.scss';
+
 footer {
     position: fixed;
     display: flex;
@@ -6,6 +9,7 @@ footer {
     align-items: center;
     height: 25px;
     width: 100%;
+    background-color: $blue;
     padding: 20px 0 25px 0;
     bottom: 0;
     z-index: 105;
@@ -14,12 +18,12 @@ footer {
         width: 25px;
         height: 100%;
         path {
-            fill: var(--light-content);
+            fill: $white;
   
         }
         &:hover {
             path {
-                fill: var(--hover);
+                fill: $hover;
             }
         }
     }
@@ -45,7 +49,7 @@ footer {
 
 @media screen and (max-width: 600px) {
     footer {
-        padding: 20px 0 45px 0;
+        padding: 15px 0 45px 0;
         justify-content: center;
     }
 }

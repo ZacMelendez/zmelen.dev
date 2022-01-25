@@ -15,64 +15,71 @@ $screen-xl: 1200px;
 // Small devices
 @mixin sm-min {
   @media (min-width: #{$screen-sm}) {
-      @content;
+    @content;
   }
 }
 
 @mixin sm-max {
   @media (max-width: #{$screen-sm}) {
-      @content;
+    @content;
   }
 }
 
 // Medium devices
 @mixin md-min {
   @media (min-width: #{$screen-md}) {
-      @content;
+    @content;
   }
 }
 
 @mixin md-max {
   @media (max-width: #{$screen-md}) {
-      @content;
+    @content;
   }
 }
 
 // Large devices
 @mixin lg-min {
   @media (min-width: #{$screen-lg}) {
-      @content;
+    @content;
   }
 }
 
 @mixin lg-max {
   @media (max-width: #{$screen-lg}) {
-      @content;
+    @content;
   }
 }
 
 // Extra large devices
 @mixin xl-min {
   @media (min-width: #{$screen-xl}) {
-      @content;
+    @content;
   }
 }
 
 @mixin xl-max {
   @media (max-width: #{$screen-xl}) {
-      @content;
+    @content;
   }
 }
 
 // Custom devices
 @mixin vp-min($screen) {
-  @media (min-width: ($screen + 'px')) {
-      @content;
+  @media (min-width: ($screen + "px")) {
+    @content;
   }
 }
 
 @mixin vp-max($screen) {
-  @media (max-width: ($screen + 'px')) {
-      @content;
+  @media (max-width: ($screen + "px")) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media only screen and (-webkit-max-device-pixel-ratio: 1.5) and (orientation: landscape),
+    only screen and (max-device-pixel-ratio: 1.5) and (orientation: landscape) and (min-width: 968px) and (max-width: 1200px) {
+      @content
   }
 }

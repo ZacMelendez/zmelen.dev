@@ -32,19 +32,25 @@ a {
   position: relative;
   overflow: hidden;
   @include sm-max {
-    padding-bottom: 80px;
+    padding-bottom: 50px;
   }
 }
 
 .content {
   position: relative;
   scroll-snap-type: mandatory;
-  width: 45%;
+  width: 44%;
   left: 50%;
+  height: auto;
+
+  @include laptop {
+    width: 45%;
+    left: 45%;
+  }
+
   @include sm-max {
     left: 7.5%;
     width: 85%;
-    height: 50%;
-    top: 50%;
+    height: 100%;
   }
 }

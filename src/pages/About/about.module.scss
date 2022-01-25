@@ -17,6 +17,12 @@
   display: flex;
   align-items: center;
 
+  @include sm-max {
+    height: auto;
+    align-items: flex-start;
+    padding-top: 75px;
+  }
+
   .inner {
     h1 {
       font-size: 64px;
@@ -31,13 +37,13 @@
     }
 
     p {
-      font-size: 30px;
-      line-height: 37px;
+      font-size: 42px;
+      line-height: 42px;
       letter-spacing: -0.035em;
       height: auto;
       @include sm-max {
         font-size: 24px;
-        line-height: 26px;
+        line-height: 24px;
         letter-spacing: -0.065em;
     }
     }

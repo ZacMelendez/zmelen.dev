@@ -17,7 +17,9 @@
     @include sm-max {
         top: 50%;
         left: 50%;
-        opacity: 0.3
+        opacity: 0.3;
+        min-height: 500px;
+        min-width: 500px;
     }
 
     .inner {

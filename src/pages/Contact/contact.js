@@ -121,7 +121,7 @@ export default function Contact() {
                         </div>
                     </div>
                     <div className={styles.msgEntry}>
-                        <label id="label" className='entry_prompt' htmlFor="msg" >Enter a description desired services: </label>
+                        <label id="label" className='entry_prompt' htmlFor="msg" >Enter your desired services: </label>
                         <div className='caret_input'>
                             <textarea
                                 id="textarea"
