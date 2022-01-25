@@ -1,1 +1,1 @@
-export {default as ScrollDiv} from './ScrollDiv'
+export {ScrollDiv, Animations} from './ScrollDiv';

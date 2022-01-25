@@ -3,11 +3,11 @@
 
 .contact {
   position: relative;
+  scroll-snap-align: start;
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 45%;
-  left: 50%;
+  height: 100vh;
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
 
@@ -15,24 +15,27 @@
   font-weight: bold;
   font-style: normal;
 
-  .inner {
-    padding-top: 15%;
+  display: flex;
+  align-items: center;
 
+  .inner {
     h1 {
       font-size: 64px;
       line-height: 78px;
       letter-spacing: -0.035em;
       padding: 0 0 30px 0;
       @include sm-max {
-        font-size: 75px;
+        font-size: 36px;
+        line-height: 30px;
+        letter-spacing: -0.065em;
       }
     }
 
     .entryForm {
       display: grid;
       justify-items: stretch;
-      column-gap: 35px;
       row-gap: 25px;
+      column-gap: 35px;
       grid-template-columns: auto;
       grid-template-rows: auto;
       grid-template-areas:
@@ -41,10 +44,27 @@
         "message message"
         "submit submit";
 
+      @include sm-max {
+        grid-template-areas:
+        "fname"
+        "lname"
+        "email"
+        "phone"
+        "message"
+        "submit";
+      row-gap: 25px;
+
+      }
+
       label {
         font-size: 24px;
         line-height: 38px;
         color: $white;
+        @include sm-max {
+          font-size: 18px;
+          line-height: 18px;
+          letter-spacing: -0.065em;
+        }
       }
 
       input {
@@ -68,18 +88,24 @@
         box-shadow: 0px 8px 7px 2px rgba(0, 0, 0, 0.125);
         border-radius: 15px;
         border: none;
-        
-        &:hover, &:focus {
+
+        &:hover,
+        &:focus {
           transform: scale(1.05);
           cursor: pointer;
         }
       }
 
+      input {
+        width: calc(100% - 37px);
+      }
+
       textarea {
         height: 300px;
-        padding: 18px 0 0 19px !important;
+        padding: 18px 19px !important;
         box-sizing: border-box;
         width: 100%;
+        resize: none;
       }
 
       input,
@@ -107,6 +133,11 @@
           line-height: 29px;
           letter-spacing: -0.035em;
         }
+
+        &:hover,
+        &:focus {
+          outline: none;
+        }
       }
 
       .fnameEntry {
@@ -127,6 +158,15 @@
       .submit {
         justify-self: center;
         grid-area: submit;
+      }
+      .error {
+        color: $yellow;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 29px;
+        letter-spacing: -0.035em;
       }
     }
   }

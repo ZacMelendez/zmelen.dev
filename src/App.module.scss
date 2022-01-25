@@ -1,9 +1,9 @@
 @import './sassStyles/animations.scss';
 @import './sassStyles/variables.scss';
+@import './sassStyles/breakpoints.scss';
 
 * {
   font-family: $montserrat;
-  transition: all 0.5s;
   -ms-overflow-style: none;
   scroll-behavior: smooth;
   scrollbar-width: none;
@@ -19,10 +19,23 @@ h1, h2, h3, h4, h5, h6, p, svg, a {
 
 .App {
   background-color: $blue;
-  height: 100vh;
+  height: auto;
   width: 100vw;
   position: relative;
-  overflow: scroll;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  scroll-snap-type: mandatory;
+  width: 45%;
+  left: 50%;
+  @include sm-max {
+    width: 85%;
+    left: 7.5%;
+    height: 50%;
+    top: 50%;
+  }
 }
 
 @media screen and (max-width: 600px) {

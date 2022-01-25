@@ -1,13 +1,34 @@
-@import '../../sassStyles/variables.scss';
-@import '../../sassStyles/breakpoints.scss';
+@import "../../sassStyles/variables.scss";
+@import "../../sassStyles/breakpoints.scss";
 
 .scrollDiv {
     position: fixed;
     height: 40vw;
+    min-height: 600px;
+    min-width: 600px;
     width: 40vw;
     top: 50%;
-left: 25%;
-transform: translate(-50%, -50%);
+    left: 25%;
+    transform: translate(-50%, -50%);
     background-color: $grey;
     border-radius: 50%;
+    overflow: hidden;
+
+    @include sm-max {
+        top: 50%;
+        left: 50%;
+        opacity: 0.3
+    }
+
+    .inner {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display : flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+            position: absolute;
+        }
+    }
 }

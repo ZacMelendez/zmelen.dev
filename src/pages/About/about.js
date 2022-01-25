@@ -4,7 +4,7 @@ import React from 'react';
 export default function About() {
     return (
         <div className={styles.about} id="about">
-            <div className={styles.inner}>
+            <div className={styles.inner} id="aboutText">
                 <h1>About Me</h1>
                 <p>
                     Hi, my name is Zach Melendez. I am a Mechanical Engineering Graduate from the University of Connecticut who has recently taken a liking to Web Development. <br /><br />

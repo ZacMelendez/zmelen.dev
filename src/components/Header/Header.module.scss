@@ -1,7 +1,6 @@
-@import '../../sassStyles/variables.scss';
-@import '../../sassStyles/breakpoints.scss';
-@import '../../sassStyles/animations.scss';
-
+@import "../../sassStyles/variables.scss";
+@import "../../sassStyles/breakpoints.scss";
+@import "../../sassStyles/animations.scss";
 
 header {
     position: fixed;
@@ -12,9 +11,9 @@ header {
     align-items: center;
     justify-content: flex-end;
     height: 50px;
-    background-color: rgba(0, 0, 0, 0);
-    padding: 0;
-    margin: 2% 3% 0 3%;
+    background-color: $blue;
+    padding: 2% 3% 0 3%;
+    margin: 0;
     button {
         color: rgba(0, 0, 0, 0);
         background-color: rgba(0, 0, 0, 0);
@@ -24,13 +23,18 @@ header {
 
 .logo {
     position: absolute;
-    height: 40px;
-    width: 40px;
+    svg {
+        width: 40px;
+        height: 40px;
+    }
     left: 5%;
-    transition: all 0.5s ease-in-out;
     z-index: 100;
-    &:hover {
-        animation: spinLogo 0.5s ease-in-out;
+    @include sm-max {
+        margin-top: 10px;
+        svg {
+            width: 30px;
+            height: 30px;
+        }
     }
 }
 
@@ -69,6 +73,7 @@ header {
             padding: 10px;
             margin: 5px;
             font-size: 18px;
+            transition: all 0.5s ease-in-out;
             cursor: pointer;
         }
         a:hover {
@@ -83,7 +88,7 @@ header {
     }
 
     .hamburgerFlex {
-        height: '50px';
+        height: "50px";
         display: "flex";
         align-items: "center";
     }
@@ -101,6 +106,7 @@ header {
     }
 
     .navList {
+        background-color: $blue;
         display: flex;
         flex-direction: column;
         align-items: center;

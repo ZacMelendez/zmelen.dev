@@ -3,17 +3,19 @@
 
 .home {
     position: relative;
+    scroll-snap-align: start;
     margin: 0;
     padding: 0;
-    height: 100%;
-    width: 45%;
-    left: 50%;
+    height: 100vh;
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
-    overflow: hidden;
-    .title {
-        position: absolute;
-        top: 35%;
+    display: flex;
+    align-items: center;
+
+
+    
+    .inner {
         left: 0;
         font-family: Montserrat;
         font-style: normal;
@@ -26,7 +28,9 @@
             line-height: 126px;
             letter-spacing: -0.065em;
             @include sm-max {
-                font-size: 75px;
+                font-size: 64px;
+                line-height: 60px;
+                letter-spacing: -0.065em;
             }
         }
         h2 {
@@ -34,28 +38,10 @@
             line-height: 78px;
             letter-spacing: -0.035em;
             @include sm-max {
-                font-size: 75px;
+                font-size: 36px;
+                line-height: 30px;
+                letter-spacing: -0.065em;
             }
         }
-    }
-}
-
-.lightDiv {
-    position: absolute;
-    width: 60%;
-    height: 100%;
-    right: 0;
-    top: 0;
-    background-color: var(--light-content);
-}
-
-.chevDiv {
-    position: absolute;
-    right: 0%;
-    top: 28%;
-    svg {
-        width: 120vw;
-        height: 120vh;
-        mix-blend-mode: normal;
     }
 }
