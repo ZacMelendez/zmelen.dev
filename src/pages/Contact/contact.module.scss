@@ -35,12 +35,7 @@
       line-height: 78px;
       letter-spacing: -0.035em;
       padding: 0 0 30px 0;
-      @include sm-max {
-        font-size: 36px;
-        line-height: 30px;
-        letter-spacing: -0.065em;
-        padding: 0;
-      }
+      
       @include xl-max {
         font-size: 54px;
         line-height: 50px;
@@ -50,6 +45,12 @@
       @include hi-res {
         font-size: 54px;
         line-height: 50px;
+        letter-spacing: -0.065em;
+        padding: 0;
+      }
+      @include sm-max {
+        font-size: 36px;
+        line-height: 30px;
         letter-spacing: -0.065em;
         padding: 0;
       }
@@ -68,6 +69,14 @@
         "message message"
         "submit submit";
 
+      @include xl-max {
+        row-gap: 5px;
+      }
+
+      @include hi-res {
+        row-gap: 5px;
+      }
+
       @include sm-max {
         grid-template-areas:
           "fname"
@@ -80,26 +89,24 @@
         width: 100%;
       }
 
-      @include xl-max {
-        row-gap: 5px;
-      }
-
-      @include hi-res {
-        row-gap: 5px;
-      }
-
       label {
         font-size: 24px;
         line-height: 38px;
         color: $white;
         overflow-wrap: break-word;
-        @include sm-max {
+        @include xl-max {
           font-size: 18px;
           line-height: 0.2;
           letter-spacing: -0.065em;
         }
         
         @include hi-res {
+          font-size: 18px;
+          line-height: 0.2;
+          letter-spacing: -0.065em;
+        }
+
+        @include sm-max {
           font-size: 18px;
           line-height: 0.2;
           letter-spacing: -0.065em;
@@ -134,13 +141,14 @@
       input {
         height: 62px;
         width: calc(100% - 25px);
-        @include sm-max {
-          height: 45px;
-        }
+
         @include xl-max {
           height: 45px;
         }
         @include hi-res {
+          height: 45px;
+        }
+        @include sm-max {
           height: 45px;
         }
       }
@@ -151,10 +159,7 @@
         box-sizing: border-box;
         width: 100%;
         resize: none;
-        @include sm-max {
-          padding: 12px !important;
-          height: 200px;
-        }
+
 
         @include xl-max {
           padding: 12px !important;
@@ -162,6 +167,10 @@
         }
 
         @include hi-res {
+          padding: 12px !important;
+          height: 200px;
+        }
+        @include sm-max {
           padding: 12px !important;
           height: 200px;
         }
@@ -198,23 +207,6 @@
           outline: none;
         }
 
-        @include sm-max {
-          padding: 0 12px;
-          border-radius: 6px;
-          background: $blueOpaq;
-          font-size: 20px;
-          line-height: 24px;
-          letter-spacing: -0.035em;
-          &::placeholder {
-            color: #efede45b;
-            font-family: Montserrat;
-            font-style: normal;
-            font-weight: 300;
-            font-size: 20px;
-            line-height: 24px;
-            letter-spacing: -0.035em;
-          }
-        }
         @include xl-max {
           padding: 0 12px;
           border-radius: 6px;
@@ -233,6 +225,23 @@
           }
         }
         @include hi-res {
+          padding: 0 12px;
+          border-radius: 6px;
+          background: $blueOpaq;
+          font-size: 20px;
+          line-height: 24px;
+          letter-spacing: -0.035em;
+          &::placeholder {
+            color: #efede45b;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 24px;
+            letter-spacing: -0.035em;
+          }
+        }
+        @include sm-max {
           padding: 0 12px;
           border-radius: 6px;
           background: $blueOpaq;
