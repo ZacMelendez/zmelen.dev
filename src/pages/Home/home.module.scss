@@ -31,7 +31,11 @@
                 line-height: 60px;
                 letter-spacing: -0.065em;
             }
-
+            @include xl-max {
+                font-size: 120px;
+                line-height: 104px;
+                letter-spacing: -0.065em;
+            }
             @include hi-res {
                 font-size: 120px;
                 line-height: 104px;
@@ -47,7 +51,11 @@
                 line-height: 30px;
                 letter-spacing: -0.065em;
             }
-
+            @include xl-max {
+                font-size: 56px;
+                line-height: 64px;
+                letter-spacing: -0.065em;
+            }
             @include hi-res {
                 font-size: 56px;
                 line-height: 64px;

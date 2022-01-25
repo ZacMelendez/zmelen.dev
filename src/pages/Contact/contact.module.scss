@@ -41,7 +41,12 @@
         letter-spacing: -0.065em;
         padding: 0;
       }
-
+      @include xl-max {
+        font-size: 54px;
+        line-height: 50px;
+        letter-spacing: -0.065em;
+        padding: 0;
+      }
       @include hi-res {
         font-size: 54px;
         line-height: 50px;
@@ -73,6 +78,10 @@
           "submit";
         row-gap: 5px;
         width: 100%;
+      }
+
+      @include xl-max {
+        row-gap: 5px;
       }
 
       @include hi-res {
@@ -128,7 +137,9 @@
         @include sm-max {
           height: 45px;
         }
-
+        @include xl-max {
+          height: 45px;
+        }
         @include hi-res {
           height: 45px;
         }
@@ -141,6 +152,11 @@
         width: 100%;
         resize: none;
         @include sm-max {
+          padding: 12px !important;
+          height: 200px;
+        }
+
+        @include xl-max {
           padding: 12px !important;
           height: 200px;
         }
@@ -199,7 +215,23 @@
             letter-spacing: -0.035em;
           }
         }
-
+        @include xl-max {
+          padding: 0 12px;
+          border-radius: 6px;
+          background: $blueOpaq;
+          font-size: 20px;
+          line-height: 24px;
+          letter-spacing: -0.035em;
+          &::placeholder {
+            color: #efede45b;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 24px;
+            letter-spacing: -0.035em;
+          }
+        }
         @include hi-res {
           padding: 0 12px;
           border-radius: 6px;
@@ -246,6 +278,24 @@
         font-size: 24px;
         line-height: 29px;
         letter-spacing: -0.035em;
+       
+        @include sm-max{
+          font-size: 20px;
+          line-height: 24px;
+          letter-spacing: -0.035em;
+        }
+
+        @include xl-max {
+          font-size: 20px;
+          line-height: 24px;
+          letter-spacing: -0.035em;
+        }
+        
+        @include hi-res {
+          font-size: 20px;
+          line-height: 24px;
+          letter-spacing: -0.035em;
+        }
       }
     }
   }
