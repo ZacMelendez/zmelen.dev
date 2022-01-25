@@ -1,6 +1,6 @@
-@import './sassStyles/animations.scss';
-@import './sassStyles/variables.scss';
-@import './sassStyles/breakpoints.scss';
+@import "./sassStyles/animations.scss";
+@import "./sassStyles/variables.scss";
+@import "./sassStyles/breakpoints.scss";
 
 * {
   font-family: $montserrat;
@@ -12,7 +12,15 @@
   }
 }
 
-h1, h2, h3, h4, h5, h6, p, svg, a {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+svg,
+a {
   color: $white;
   fill: $white;
 }
@@ -23,6 +31,9 @@ h1, h2, h3, h4, h5, h6, p, svg, a {
   width: 100vw;
   position: relative;
   overflow: hidden;
+  @include sm-max {
+    padding-bottom: 80px;
+  }
 }
 
 .content {
@@ -31,18 +42,9 @@ h1, h2, h3, h4, h5, h6, p, svg, a {
   width: 45%;
   left: 50%;
   @include sm-max {
-    width: 85%;
     left: 7.5%;
+    width: 85%;
     height: 50%;
     top: 50%;
   }
 }
-
-@media screen and (max-width: 600px) {
-  .content {
-    margin: 100px 5% 100px 5%;
-  }
-  
-}
-
-

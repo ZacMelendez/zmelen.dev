@@ -9,7 +9,39 @@ const pctToPx = (elem, pct) => parseInt(elem.current.parentNode.getBoundingClien
 gsap.registerPlugin(ScrollTrigger);
 
 export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef }) {
-    console.log(sunRef.current.parentNode.getBoundingClientRect().height)
+    // Set initial screen
+
+    // gsap.set(sunRef.current, {
+    //     y: "-100%",
+    //     x: "-100%",
+    //     scale: 1.25,
+    //     ease: 'none',
+    //     fill: "#D6D047"
+    // })
+
+    // gsap.set(treeORef.current, {
+    //         scale: 2,
+    //         y: "65%",
+    //         zIndex: 10,
+    //         x: 0
+    //     })
+
+    //     gsap.set(treeTwRef.current,
+    //     {
+    //         scale: 2,
+    //         y: "60%",
+    //         zIndex: 9,
+    //         x: 0
+    //     })
+
+    //     gsap.set(treeThRef.current,
+    //     {
+    //         scale: 2,
+    //         y: "50%",
+    //         zIndex: 8
+    //     })
+
+
     // Animate about section
     gsap.fromTo(
         element.querySelector("#aboutText"),
@@ -21,7 +53,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
             scrollTrigger: {
                 trigger: element.querySelector("#about"),
                 start: "top center",
-                end: "top 100",
+                end: "top 200",
                 scrub: 1,
             },
             x: 0,
@@ -42,7 +74,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
             scrollTrigger: {
                 trigger: element.querySelector("#contact"),
                 start: "top center",
-                end: "top 100",
+                end: "top 200",
                 scrub: 1,
             },
             x: 0,

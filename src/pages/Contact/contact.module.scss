@@ -19,6 +19,10 @@
   align-items: center;
 
   .inner {
+    @include sm-max {
+      padding-top: 25px;
+      width: 100%;
+    }
     h1 {
       font-size: 64px;
       line-height: 78px;
@@ -46,29 +50,26 @@
 
       @include sm-max {
         grid-template-areas:
-        "fname"
-        "lname"
-        "email"
-        "phone"
-        "message"
-        "submit";
-      row-gap: 25px;
-
+          "fname"
+          "lname"
+          "email"
+          "phone"
+          "message"
+          "submit";
+        row-gap: 12.5px;
+        width: 100%;
       }
 
       label {
         font-size: 24px;
         line-height: 38px;
         color: $white;
+        overflow-wrap: break-word; 
         @include sm-max {
           font-size: 18px;
-          line-height: 18px;
+          line-height: 0.2;
           letter-spacing: -0.065em;
         }
-      }
-
-      input {
-        height: 62px;
       }
 
       button {
@@ -97,7 +98,11 @@
       }
 
       input {
-        width: calc(100% - 37px);
+        height: 62px;
+        width: calc(100% - 25px);
+        @include sm-max {
+          height: 45px;
+        }
       }
 
       textarea {
@@ -106,6 +111,10 @@
         box-sizing: border-box;
         width: 100%;
         resize: none;
+        @include sm-max {
+        padding: 12px !important;
+        height: 200px;
+        }
       }
 
       input,
@@ -137,6 +146,24 @@
         &:hover,
         &:focus {
           outline: none;
+        }
+
+        @include sm-max {
+        padding: 0 12px;
+        border-radius: 6px;
+        background: $blueOpaq;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: -0.035em;
+          &::placeholder {
+            color: #efede45b;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 24px;
+            letter-spacing: -0.035em;
+          }
         }
       }
 

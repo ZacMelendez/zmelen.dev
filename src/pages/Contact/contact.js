@@ -55,10 +55,10 @@ export default function Contact() {
         <div className={styles.contact} id="contact">
             <div className={styles.inner} id="formDiv">
                 <h1>Contact</h1>
-                <ReCAPTCHA
+                {/* <ReCAPTCHA
                     size="invisible"
                     sitekey={siteKey}
-                />
+                /> */}
                 <form className={styles.entryForm} onSubmit={handleSubmit(onSubmit)} >
                     <div>
                         <div className={styles.fnameEntry}>
@@ -121,7 +121,7 @@ export default function Contact() {
                         </div>
                     </div>
                     <div className={styles.msgEntry}>
-                        <label id="label" className='entry_prompt' htmlFor="msg" >Enter a description of the services you would like: </label>
+                        <label id="label" className='entry_prompt' htmlFor="msg" >Enter a description desired services: </label>
                         <div className='caret_input'>
                             <textarea
                                 id="textarea"

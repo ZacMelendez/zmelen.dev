@@ -6,7 +6,7 @@ export default function Home() {
         <div className={styles.home} id="home">
             <div className={styles.inner}>
                 <h1>zach melendez</h1>
-                <h2>developer, designer</h2>
+                <h2>developer, engineer</h2>
             </div>
         </div>
     );

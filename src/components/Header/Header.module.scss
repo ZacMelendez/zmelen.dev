@@ -31,10 +31,6 @@ header {
     z-index: 100;
     @include sm-max {
         margin-top: 10px;
-        svg {
-            width: 30px;
-            height: 30px;
-        }
     }
 }
 
