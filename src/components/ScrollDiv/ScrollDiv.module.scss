@@ -22,6 +22,12 @@
         min-width: 500px;
     }
 
+    @include laptop {
+        opacity: 0.3;
+        height: 500px;
+        width: 500px;
+    }
+
     .inner {
         position: absolute;
         height: 100%;
