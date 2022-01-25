@@ -146,10 +146,11 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
     gsap.fromTo(
         treeORef.current,
         {
-            scale: 2,
-            y: () => pctToPx(waveORef, 15),
+            height: () => pctToPx(waveORef, 100),
+            width: 'auto',
+            y: () => pctToPx(waveORef, 0),
             zIndex: 10,
-            x: 0
+            x: () => pctToPx(waveORef, -10)
         },
         {
             scrollTrigger: {
@@ -160,7 +161,6 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
                 toggleActions: "restart pause reverse pause"
             },
             y: () => pctToPx(waveORef, 100),
-            scale: 2,
             ease: 'none',
             x: () => pctToPx(waveORef, 100)
         }
@@ -169,8 +169,9 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
     gsap.fromTo(
         treeTwRef.current,
         {
-            scale: 2,
-            y: () => pctToPx(waveORef, 20),
+            height: () => pctToPx(waveORef, 100),
+            width: 'auto',
+            y: () => pctToPx(waveORef, 10),
             zIndex: 9,
             x: 0
         },
@@ -183,7 +184,6 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
                 toggleActions: "restart pause reverse pause"
             },
             y: () => pctToPx(waveORef, 200),
-            scale: 2,
             ease: 'none',
             x: () => pctToPx(waveORef, -200)
         }
@@ -192,8 +192,9 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
     gsap.fromTo(
         treeThRef.current,
         {
-            scale: 2,
-            y: () => pctToPx(waveORef, 10),
+            height: () => pctToPx(waveORef, 100),
+            width: 'auto',
+            y: () => pctToPx(waveORef, 15),
             zIndex: 8
         },
         {
@@ -204,8 +205,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
                 scrub: 2,
                 toggleActions: "restart pause reverse pause"
             },
-            y: () => pctToPx(waveORef, 200),
-            scale: 2,
+            y: () => pctToPx(waveORef, 150),
             ease: 'none',
         }
     )
