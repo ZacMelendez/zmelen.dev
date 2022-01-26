@@ -29,13 +29,20 @@ const randInputs = () => {
             email: "hulk@avengers.gov",
             phone: "(212) 845-5646",
             msg: "I have some great scientific research to show off, can you help me advertise it?"
+        },
+        {
+            fname: "Thor",
+            lname: "Odinson",
+            email: "pointbreak@midgard.gov",
+            phone: "(212) 685-3541",
+            msg: "Would you be able to make me a site so I can show off my hammer?"
         }
     ]
     return placeHolders[Math.floor(Math.random() * placeHolders.length)]
 }
 
 export default function Contact() {
-
+    console.log(process.env.SITEKEY)
     const { ReCAPTCHA, ref, siteKey, validate } = useRecaptcha();
     const { register, handleSubmit, reset, formState: { errors, isSubmitted, isSubmitting } } = useForm({
         reValidateMode: 'onSubmit'

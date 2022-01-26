@@ -2,9 +2,9 @@ import styles from './App.module.scss';
 import { useEffect, useRef } from 'react';
 
 
-import { Home, About, Contact } from './pages/pages';
+import { Home, About, Contact, Work } from './pages/pages';
 
-import { Header, Footer, ScrollDiv, Animations } from './components/components';
+import { Header, Footer, ScrollDiv, Animations } from './components/';
 
 
 export default function App() {
@@ -50,6 +50,7 @@ export default function App() {
       <div className={styles.content}>
         <Home />
         <About />
+        <Work />
         <Contact />
       </div>
       <Footer />

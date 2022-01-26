@@ -1,0 +1,100 @@
+@import "../../sassStyles/variables.scss";
+@import "../../sassStyles/breakpoints.scss";
+
+.work {
+    position: relative;
+    scroll-snap-align: start;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    font-family: $montserrat;
+    font-weight: bold;
+    font-style: normal;
+
+    display: flex;
+    align-items: center;
+
+    @include sm-max {
+        height: auto;
+        align-items: flex-start;
+        padding-top: 75px;
+    }
+
+    .inner {
+        width: 100%;
+        h1 {
+            font-size: 64px;
+            line-height: 78px;
+            letter-spacing: -0.035em;
+            padding: 0 0 30px 0;
+
+            @include xl-max {
+                font-size: 54px;
+                line-height: 50px;
+                letter-spacing: -0.065em;
+            }
+
+            @include hi-res {
+                font-size: 54px;
+                line-height: 50px;
+                letter-spacing: -0.065em;
+            }
+
+            @include lg-max {
+                font-size: 45px;
+                line-height: 40px;
+                letter-spacing: -0.065em;
+            }
+
+            @include sm-max {
+                font-size: 36px;
+                line-height: 30px;
+                letter-spacing: -0.065em;
+            }
+        }
+
+        p {
+            font-size: 38px;
+            line-height: 38px;
+            letter-spacing: -0.035em;
+            height: auto;
+
+            @include xl-max {
+                font-size: 26px;
+                line-height: 26px;
+                letter-spacing: -0.065em;
+            }
+
+            @include hi-res {
+                font-size: 26px;
+                line-height: 26px;
+                letter-spacing: -0.065em;
+            }
+
+            @include lg-max {
+                font-size: 25px;
+                line-height: 25px;
+                letter-spacing: -0.065em;
+            }
+
+            @include sm-max {
+                font-size: 24px;
+                line-height: 24px;
+                letter-spacing: -0.065em;
+            }
+        }
+
+        .carousel {
+            width: 75%;
+            height: 65vh;
+            background: rgba(239, 237, 228, 0.2);
+            border-radius: 25px;
+            // overflow: hidden;
+            padding: 10px;
+        }
+    }
+}

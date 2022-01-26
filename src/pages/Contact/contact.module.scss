@@ -35,7 +35,7 @@
       line-height: 78px;
       letter-spacing: -0.035em;
       padding: 0 0 30px 0;
-      
+
       @include xl-max {
         font-size: 54px;
         line-height: 50px;
@@ -58,7 +58,7 @@
 
     .entryForm {
       display: grid;
-      justify-items: stretch;
+      // justify-items: stretch;
       row-gap: 25px;
       column-gap: 35px;
       grid-template-columns: auto;
@@ -99,7 +99,7 @@
           line-height: 0.2;
           letter-spacing: -0.065em;
         }
-        
+
         @include hi-res {
           font-size: 18px;
           line-height: 0.2;
@@ -159,7 +159,6 @@
         box-sizing: border-box;
         width: 100%;
         resize: none;
-
 
         @include xl-max {
           padding: 12px !important;
@@ -287,8 +286,8 @@
         font-size: 24px;
         line-height: 29px;
         letter-spacing: -0.035em;
-       
-        @include sm-max{
+
+        @include sm-max {
           font-size: 20px;
           line-height: 24px;
           letter-spacing: -0.035em;
@@ -299,7 +298,7 @@
           line-height: 24px;
           letter-spacing: -0.035em;
         }
-        
+
         @include hi-res {
           font-size: 20px;
           line-height: 24px;

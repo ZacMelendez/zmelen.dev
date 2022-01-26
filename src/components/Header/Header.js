@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Header.module.scss'
-import { Hamburger } from '../components'
+import { Hamburger } from '../'
 
 import { Logo } from '../Icons';
 
@@ -30,7 +30,7 @@ export default function Header() {
                             <li onClick={toggleHamburger}>
                                 <a href="#about">about</a>
                             </li>
-                            <li style={{display: 'none'}} onClick={toggleHamburger}>
+                            <li onClick={toggleHamburger}>
                                 <a href="#work">work</a>
                             </li>
                             <li onClick={toggleHamburger}>
