@@ -1,8 +1,10 @@
 import styles from './contact.module.scss';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import useLazyFetch from '../../hooks/useLazyFetch';
+// import useLazyFetch from '../../hooks/useLazyFetch';
 import useRecaptcha from '../../hooks/useRecaptcha';
+import emailjs from 'emailjs-com'
+
 
 const emailReg = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
 const phoneReg = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
@@ -29,66 +31,87 @@ const randInputs = () => {
             email: "hulk@avengers.gov",
             phone: "(212) 845-5646",
             msg: "I have some great scientific research to show off, can you help me advertise it?"
+        },
+        {
+            fname: "Thor",
+            lname: "Odinson",
+            email: "pointbreak@midgard.gov",
+            phone: "(212) 685-3541",
+            msg: "Would you be able to make me a site so I can show off my hammer?"
         }
     ]
     return placeHolders[Math.floor(Math.random() * placeHolders.length)]
 }
 
 export default function Contact() {
-
-    const { ReCAPTCHA, ref, siteKey, validate } = useRecaptcha();
-    const { register, handleSubmit, reset, formState: { errors, isSubmitted, isSubmitting } } = useForm({
+    const { ReCAPTCHA, ref: recaptchaRef, siteKey, validate } = useRecaptcha();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({
         reValidateMode: 'onSubmit'
     });
 
     const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false);
-    const [alreadySubmitted, setAlreadySubmitted] = useState(false);
+    const [error, setError] = useState(false);
 
-    const [makeFetch, { loading, data }] = useLazyFetch({
-        onSuccess: (result) => {
-            console.log(result)
-            if (result.status === 'entry_exists') {
-                setIsSuccessfullySubmitted(true)
-                setAlreadySubmitted(true)
-            } else {
-                setIsSuccessfullySubmitted(true)
-            }
-            reset();
+    // const [makeFetch] = useLazyFetch({
+    //     onSuccess: (result) => {
+    //         setIsSuccessfullySubmitted(true);
+    //         reset();
 
-        },
-        onError: (err) => {
-            console.log('There was an error')
-        },
-    });
+    //     },
+
+    //     onError: (err) => {
+    //         setError(true);
+    //         console.log(`There was an error ${err}`)
+    //     },
+    // });
 
     const onSubmit = async (data) => {
+        // console.log(data)
         const validated = await validate();
 
         if (validated) {
-            makeFetch({
-                url: "/api/form",
-                options: {
-                    method: "POST",
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                },
-            });
+            // makeFetch({
+            //     url: process.env.REACT_APP_URL,
+            //     options: {
+            //         method: "POST",
+            //         headers: {
+            //             'Content-Type': 'application/json',
+            //             'X-Api-Key': process.env.REACT_APP_TOKEN,
+            //             // "Access-Control-Allow-Headers" : "Content-Type",
+            //             // "Access-Control-Allow-Origin": "https://www.zmelen.dev",
+            //             // "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+            //         },
+            //         body: {
+            //             "source": 'zacmelendez@gmail.com',
+            //             "destination": ['zmelendez@zmelen.dev'],
+            //             "subject": "Zach M Site Response",
+            //             "emailAddress": data.email,
+            //             "message": JSON.stringify(data)
+            //         }
+            //     },
+            // });
+            emailjs.send(process.env.REACT_APP_EJS_SERVICE, process.env.REACT_APP_EJS_TEMPLATE, data, process.env.REACT_APP_EJS_USERID)
+            .then((response) => {
+                setIsSuccessfullySubmitted(true);
+                reset();
+             }, (error) => {
+                setError(true);
+             });
         }
     };
 
-    const [randInfo, ] = useState(randInputs());
+    const [randInfo,] = useState(randInputs());
 
     return (
         <div className={styles.contact} id="contact">
             <div className={styles.inner} id="formDiv">
                 <h1>Contact</h1>
-                {/* <ReCAPTCHA
+                <ReCAPTCHA
+                    ref={recaptchaRef}
                     size="invisible"
                     sitekey={siteKey}
-                /> */}
-                <form className={styles.entryForm} onSubmit={handleSubmit(onSubmit)} >
+                />
+                {!error && !isSuccessfullySubmitted ? <form className={styles.entryForm} onSubmit={handleSubmit(onSubmit)} >
                     <div>
                         <div className={styles.fnameEntry}>
                             <label id="label" className='entry_prompt' htmlFor="fname">First Name: </label>
@@ -166,7 +189,17 @@ export default function Contact() {
                     <div className={styles.submit}>
                         <button type="submit">submit</button>
                     </div>
-                </form>
+                </form> :
+                    error ?
+                        <div className={styles.error}>
+                            <h2>There was an error procesing your request</h2>
+                            <p>Please send me an e-mail at zmelendez@zmelen.dev</p>
+                        </div>
+                        :
+                        <div className={styles.success}>
+                            <h2>Thank you for reaching out, I will be in contact soon!</h2>
+                        </div>
+                }
             </div>
         </div>
     )
