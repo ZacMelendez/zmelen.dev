@@ -1,9 +1,8 @@
 import styles from './contact.module.scss';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-// import useLazyFetch from '../../hooks/useLazyFetch';
+import useLazyFetch from '../../hooks/useLazyFetch';
 import useRecaptcha from '../../hooks/useRecaptcha';
-import emailjs from 'emailjs-com'
 
 
 const emailReg = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
@@ -52,51 +51,43 @@ export default function Contact() {
     const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false);
     const [error, setError] = useState(false);
 
-    // const [makeFetch] = useLazyFetch({
-    //     onSuccess: (result) => {
-    //         setIsSuccessfullySubmitted(true);
-    //         reset();
+    const [makeFetch] = useLazyFetch({
+        onSuccess: (result) => {
+            setIsSuccessfullySubmitted(true);
+            reset();
 
-    //     },
+        },
 
-    //     onError: (err) => {
-    //         setError(true);
-    //         console.log(`There was an error ${err}`)
-    //     },
-    // });
+        onError: (err) => {
+            setError(true);
+            console.log(`There was an error ${err.errors}`)
+        },
+    });
 
     const onSubmit = async (data) => {
         // console.log(data)
         const validated = await validate();
 
         if (validated) {
-            // makeFetch({
-            //     url: process.env.REACT_APP_URL,
-            //     options: {
-            //         method: "POST",
-            //         headers: {
-            //             'Content-Type': 'application/json',
-            //             'X-Api-Key': process.env.REACT_APP_TOKEN,
-            //             // "Access-Control-Allow-Headers" : "Content-Type",
-            //             // "Access-Control-Allow-Origin": "https://www.zmelen.dev",
-            //             // "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
-            //         },
-            //         body: {
-            //             "source": 'zacmelendez@gmail.com',
-            //             "destination": ['zmelendez@zmelen.dev'],
-            //             "subject": "Zach M Site Response",
-            //             "emailAddress": data.email,
-            //             "message": JSON.stringify(data)
-            //         }
-            //     },
-            // });
-            emailjs.send(process.env.REACT_APP_EJS_SERVICE, process.env.REACT_APP_EJS_TEMPLATE, data, process.env.REACT_APP_EJS_USERID)
-            .then((response) => {
-                setIsSuccessfullySubmitted(true);
-                reset();
-             }, (error) => {
-                setError(true);
-             });
+            makeFetch({
+                url: process.env.REACT_APP_URL,
+                options: {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': process.env.REACT_APP_TOKEN,
+
+                    },
+                    body: JSON.stringify({
+                        "source": 'zacmelendez@gmail.com',
+                        "destination": ['zacmelendez@gmail.com'],
+                        "subject": "Zach M Site Response",
+                        "name": `${data.fname} ${data.lname}`,
+                        "emailAddress": data.email,
+                        "message": `${data.phone}\n ${data.message}`
+                    })
+                },
+            });
         }
     };
 
