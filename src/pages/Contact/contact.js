@@ -66,7 +66,7 @@ export default function Contact() {
 
     const onSubmit = async (data) => {
         const validated = await validate();
-
+        
         if (validated) {
             makeFetch({
                 url: process.env.REACT_APP_URL,
