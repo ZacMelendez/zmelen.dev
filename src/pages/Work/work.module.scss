@@ -26,6 +26,15 @@
 
     .inner {
         width: 100%;
+        .carousel {
+            width: 90%;
+            height: auto;
+            background: rgba(239, 237, 228, 0.2);
+            border-radius: 25px;
+            // overflow: hidden;
+            padding: 20px;
+        }
+
         h1 {
             font-size: 64px;
             line-height: 78px;
@@ -86,15 +95,6 @@
                 line-height: 24px;
                 letter-spacing: -0.065em;
             }
-        }
-
-        .carousel {
-            width: 75%;
-            height: 65vh;
-            background: rgba(239, 237, 228, 0.2);
-            border-radius: 25px;
-            // overflow: hidden;
-            padding: 10px;
         }
     }
 }

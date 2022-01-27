@@ -11,8 +11,7 @@ const settings = {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    prevArrow: <LeftArrow/>,
-    nextArrow: <LeftArrow/>,
+    arrows: false
 };
 
 const slides = [
@@ -23,8 +22,16 @@ const slides = [
 
 const slideInfo = [
     {
-        image: '',
-        text: ''
+        image: 'https://res.cloudinary.com/drmatz1gd/image/upload/v1643159809/honsbun_nufcwh.png',
+        text: 'Hon\'s Buns NFT Website',
+        link: 'https://www.honsbuns.com/',
+        desc: 'React & Next.js website built with integration with MongoDB & Discord'
+    },
+    {
+        image: 'https://res.cloudinary.com/drmatz1gd/image/upload/v1643223933/jakzbk_oi1egj.png',
+        text: 'JAKZ Bookkeeping Website',
+        link: 'https://www.jakzbookkeeping.com/',
+        desc: 'Vanilla JS Website'
     }
 ]
 
@@ -34,7 +41,7 @@ export default function Work() {
             <div className={styles.inner}>
                 <h1>Work</h1>
                 <div className={styles.carousel}>
-                    <Carousel settings={settings} slides={slides} />
+                    <Carousel settings={settings} slideInfo={slideInfo} />
                 </div>
             </div>
         </div>

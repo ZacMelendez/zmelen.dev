@@ -1,5 +1,5 @@
 import styles from './contact.module.scss';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
 import useLazyFetch from '../../hooks/useLazyFetch';
 import useRecaptcha from '../../hooks/useRecaptcha';
@@ -42,28 +42,25 @@ const randInputs = () => {
 }
 
 export default function Contact() {
-    console.log(process.env.SITEKEY)
-    const { ReCAPTCHA, ref, siteKey, validate } = useRecaptcha();
+
+
+    const { ReCAPTCHA, ref: recaptchaRef, siteKey, validate } = useRecaptcha();
     const { register, handleSubmit, reset, formState: { errors, isSubmitted, isSubmitting } } = useForm({
         reValidateMode: 'onSubmit'
     });
 
     const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false);
-    const [alreadySubmitted, setAlreadySubmitted] = useState(false);
+    const [error, setError] = useState(false);
 
     const [makeFetch, { loading, data }] = useLazyFetch({
         onSuccess: (result) => {
+
             console.log(result)
-            if (result.status === 'entry_exists') {
-                setIsSuccessfullySubmitted(true)
-                setAlreadySubmitted(true)
-            } else {
-                setIsSuccessfullySubmitted(true)
-            }
             reset();
 
         },
         onError: (err) => {
+            setError(true);
             console.log('There was an error')
         },
     });
@@ -73,29 +70,37 @@ export default function Contact() {
 
         if (validated) {
             makeFetch({
-                url: "/api/form",
+                url: 'https://d93oll3a06.execute-api.us-east-1.amazonaws.com/dev/contact',
                 options: {
                     method: "POST",
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'x-api-key': 'y1odosxdf68SqsiLLh2QR1kukkuVb1iA6Bnx2X5v',
+                        'Access-Control-Allow-Origin': '*'
                     },
-                    body: JSON.stringify(data)
+                    body: {
+                        "source": 'zacty99@gmail.com',
+                        "destination": ['zacmelendez@gmail.com'],
+                        "subject": "Zach M Site Response",
+                        "message": JSON.stringify(data)
+                    }
                 },
             });
         }
     };
 
-    const [randInfo, ] = useState(randInputs());
+    const [randInfo,] = useState(randInputs());
 
     return (
         <div className={styles.contact} id="contact">
             <div className={styles.inner} id="formDiv">
                 <h1>Contact</h1>
-                {/* <ReCAPTCHA
+                <ReCAPTCHA
+                    ref={recaptchaRef}
                     size="invisible"
                     sitekey={siteKey}
-                /> */}
-                <form className={styles.entryForm} onSubmit={handleSubmit(onSubmit)} >
+                />
+                {!error ? <form className={styles.entryForm} onSubmit={handleSubmit(onSubmit)} >
                     <div>
                         <div className={styles.fnameEntry}>
                             <label id="label" className='entry_prompt' htmlFor="fname">First Name: </label>
@@ -173,7 +178,17 @@ export default function Contact() {
                     <div className={styles.submit}>
                         <button type="submit">submit</button>
                     </div>
-                </form>
+                </form> :
+                    error ?
+                        <div className={styles.error}>
+                            <h2>There was an error</h2>
+                            <p>There was an error processing your request, please e-mail me at zacmelendez@gmail.com</p>
+                        </div>
+                        :
+                        <div className={styles.success}>
+                            <p>Thank you for reaching out, I will be in contact soon!</p>
+                        </div>
+                }
             </div>
         </div>
     )
