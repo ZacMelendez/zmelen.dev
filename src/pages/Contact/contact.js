@@ -1,8 +1,9 @@
 import styles from './contact.module.scss';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import useLazyFetch from '../../hooks/useLazyFetch';
 import useRecaptcha from '../../hooks/useRecaptcha';
+
 
 const emailReg = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
 const phoneReg = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
@@ -42,48 +43,49 @@ const randInputs = () => {
 }
 
 export default function Contact() {
-
-
     const { ReCAPTCHA, ref: recaptchaRef, siteKey, validate } = useRecaptcha();
-    const { register, handleSubmit, reset, formState: { errors, isSubmitted, isSubmitting } } = useForm({
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({
         reValidateMode: 'onSubmit'
     });
 
     const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false);
     const [error, setError] = useState(false);
 
-    const [makeFetch, { loading, data }] = useLazyFetch({
+    const [makeFetch] = useLazyFetch({
         onSuccess: (result) => {
-
-            console.log(result)
+            setIsSuccessfullySubmitted(true);
             reset();
 
         },
+
         onError: (err) => {
             setError(true);
-            console.log('There was an error')
+            console.log(`There was an error ${err.errors}`)
         },
     });
 
     const onSubmit = async (data) => {
+        // console.log(data)
         const validated = await validate();
 
         if (validated) {
             makeFetch({
-                url: 'https://d93oll3a06.execute-api.us-east-1.amazonaws.com/dev/contact',
+                url: process.env.REACT_APP_URL,
                 options: {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
-                        'x-api-key': 'y1odosxdf68SqsiLLh2QR1kukkuVb1iA6Bnx2X5v',
-                        'Access-Control-Allow-Origin': '*'
+                        'x-api-key': process.env.REACT_APP_TOKEN,
+
                     },
-                    body: {
-                        "source": 'zacty99@gmail.com',
-                        "destination": ['zacmelendez@gmail.com'],
+                    body: JSON.stringify({
+                        "source": 'zacmelendez@gmail.com',
+                        "destination": [''],
                         "subject": "Zach M Site Response",
-                        "message": JSON.stringify(data)
-                    }
+                        "name": `${data.fname} ${data.lname}`,
+                        "emailAddress": data.email,
+                        "message": `${data.phone}\n ${data.message}`
+                    })
                 },
             });
         }
@@ -100,7 +102,7 @@ export default function Contact() {
                     size="invisible"
                     sitekey={siteKey}
                 />
-                {!error ? <form className={styles.entryForm} onSubmit={handleSubmit(onSubmit)} >
+                {!error && !isSuccessfullySubmitted ? <form className={styles.entryForm} onSubmit={handleSubmit(onSubmit)} >
                     <div>
                         <div className={styles.fnameEntry}>
                             <label id="label" className='entry_prompt' htmlFor="fname">First Name: </label>
@@ -181,12 +183,12 @@ export default function Contact() {
                 </form> :
                     error ?
                         <div className={styles.error}>
-                            <h2>There was an error</h2>
-                            <p>There was an error processing your request, please e-mail me at zacmelendez@gmail.com</p>
+                            <h2>There was an error procesing your request</h2>
+                            <p>Please send me an e-mail at zmelendez@zmelen.dev</p>
                         </div>
                         :
                         <div className={styles.success}>
-                            <p>Thank you for reaching out, I will be in contact soon!</p>
+                            <h2>Thank you for reaching out, I will be in contact soon!</h2>
                         </div>
                 }
             </div>

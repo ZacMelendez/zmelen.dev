@@ -22,7 +22,7 @@
   @include sm-max {
     height: auto;
     align-items: flex-start;
-    padding: 75px 0 25px 0;
+    padding: 75px 0 90px 0;
   }
 
   .inner {
@@ -54,6 +54,69 @@
         letter-spacing: -0.065em;
         padding: 0;
       }
+    }
+
+    h2 {
+      font-size: 56px;
+      line-height: 64px;
+      letter-spacing: -0.035em;
+      color: $yellow;
+
+      @include xl-max {
+        font-size: 36px;
+        line-height: 30px;
+        letter-spacing: -0.065em;
+      }
+      @include hi-res {
+        font-size: 36px;
+        line-height: 30px;
+        letter-spacing: -0.065em;
+      }
+      @include sm-max {
+        font-size: 36px;
+        line-height: 30px;
+        letter-spacing: -0.065em;
+      }
+    }
+
+    p {
+      font-size: 38px;
+      line-height: 38px;
+      letter-spacing: -0.035em;
+      height: auto;
+
+      @include xl-max {
+        font-size: 26px;
+        line-height: 26px;
+        letter-spacing: -0.065em;
+      }
+
+      @include hi-res {
+        font-size: 26px;
+        line-height: 26px;
+        letter-spacing: -0.065em;
+      }
+
+      @include lg-max {
+        font-size: 25px;
+        line-height: 25px;
+        letter-spacing: -0.065em;
+      }
+
+      @include sm-max {
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: -0.065em;
+      }
+    }
+    .error {
+      height: auto;
+      width: 100%;
+    }
+
+    .success {
+      padding: 35px 0;
+      width: 100%;
     }
 
     .entryForm {

@@ -1,12 +1,9 @@
 import { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
-const env = process.env.NODE_ENV;
-
-
 function useRecaptcha() {
   const ref = useRef();
-  const [siteKey] = useState('6Lda0AceAAAAAFwg-K3JKAAwdkXB43BXhmERU1uS');
+  const [siteKey] = useState(process.env.REACT_APP_SITEKEY);
   const [token, setToken] = useState(null);
 
   const validate = async () => {
