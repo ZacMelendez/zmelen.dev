@@ -80,7 +80,7 @@ export default function Contact() {
                     },
                     body: JSON.stringify({
                         "source": 'zacmelendez@gmail.com',
-                        "destination": ['zacmelendez@gmail.com'],
+                        "destination": [''],
                         "subject": "Zach M Site Response",
                         "name": `${data.fname} ${data.lname}`,
                         "emailAddress": data.email,
