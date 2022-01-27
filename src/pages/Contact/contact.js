@@ -65,7 +65,6 @@ export default function Contact() {
     });
 
     const onSubmit = async (data) => {
-        // console.log(data)
         const validated = await validate();
 
         if (validated) {
@@ -79,8 +78,8 @@ export default function Contact() {
 
                     },
                     body: JSON.stringify({
-                        "source": 'zacmelendez@gmail.com',
-                        "destination": [''],
+                        "source": 'zmelendez@zmelen.dev',
+                        "destination": ['zmelendez@zmelen.dev'],
                         "subject": "Zach M Site Response",
                         "name": `${data.fname} ${data.lname}`,
                         "emailAddress": data.email,
