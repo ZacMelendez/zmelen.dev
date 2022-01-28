@@ -4,43 +4,84 @@ import { Gradient, TreeOne, TreeTwo, TreeThree, WaveOne, WaveTwo, WaveThree, Mou
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const pctToPx = (elem, pct) => parseInt(elem.current.parentNode.getBoundingClientRect().height * (pct / 100))
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef }) {
+    const pctToPx = (elem, pct) => parseInt(elem.current.parentNode.getBoundingClientRect().height * (pct / 100))
+
     // Set initial screen
+    // Set sun
+    gsap.set(
+        sunRef.current, {
+        y: () => pctToPx(waveORef, -25),
+        x: () => pctToPx(waveORef, -25),
+        width: () => pctToPx(sunRef, 30),
+        height: () => pctToPx(sunRef, 30),
+        ease: 'none',
+        fill: "#D6D047"
+    })
 
-    // gsap.set(sunRef.current, {
-    //     y: "-100%",
-    //     x: "-100%",
-    //     scale: 1.25,
-    //     ease: 'none',
-    //     fill: "#D6D047"
-    // })
 
-    // gsap.set(treeORef.current, {
-    //         scale: 2,
-    //         y: "65%",
-    //         zIndex: 10,
-    //         x: 0
-    //     })
+    // Set trees
+    gsap.set(
+        treeORef.current, {
+        height: () => pctToPx(waveORef, 100),
+        width: 'auto',
+        y: () => pctToPx(waveORef, 0),
+        zIndex: 10,
+        x: () => pctToPx(waveORef, -10)
+    })
 
-    //     gsap.set(treeTwRef.current,
-    //     {
-    //         scale: 2,
-    //         y: "60%",
-    //         zIndex: 9,
-    //         x: 0
-    //     })
+    gsap.set(
+        treeTwRef.current,
+        {
+            height: () => pctToPx(waveORef, 100),
+            width: 'auto',
+            y: () => pctToPx(waveORef, 10),
+            zIndex: 9,
+            x: 0
+        })
 
-    //     gsap.set(treeThRef.current,
-    //     {
-    //         scale: 2,
-    //         y: "50%",
-    //         zIndex: 8
-    //     })
+    gsap.set(
+        treeThRef.current,
+        {
+            height: () => pctToPx(waveORef, 100),
+            width: 'auto',
+            y: () => pctToPx(waveORef, 15),
+            zIndex: 8
+        })
 
+
+    //Set waves
+    gsap.set(
+        waveORef.current, {
+        height: () => pctToPx(waveORef, 35),
+        width: () => pctToPx(waveORef, 300),
+        y: () => pctToPx(waveORef, 75),
+        zIndex: 7,
+    }
+    )
+
+    gsap.set(
+        waveTwRef.current, {
+            height: () => pctToPx(waveORef, 45),
+            width: () => pctToPx(waveORef, 300),
+            y: () => pctToPx(waveORef, 75),
+            zIndex: 6,
+            x: () => pctToPx(waveORef, -100)
+    }
+    )
+
+    gsap.set(
+        waveThRef.current, {
+            height: () => pctToPx(waveORef, 95),
+            width: () => pctToPx(waveORef, 300),
+            y: () => pctToPx(waveThRef, 75),
+            zIndex: 5,
+            x: () => pctToPx(waveThRef, -100)
+    }
+    )
 
     // Animate about section
     gsap.fromTo(
@@ -109,7 +150,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
     ScrollTrigger.create({
         animation: sun,
         trigger: element,
-        start: "top top",
+        start: "top 1",
         end: "100% 100%",
         scrub: 2,
         zIndex: 1,
@@ -136,7 +177,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
     sun.fromTo(
         sunRef.current, {
         y: () => pctToPx(waveORef, 20),
-        
+
     }, {
         y: () => pctToPx(waveORef, 200),
     }
@@ -214,7 +255,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
     ScrollTrigger.create({
         animation: waveOne,
         trigger: element,
-        start: "top top",
+        start: "top 1",
         end: "100% 100%",
         scrub: 2,
         zIndex: 1
@@ -250,7 +291,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
     ScrollTrigger.create({
         animation: waveTwo,
         trigger: element,
-        start: "top top",
+        start: "top 1",
         end: "100% 100%",
         scrub: 2,
         zIndex: 1
@@ -288,7 +329,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
     ScrollTrigger.create({
         animation: waveThree,
         trigger: element,
-        start: "top top",
+        start: "top 1",
         end: "100% 100%",
         scrub: 2,
         zIndex: 1
