@@ -38,7 +38,7 @@ a {
 
 .content {
   position: relative;
-  scroll-snap-type: mandatory;
+  scroll-snap-type: y proximity;
   width: 44%;
   left: 50%;
   height: auto;

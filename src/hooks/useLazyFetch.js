@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function useLazyFetch({ onSuccess, onError }) {
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
 
   const reset = () => {

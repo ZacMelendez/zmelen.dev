@@ -203,7 +203,6 @@
 
       input {
         height: 62px;
-        width: calc(100% - 25px);
 
         @include xl-max {
           height: 45px;
