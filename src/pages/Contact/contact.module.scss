@@ -48,6 +48,12 @@
         letter-spacing: -0.065em;
         padding: 0;
       }
+      @include md-max {
+        font-size: 36px;
+        line-height: 30px;
+        letter-spacing: -0.065em;
+        padding: 0;
+      }
       @include sm-max {
         font-size: 36px;
         line-height: 30px;
@@ -212,6 +218,7 @@
         }
         @include sm-max {
           height: 45px;
+          width: calc(100% - 25px);
         }
       }
 
@@ -231,6 +238,11 @@
           padding: 12px !important;
           height: 200px;
         }
+
+        @include md-max {
+
+        }
+
         @include sm-max {
           padding: 12px !important;
           height: 200px;
