@@ -23,11 +23,13 @@ export default function App() {
   const mounThRef = useRef(null);
   const sunRef = useRef(null);
   const moonRef = useRef(null);
+  const jupRef = useRef(null);
+  const satRef = useRef(null);
 
 
   useEffect(() => {
     const element = ref.current;
-    Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef });
+    Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef, jupRef, satRef });
 
     // console.log(process.env.REACT_APP_CONTACT_API_URL)
   }, [])
@@ -47,6 +49,8 @@ export default function App() {
         mounThRef={mounThRef}
         sunRef={sunRef}
         moonRef={moonRef}
+        jupRef={jupRef}
+        satRef={satRef}
       />
       <Header />
       <div className={styles.content}>

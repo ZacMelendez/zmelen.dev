@@ -1,13 +1,13 @@
 import styles from './ScrollDiv.module.scss';
 import React from 'react';
-import { Gradient, TreeOne, TreeTwo, TreeThree, WaveOne, WaveTwo, WaveThree, MountainOne, MountainTwo, MountainThree, Sun, Moon } from '../SVGs/index';
+import { Gradient, TreeOne, TreeTwo, TreeThree, WaveOne, WaveTwo, WaveThree, MountainOne, MountainTwo, MountainThree, Sun, Moon, Jupiter, Saturn} from '../SVGs/';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef }) {
+export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef, jupRef, satRef }) {
     // Set initial screen
     const pctToPx = (pct) => parseInt(element.querySelector("#scrollDiv").getBoundingClientRect().height * (pct / 100))
 
@@ -24,7 +24,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
         {
             height: () => pctToPx(100),
             width: 'auto',
-            y: () => pctToPx(0),
+            y: () => pctToPx(-5),
             zIndex: 10,
             x: () => pctToPx(-10)
         })
@@ -33,7 +33,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
         {
             height: () => pctToPx(100),
             width: 'auto',
-            y: () => pctToPx(10),
+            y: () => pctToPx(8),
             zIndex: 9,
             x: 0
         })
@@ -42,7 +42,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
         {
             height: () => pctToPx(100),
             width: 'auto',
-            y: () => pctToPx(15),
+            y: () => pctToPx(12),
             zIndex: 8
         })
 
@@ -51,7 +51,8 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
         width: () => pctToPx(300),
         y: () => pctToPx(80),
         zIndex: 4,
-        x: () => pctToPx(100)
+        x: () => pctToPx(100),
+        opacity: 0
     })
 
     gsap.set(mounTwRef.current, {
@@ -68,6 +69,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
         zIndex: 2,
         x: () => pctToPx(-80)
     })
+
     gsap.set(moonRef.current, {
         y: () => pctToPx(-100),
         zIndex: 1,
@@ -175,7 +177,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
     gsap.fromTo(
         treeORef.current,
         {
-            y: () => pctToPx(0),
+            y: () => pctToPx(-5),
             x: () => pctToPx(-10)
         },
         {
@@ -195,7 +197,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
         treeTwRef.current,
         {
             x: 0,
-            y: () => pctToPx(10),
+            y: () => pctToPx(8),
         },
         {
             scrollTrigger: {
@@ -213,7 +215,7 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
     gsap.fromTo(
         treeThRef.current,
         {
-            y: () => pctToPx(15),
+            y: () => pctToPx(12),
             zIndex: 8
         },
         {
@@ -343,152 +345,228 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
 
     // Animate mountains
 
-    // const mounOne = gsap.timeline();
-    // ScrollTrigger.create({
-    //     animation: mounOne,
-    //     trigger: element,
-    //     start: "top 1",
-    //     end: "100% 100%",
-    //     scrub: 2,
-    //     zIndex: 1,
-    //     markers: true,
-    // })
+    const mounOne = gsap.timeline();
+    ScrollTrigger.create({
+        animation: mounOne,
+        trigger: element,
+        start: "top 1",
+        end: "100% 100%",
+        scrub: 2,
+        zIndex: 1,
+    })
 
-    // mounOne.fromTo(
-    //     mounORef.current,
-    //     {
-    //         // x: () => pctToPx(99)
-    //     },
-    //     {
-    //         // x: () => pctToPx(100)
-    //     })
+    mounOne.fromTo(
+        mounORef.current,
+        {
+            y: () => pctToPx(80),
+            x: () => pctToPx(100),
+        },
+        {
+            y: () => pctToPx(80),
+            x: () => pctToPx(100),
+            opacity: 1
+        }
+    )
 
-    // mounOne.fromTo(
-    //     mounORef.current,
-    //     {
-    //         y: () => pctToPx(80),
-    //         x: () => pctToPx(100)
-    //     },
-    //     {
-    //         y: () => pctToPx(30),
-    //         ease: 'none',
-    //         x: () => pctToPx(0)
-    //     }
-    // )
+    mounOne.fromTo(
+        mounORef.current,
+        {
+            y: () => pctToPx(80),
+            x: () => pctToPx(100)
+        },
+        {
+            y: () => pctToPx(30),
+            ease: 'none',
+            x: () => pctToPx(0)
+        }
+    )
 
-    // mounOne.fromTo(
-    //     mounORef.current,
-    //     {
-    //         y: () => pctToPx(30),
-    //         ease: 'none',
-    //         x: () => pctToPx(0)
-    //     },
-    //     {
-    //         y: () => pctToPx(80),
-    //         x: () => pctToPx(-100)
-    //     }
-    // )
+    mounOne.fromTo(
+        mounORef.current,
+        {
+            y: () => pctToPx(30),
+            ease: 'none',
+            x: () => pctToPx(0)
+        },
+        {
+            y: () => pctToPx(80),
+            x: () => pctToPx(-100)
+        }
+    )
 
-    // mounOne.fromTo(
-    //     mounORef.current,
-    //     {
-    //         // x: () => pctToPx(99)
-    //     },
-    //     {
-    //         // x: () => pctToPx(100)
-    //     })
+    const mounTwo = gsap.timeline();
+    ScrollTrigger.create({
+        animation: mounTwo,
+        trigger: element,
+        start: "top 1",
+        end: "100% 100%",
+        scrub: 2,
+        zIndex: 1
+    })
 
-    // const mounTwo = gsap.timeline();
-    // ScrollTrigger.create({
-    //     animation: mounTwo,
-    //     trigger: element,
-    //     start: "top 1",
-    //     end: "75% 75%",
-    //     scrub: 2,
-    //     zIndex: 1
-    // })
+    mounTwo.fromTo(
+        mounTwRef.current,
+        {
+            y: () => pctToPx(100),
+            opacity: 0,
+        },
+        {
+            y: () => pctToPx(100),
+            opacity: 1,
+        }
+    )
 
-    // mounTwo.fromTo(
-    //     mounTwRef.current,
-    //     {
-    //         y: () => pctToPx(100),
-    //     },
-    //     {
-    //         y: () => pctToPx(35),
-    //         ease: 'none',
-    //     }
-    // )
+    mounTwo.fromTo(
+        mounTwRef.current,
+        {
+            y: () => pctToPx(100),
+        },
+        {
+            y: () => pctToPx(35),
+            ease: 'none',
+        }
+    )
 
-    // mounTwo.fromTo(
-    //     mounTwRef.current,
-    //     {
-    //         y: () => pctToPx(35),
-    //     },
-    //     {
-    //         y: () => pctToPx(100),
-    //     }
-    // )
+    mounTwo.fromTo(
+        mounTwRef.current,
+        {
+            y: () => pctToPx(35),
+        },
+        {
+            y: () => pctToPx(100),
+        }
+    )
 
-    // const mounThree = gsap.timeline();
-    // ScrollTrigger.create({
-    //     animation: mounThree,
-    //     trigger: element,
-    //     start: "top 1",
-    //     end: "75% 75%",
-    //     scrub: 2,
-    //     zIndex: 1
-    // })
+    const mounThree = gsap.timeline();
+    ScrollTrigger.create({
+        animation: mounThree,
+        trigger: element,
+        start: "top 1",
+        end: "100% 100%",
+        scrub: 2,
+        zIndex: 1
+    })
 
-    // mounThree.fromTo(
-    //     mounThRef.current,
-    //     {
-    //         y: () => pctToPx(110),
-    //         x: () => pctToPx(-80)
-    //     },
-    //     {
-    //         y: () => pctToPx(30),
-    //         ease: 'none',
-    //         x: () => pctToPx(-30)
-    //     }
-    // )
+    mounThree.fromTo(
+        mounThRef.current,
+        {
+            y: () => pctToPx(110),
+            x: () => pctToPx(-80),
+            opacity: 0
+        },
+        {
+            y: () => pctToPx(110),
+            x: () => pctToPx(-80),
+            opacity: 1
+        }
+    )
 
-    // mounThree.fromTo(
-    //     mounThRef.current,
-    //     {
-    //         y: () => pctToPx(30),
-    //         x: () => pctToPx(-30)
-    //     },
-    //     {
-    //         y: () => pctToPx(110),
-    //         x: () => pctToPx(20)
-    //     }
-    // )
+    mounThree.fromTo(
+        mounThRef.current,
+        {
+            y: () => pctToPx(110),
+            x: () => pctToPx(-80)
+        },
+        {
+            y: () => pctToPx(30),
+            ease: 'none',
+            x: () => pctToPx(-30)
+        }
+    )
+
+    mounThree.fromTo(
+        mounThRef.current,
+        {
+            y: () => pctToPx(30),
+            x: () => pctToPx(-30)
+        },
+        {
+            y: () => pctToPx(110),
+            x: () => pctToPx(20)
+        }
+    )
 
 
     // Animating moon
+    const moon = gsap.timeline();
+    ScrollTrigger.create({
+        animation: moon,
+        trigger: element,
+        start: "25% 1",
+        end: "100% 100%",
+        scrub: 2,
+        zIndex: 1,
+    })
+
+    moon.fromTo(
+        moonRef.current, {
+        y: () => pctToPx(-100),
+        x: () => pctToPx(-100),
+        fill: "#D6D047"
+    },
+        {
+            y: () => pctToPx(-20),
+            x: () => pctToPx(-20),
+            width: () => pctToPx(20),
+            height: () => pctToPx(20),
+            fill: "#D69447"
+        }
+    )
+
+    moon.fromTo(
+        moonRef.current, {
+        y: () => pctToPx(-20),
+    }, {
+        y: () => pctToPx(75),
+    }
+    )
+
+    // Animating planets
     gsap.fromTo(
-        moonRef.current,
+        jupRef.current,
         {
             y: () => pctToPx(-100),
-            zIndex: 1,
-            x: () => pctToPx(-100)
+            x: () => pctToPx(-100),
+            width: () => pctToPx(60),
+            height: () => pctToPx(60)
         },
         {
             scrollTrigger: {
-                trigger: element.querySelector("#about"),
+                trigger: element.querySelector("#work"),
                 start: "top 100",
                 end: "bottom 100",
                 scrub: 2,
                 toggleActions: "restart pause reverse pause"
             },
-            y: () => pctToPx(-20),
-            ease: 'none',
+            y: () => pctToPx(20),
             x: () => pctToPx(-20)
+        }
+    )
+
+    gsap.fromTo(
+        satRef.current,
+        {
+            y: () => pctToPx(-100),
+            x: () => pctToPx(100),
+            width: () => pctToPx(37.6),
+            height: () => pctToPx(26)
+        },
+        {
+            scrollTrigger: {
+                trigger: element.querySelector("#work"),
+                start: "top 100",
+                end: "bottom 100",
+                scrub: 2,
+                toggleActions: "restart pause reverse pause"
+            },
+            y: () => pctToPx(-30),
+            x: () => pctToPx(25)
         }
     )
 }
 
-export function ScrollDiv({ gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef }) {
+export function ScrollDiv({ gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef, jupRef, satRef }) {
+    console.log(jupRef)
     return (
         <div className={styles.scrollDiv} id="scrollDiv">
             <div className={styles.inner}>
@@ -504,6 +582,8 @@ export function ScrollDiv({ gradRef, treeORef, treeTwRef, treeThRef, waveORef, w
                 <MountainThree refer={mounThRef} />
                 <Sun refer={sunRef} />
                 <Moon refer={moonRef} />
+                <Jupiter refer={jupRef} />
+                <Saturn refer={satRef} />
             </div>
         </div>
     );

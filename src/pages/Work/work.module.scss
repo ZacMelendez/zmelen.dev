@@ -27,12 +27,15 @@
     .inner {
         width: 100%;
         .carousel {
+            position: relative;
             width: 90%;
             height: auto;
             background: rgba(239, 237, 228, 0.2);
             border-radius: 25px;
-            // overflow: hidden;
             padding: 20px;
+            @include sm-max {
+                padding: 15px;
+            }
         }
 
         h1 {
