@@ -64,10 +64,6 @@ export default function Contact() {
         },
     });
 
-    useEffect(() => {
-        console.log('loading changed')
-    }, [loading])
-
     const onSubmit = async (data) => {
         const validated = await validate();
 
@@ -181,7 +177,7 @@ export default function Contact() {
                         </div>
                     </div>
                     <div className={styles.submit}>
-                        {!loading && <div className={styles.gradient}/>}
+                        {/* {loading && <div className={styles.gradient}/>} */}
                         <button type="submit">{loading ? "sending" : "submit"}</button>
                     </div>
                 </form> :

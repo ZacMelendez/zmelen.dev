@@ -30,8 +30,6 @@ export default function App() {
   useEffect(() => {
     const element = ref.current;
     Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef, jupRef, satRef });
-
-    // console.log(process.env.REACT_APP_CONTACT_API_URL)
   }, [])
 
   return (

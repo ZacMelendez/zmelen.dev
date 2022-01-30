@@ -566,7 +566,6 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
 }
 
 export function ScrollDiv({ gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef, jupRef, satRef }) {
-    console.log(jupRef)
     return (
         <div className={styles.scrollDiv} id="scrollDiv">
             <div className={styles.inner}>
