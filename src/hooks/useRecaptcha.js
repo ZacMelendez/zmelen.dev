@@ -7,13 +7,9 @@ function useRecaptcha() {
   const [token, setToken] = useState(null);
 
   const validate = async () => {
-
     const result = await ref.current.executeAsync();
-
     setToken(result);
-
     if (result) return true;
-
     return false;
   };
 

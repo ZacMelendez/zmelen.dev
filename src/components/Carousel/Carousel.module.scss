@@ -1,0 +1,59 @@
+@import "../../sassStyles/breakpoints.scss";
+
+.leftArrow {
+    position: absolute;
+    left: -45px;
+    top: 35%;
+    z-index: 100;
+    cursor: pointer;
+    transition: all 0.25s linear;
+    filter: drop-shadow(0px 4px 7px rgba(0, 0, 0, 0.25));
+    &:hover {
+        transform: scale(1.05);
+    };
+    @include lg-max {
+        left: -37.5px;
+    }
+    @include sm-max {
+        left: -15px;
+    }
+    svg {
+        @include lg-max {
+            width: 65px;
+            height: 65px;
+        }
+        @include sm-max {
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
+
+.rightArrow {
+    position: absolute;
+    right: -45px;
+    top: 35%;
+    cursor: pointer;
+    z-index: 100;
+    filter: drop-shadow(0px 4px 7px rgba(0, 0, 0, 0.25));
+    transition: all 0.25s linear;
+    &:hover {
+        transform: scale(1.05);
+    };
+    @include lg-max {
+        right: -37.5px;
+    }
+    @include sm-max {
+        right: -15px;
+    }
+    svg {
+        @include lg-max {
+            width: 65px;
+            height: 65px;
+        }
+        @include sm-max {
+            width: 50px;
+            height: 50px;
+        }
+    }
+}

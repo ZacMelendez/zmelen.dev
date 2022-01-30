@@ -10,3 +10,5 @@ export { default as TreeTwo } from './TreeTwo';
 export { default as TreeThree } from './TreeThree';
 export { default as Sun } from './Sun';
 export { default as Moon } from './Moon';
+export { default as Jupiter } from './Jupiter';
+export { default as Saturn } from './Saturn';

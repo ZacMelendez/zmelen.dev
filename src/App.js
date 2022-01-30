@@ -2,9 +2,9 @@ import styles from './App.module.scss';
 import { useEffect, useRef } from 'react';
 
 
-import { Home, About, Contact } from './pages/pages';
+import { Home, About, Contact, Work } from './pages/pages';
 
-import { Header, Footer, ScrollDiv, Animations } from './components/components';
+import { Header, Footer, ScrollDiv, Animations } from './components/';
 
 
 export default function App() {
@@ -23,11 +23,15 @@ export default function App() {
   const mounThRef = useRef(null);
   const sunRef = useRef(null);
   const moonRef = useRef(null);
+  const jupRef = useRef(null);
+  const satRef = useRef(null);
 
 
   useEffect(() => {
     const element = ref.current;
-    Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef })
+    Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef, jupRef, satRef });
+
+    // console.log(process.env.REACT_APP_CONTACT_API_URL)
   }, [])
 
   return (
@@ -45,11 +49,14 @@ export default function App() {
         mounThRef={mounThRef}
         sunRef={sunRef}
         moonRef={moonRef}
+        jupRef={jupRef}
+        satRef={satRef}
       />
       <Header />
       <div className={styles.content}>
         <Home />
         <About />
+        <Work />
         <Contact />
       </div>
       <Footer />

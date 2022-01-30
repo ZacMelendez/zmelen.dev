@@ -33,9 +33,6 @@ header {
     }
     left: 5%;
     z-index: 100;
-    @include sm-max {
-        margin-top: 10px;
-    }
 }
 
 .themeToggle {
@@ -45,6 +42,8 @@ header {
 
 .nav {
     margin-right: 5%;
+    display: flex;
+    align-items: center;
     li {
         display: inline-flex;
         align-items: center;
@@ -93,7 +92,7 @@ header {
 
 @media screen and (max-width: 600px) {
     header {
-        align-items: flex-start;
+        align-items: center;
     }
 
     .hamburgerFlex {
