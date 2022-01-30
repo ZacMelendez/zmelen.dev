@@ -1,5 +1,5 @@
 import styles from './contact.module.scss';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import useLazyFetch from '../../hooks/useLazyFetch';
 import useRecaptcha from '../../hooks/useRecaptcha';
@@ -44,14 +44,14 @@ const randInputs = () => {
 
 export default function Contact() {
     const { ReCAPTCHA, ref: recaptchaRef, siteKey, validate } = useRecaptcha();
-    const { register, handleSubmit, reset, formState: { errors, loading } } = useForm({
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({
         reValidateMode: 'onSubmit'
     });
 
     const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false);
     const [error, setError] = useState(false);
 
-    const [makeFetch] = useLazyFetch({
+    const [makeFetch, { loading }] = useLazyFetch({
         onSuccess: (result) => {
             setIsSuccessfullySubmitted(true);
             reset();
@@ -64,9 +64,13 @@ export default function Contact() {
         },
     });
 
+    useEffect(() => {
+        console.log('loading changed')
+    }, [loading])
+
     const onSubmit = async (data) => {
         const validated = await validate();
-        
+
         if (validated) {
             makeFetch({
                 url: process.env.REACT_APP_URL,
@@ -177,7 +181,8 @@ export default function Contact() {
                         </div>
                     </div>
                     <div className={styles.submit}>
-                        <button type="submit">submit</button>
+                        {!loading && <div className={styles.gradient}/>}
+                        <button type="submit">{loading ? "sending" : "submit"}</button>
                     </div>
                 </form> :
                     error ?
