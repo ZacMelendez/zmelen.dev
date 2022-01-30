@@ -44,7 +44,7 @@ const randInputs = () => {
 
 export default function Contact() {
     const { ReCAPTCHA, ref: recaptchaRef, siteKey, validate } = useRecaptcha();
-    const { register, handleSubmit, reset, formState: { errors } } = useForm({
+    const { register, handleSubmit, reset, formState: { errors, loading } } = useForm({
         reValidateMode: 'onSubmit'
     });
 
@@ -65,9 +65,8 @@ export default function Contact() {
     });
 
     const onSubmit = async (data) => {
-        // console.log(data)
         const validated = await validate();
-
+        
         if (validated) {
             makeFetch({
                 url: process.env.REACT_APP_URL,
@@ -79,12 +78,12 @@ export default function Contact() {
 
                     },
                     body: JSON.stringify({
-                        "source": 'zacmelendez@gmail.com',
-                        "destination": [''],
+                        "source": 'zmelendez@zmelen.dev',
+                        "destination": ['zmelendez@zmelen.dev'],
                         "subject": "Zach M Site Response",
                         "name": `${data.fname} ${data.lname}`,
                         "emailAddress": data.email,
-                        "message": `${data.phone}\n ${data.message}`
+                        "message": `${data.phone}\n ${data.msg}`
                     })
                 },
             });
