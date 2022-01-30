@@ -1,40 +1,9 @@
-export default function LeftArrow({sliderRef}) {
+export default function LeftArrow({ sliderRef }) {
     return (
-        <svg width="84" height="84" viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={() => {sliderRef.current.slickNext()}}>
-            <g filter="url(#filter0_d_400_86)">
-                <circle cx="42" cy="38" r="35" fill="#62788F" />
-                <g filter="url(#filter1_d_400_86)">
-                    <path d="M51.5 33.6699C54.8333 35.5944 54.8333 40.4056 51.5 42.3301L30.5 54.4545C27.1667 56.379 23 53.9734 23 50.1244L23 25.8756C23 22.0266 27.1667 19.621 30.5 21.5455L51.5 33.6699Z" fill="#E3B13E" />
-                </g>
-                <g filter="url(#filter2_d_400_86)">
-                    <path d="M64.5 33.6699C67.8333 35.5944 67.8333 40.4056 64.5 42.3301L43.5 54.4545C40.1667 56.379 36 53.9734 36 50.1244L36 25.8756C36 22.0266 40.1667 19.621 43.5 21.5455L64.5 33.6699Z" fill="#E3B13E" />
-                </g>
-            </g>
-            <defs>
-                <filter id="filter0_d_400_86" x="0" y="0" width="84" height="84" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_400_86" result="shape" />
-                </filter>
-                <filter id="filter1_d_400_86" x="16" y="16.8682" width="41" height="44.2637" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                    <feOffset dx="-2" dy="1" />
-                    <feGaussianBlur stdDeviation="2.5" />
-                    <feComposite in2="hardAlpha" operator="out" />
-                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.125 0" />
-                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_400_86" />
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_400_86" result="shape" />
-                </filter>
-                <filter id="filter2_d_400_86" x="29" y="16.8682" width="41" height="44.2637" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                    <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                    <feOffset dx="-2" dy="1" />
-                    <feGaussianBlur stdDeviation="2.5" />
-                    <feComposite in2="hardAlpha" operator="out" />
-                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.125 0" />
-                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_400_86" />
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_400_86" result="shape" />
-                </filter>
-            </defs>
+        <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" onClick={() => {sliderRef.current.slickNext()}}>
+            <path d="M70 35C70 54.33 54.33 70 35 70C15.67 70 0 54.33 0 35C0 15.67 15.67 0 35 0C54.33 0 70 15.67 70 35Z" fill="#62788F" />
+            <path d="M44.5 30.6699C47.8333 32.5944 47.8333 37.4056 44.5 39.3301L23.5 51.4545C20.1667 53.379 16 50.9734 16 47.1244L16 22.8756C16 19.0266 20.1667 16.621 23.5 18.5455L44.5 30.6699Z" fill="#C59935" />
+            <path d="M57.5 30.6699C60.8333 32.5944 60.8333 37.4056 57.5 39.3301L36.5 51.4545C33.1667 53.379 29 50.9734 29 47.1244L29 22.8756C29 19.0266 33.1667 16.621 36.5 18.5455L57.5 30.6699Z" fill="#E3B13E" />
         </svg>
     )
 }
