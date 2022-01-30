@@ -535,7 +535,6 @@ export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, w
                 trigger: element.querySelector("#work"),
                 start: "+=500 1",
                 end: "bottom 100",
-                markers: true,
                 scrub: 2,
                 toggleActions: "restart pause reverse pause"
             },
