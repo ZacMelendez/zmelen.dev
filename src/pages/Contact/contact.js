@@ -158,7 +158,7 @@ export default function Contact() {
                                     autoComplete='phone'
                                     {...register('phone', { required: true, pattern: phoneReg })}
                                 />
-                                {errors.phone && <p className={styles.error}>Ensure phone number is correctly formatted</p>}
+                                {errors.phone && <p className={styles.error}>Ensure phone # is correct</p>}
                             </div>
                         </div>
                     </div>
@@ -177,7 +177,10 @@ export default function Contact() {
                         </div>
                     </div>
                     <div className={styles.submit}>
-                        {/* {loading && <div className={styles.gradient}/>} */}
+                        {/* {!loading && <div className={styles.spinner}><div className={styles.ldioWqiqdcunxe}>
+                            <div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div>
+                        </div></div>
+                        } */}
                         <button type="submit">{loading ? "sending" : "submit"}</button>
                     </div>
                 </form> :
