@@ -1,11 +1,9 @@
 import styles from './App.module.scss';
 import { useEffect, useRef } from 'react';
-
-
 import { Home, About, Contact, Work } from './pages/pages';
-
 import { Header, Footer, ScrollDiv, Animations } from './components/';
 
+import gsap from 'gsap';
 
 export default function App() {
 
@@ -30,6 +28,69 @@ export default function App() {
   useEffect(() => {
     const element = ref.current;
     Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef, jupRef, satRef });
+
+    // Animate about section
+    gsap.fromTo(
+      element.querySelector("#aboutText"),
+      {
+        x: 100,
+        opacity: 0
+      },
+      {
+        scrollTrigger: {
+          trigger: element.querySelector("#about"),
+          start: "top center",
+          end: "top 200",
+          scrub: 1,
+        },
+        x: 0,
+        opacity: 1,
+        ease: 'none',
+        duration: .500
+      }
+    )
+
+    // Animate work section
+    gsap.fromTo(
+      element.querySelector("#workContents"),
+      {
+        x: 100,
+        opacity: 0
+      },
+      {
+        scrollTrigger: {
+          trigger: element.querySelector("#work"),
+          start: "top center",
+          end: "top 200",
+          scrub: 1,
+        },
+        x: 0,
+        opacity: 1,
+        ease: 'none',
+        duration: .500
+      }
+    )
+
+    // Animate contact section
+    gsap.fromTo(
+      element.querySelector("#formDiv"),
+      {
+        x: 100,
+        opacity: 0
+      },
+      {
+        scrollTrigger: {
+          trigger: element.querySelector("#contact"),
+          start: "top center",
+          end: "top 200",
+          scrub: 1,
+        },
+        x: 0,
+        opacity: 1,
+        ease: 'none',
+        duration: .500
+      }
+    )
   }, [])
 
   return (

@@ -34,7 +34,7 @@ export default function Work() {
 
     return (
         <div className={styles.work} id="work">
-            <div className={styles.inner}>
+            <div className={styles.inner} id="workContents">
                 <h1>Work</h1>
                 <div className={styles.carousel}>
                     <Carousel settings={settings} slideInfo={slideInfo} />
