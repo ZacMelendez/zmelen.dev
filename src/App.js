@@ -1,5 +1,5 @@
 import styles from './App.module.scss';
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { Home, About, Contact, Work } from './pages/pages';
 import { Header, Footer, ScrollDiv, Animations } from './components/';
 
@@ -25,10 +25,10 @@ export default function App() {
   const satRef = useRef(null);
 
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const element = ref.current;
     Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef, jupRef, satRef });
-
+    console.log(element.querySelector("#scrollDiv").getBoundingClientRect().height)
     // Animate about section
     gsap.fromTo(
       element.querySelector("#aboutText"),
