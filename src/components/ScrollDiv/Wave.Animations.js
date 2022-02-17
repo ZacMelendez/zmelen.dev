@@ -2,7 +2,9 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 export default function Waves(element, waveORef, waveTwRef, waveThRef) {
-    const pctToPx = (pct) => parseInt(element.querySelector("#scrollDiv").getBoundingClientRect().height * (pct / 100))
+    const { innerWidth: width } = window
+    const pctToPx = (pct) => parseInt((width > 500 ? 0.4*width : 500) * (pct / 100))
+
     const waveOne = gsap.timeline();
     ScrollTrigger.create({
         animation: waveOne,

@@ -3,7 +3,9 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 
 export default function MoonAnim(element, moonRef) {
-    const pctToPx = (pct) => parseInt(element.querySelector("#scrollDiv").getBoundingClientRect().height * (pct / 100))
+    const { innerWidth: width } = window
+    const pctToPx = (pct) => parseInt((width > 500 ? 0.4*width : 500) * (pct / 100))
+
     gsap.set(
         moonRef.current,
         {

@@ -176,13 +176,7 @@ export default function Contact() {
                             {errors.msg && <p className={styles.error}>Please leave a message!</p>}
                         </div>
                     </div>
-                    <div className={styles.submit}>
-                        {/* {!loading && <div className={styles.spinner}><div className={styles.ldioWqiqdcunxe}>
-                            <div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div>
-                        </div></div>
-                        } */}
-                        <button type="submit">{loading ? "sending" : "submit"}</button>
-                    </div>
+                        <button className={styles.submit} type="submit">{loading ? "sending" : "submit"}</button>
                 </form> :
                     error ?
                         <div className={styles.error}>
