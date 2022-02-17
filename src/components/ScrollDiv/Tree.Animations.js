@@ -9,7 +9,7 @@ export default function Trees(element, treeORef, treeTwRef, treeThRef) {
         {
             height: () => pctToPx(100),
             width: 'auto',
-            y: () => pctToPx(-5),
+            y: () => pctToPx(-20),
             zIndex: 10,
             x: () => pctToPx(-10)
         })
@@ -18,7 +18,7 @@ export default function Trees(element, treeORef, treeTwRef, treeThRef) {
         {
             height: () => pctToPx(100),
             width: 'auto',
-            y: () => pctToPx(8),
+            y: () => pctToPx(-35),
             zIndex: 9,
             x: 0
         })
@@ -27,14 +27,15 @@ export default function Trees(element, treeORef, treeTwRef, treeThRef) {
         {
             height: () => pctToPx(100),
             width: 'auto',
-            y: () => pctToPx(12),
+            x: () => pctToPx(-10),
+            y: () => pctToPx(-20),
             zIndex: 8
         })
 
     gsap.fromTo(
         treeORef.current,
         {
-            y: () => pctToPx(-5),
+            y: () => pctToPx(-20),
             x: () => pctToPx(-10)
         },
         {
@@ -54,7 +55,7 @@ export default function Trees(element, treeORef, treeTwRef, treeThRef) {
         treeTwRef.current,
         {
             x: 0,
-            y: () => pctToPx(8),
+            y: () => pctToPx(-35),
         },
         {
             scrollTrigger: {
@@ -72,7 +73,8 @@ export default function Trees(element, treeORef, treeTwRef, treeThRef) {
     gsap.fromTo(
         treeThRef.current,
         {
-            y: () => pctToPx(12),
+            x: () => pctToPx(-10),
+            y: () => pctToPx(-20),
             zIndex: 8
         },
         {
