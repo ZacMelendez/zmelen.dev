@@ -1,7 +1,7 @@
 @import '../../sassStyles/breakpoints.scss';
 @import '../../sassStyles/variables.scss';
 
-footer {
+.footer {
     position: fixed;
     display: flex;
     flex-direction: row;
@@ -49,14 +49,14 @@ footer {
   }
 
 @media screen and (max-width: 600px) {
-    footer {
+    .footer {
         padding: 15px 0 35px 0;
         justify-content: center;
     }
 }
 
 @media screen and (min-width: 600px) {
-    footer {
+    .footer {
         ul {
             margin-left: 5%
         }

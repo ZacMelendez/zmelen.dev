@@ -5,7 +5,7 @@ export default function CarouselItem({ image, text, desc, link}) {
     return (
         <div className={styles.card}>
             <div className={styles.image} >
-                <a href={link ? link : '#home'}>
+                <a href={link ? link : '#/#home'} rel={'noopener'} target="_blank">
                     <img src={image ? image : (window.innerWidth < 576) ? 'https://res.cloudinary.com/drmatz1gd/image/upload/v1643499435/ztmMobile_yevnyr.png' : "https://res.cloudinary.com/drmatz1gd/image/upload/v1643515187/recursion_momlis.png"} alt="Card Image" />
                 </a>
             </div>

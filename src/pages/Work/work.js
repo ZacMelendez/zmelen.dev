@@ -1,7 +1,6 @@
 import styles from './work.module.scss';
 import React, { useRef } from 'react';
 
-import { CarouselItem } from '../../components/CarouselItem';
 import { Carousel } from '../../components/';
 
 export default function Work() {

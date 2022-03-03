@@ -1,11 +1,11 @@
 import React from 'react';
-import './Footer.scss';
+import styles from './Footer.module.scss';
 
 import { GitHub, LinkedIn, CodePen } from '../Icons'
 
 export default function Footer() {
     return (
-        <footer>
+        <footer className = {styles.footer}>
             <ul>
                 <li>
                     <a href="https://github.com/ZacMelendez/" target="_blank" rel="noreferrer">
