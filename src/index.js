@@ -5,15 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Blog } from './pages/pages';
+import { BlogInput } from './components';
+import BlogContextProvider from './providers/BlogContextProvider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}/>
-        <Route path="blog" element={<Blog />}/>
-      </Routes>
-    </BrowserRouter>
+    <BlogContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="blog/:id" element={<Blog />} />
+          <Route path="write" element={<BlogInput />} />
+        </Routes>
+      </BrowserRouter>
+      </BlogContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

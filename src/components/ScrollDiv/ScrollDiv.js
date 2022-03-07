@@ -14,13 +14,17 @@ import Planets from './Planets.Animations'
 gsap.registerPlugin(ScrollTrigger);
 
 export function Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef, jupRef, satRef }) {
+    const { innerWidth: width } = window
+    const pctToPx = (pct) => parseInt((width > 500 ? 0.4*width : 500) * (pct / 100))
 
     // Animate gradient background
     gsap.fromTo(
         gradRef.current,
         {
             y: "-40%",
-            zIndex: 0
+            zIndex: 0,
+            width: () => pctToPx(101),
+            height: 'auto'
         },
         {
             scrollTrigger: {

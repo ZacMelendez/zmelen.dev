@@ -1,0 +1,14 @@
+@import '../../sassStyles/variables.scss';
+
+.blog {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    background: $blue;
+    display: flex;
+    flex-direction: row;
+}

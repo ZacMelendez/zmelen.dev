@@ -5,3 +5,5 @@ export * from './ScrollDiv';
 export * from './CarouselItem';
 export * from './Carousel';
 export * from './BlogMenu';
+export * from './BlogPost';
+export * from './BlogInput';

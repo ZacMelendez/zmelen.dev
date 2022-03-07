@@ -1,0 +1,80 @@
+@import "../../sassStyles/variables.scss";
+
+.outer {
+    min-height: 100vh;
+    height: auto;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background: $blue;
+    position: relative;
+
+    .inner {
+        height: calc(100% - 50px);
+        width: calc(100% - 150px);
+        padding: 25px 75px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        input {
+            border-radius: 10px;
+            padding: 3px 12px 3px 10px;
+            border: none;
+            box-sizing: border-box;
+            background-color: $white;
+            border: 2px $white solid;
+
+            transition: all 0.25s linear;
+
+            &:hover,
+            &:focus {
+                border: 2px $yellow solid;
+                outline: none;
+                padding: 3px 10px 3px 12px;
+            }
+        }
+
+        .buttonDiv {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            button {
+                width: 300px;
+                height: 50px;
+                border-radius: 25px;
+                border: none;
+                background: $white;
+                outline: none;
+                cursor: pointer;
+                font-weight: 500;
+
+                transition: all 0.12s linear;
+
+                &:hover {
+                    transform: scale(1.025);
+                }
+            }
+        }
+
+        .label {
+            color: $white;
+        }
+
+        .rte {
+            border-radius: 10px;
+            min-height: 400px;
+            background: $white;
+            * {
+                color: $grey;
+                fill: $grey;
+            }
+        }
+
+        .toolbar {
+            border-radius: 10px;
+            background: $white;
+        }
+    }
+}

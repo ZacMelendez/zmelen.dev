@@ -60,7 +60,7 @@ export default function Contact() {
 
         onError: (err) => {
             setError(true);
-            console.log(`There was an error ${err.errors}`)
+            console.log(err)
         },
     });
 

@@ -1,4 +1,5 @@
 @import "../../sassStyles/variables.scss";
+@import "../../sassStyles/breakpoints.scss";
 
 .blogMenu {
     position: fixed;
@@ -7,11 +8,12 @@
     top: 0;
     width: 300px;
     padding: 25px;
-    background: $blue;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+
+    border-right: 3px $white solid;
 
     .header {
         display: flex;
@@ -40,13 +42,62 @@
 
     .nav {
         flex: none;
-        align-self: stretch;
-        flex-grow: 1;
-        margin: 0px 0px;
+        margin: 0px 0px 50px 0;
+        padding: 10px;
+        overflow-y: scroll;
+        max-height: calc(100% - 161.5px);
+
+        ul {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 3px;
+            .link {
+                text-decoration: none;
+                padding: 0 10px 0 5px;
+                font-family: $poppins;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 27px;
+
+                @include sm-max {
+                    font-size: 12px;
+                    line-height: 17px;
+                }
+
+                @include retina {
+                    font-size: 18px;
+                    line-height: 27px;
+                }
+                
+                display: flex;
+                align-items: center;
+
+                height: 65px;
+                flex: none;
+                order: 0;
+                flex-grow: 1;
+                margin: 0px 10px;
+
+                border-bottom: 1px $white solid;
+
+                transition: all 0.25s linear;
+
+                &:hover {
+                    background: $blueOpaq;
+                    cursor: pointer;
+                }
+            }
+        }
     }
 
     .footer {
-        width: 100%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        padding: 25px;
+        background: $blue;
+        width: 300px;
         ul {
             width: 100%;
             display: flex;

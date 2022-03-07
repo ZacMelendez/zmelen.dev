@@ -28,7 +28,6 @@ export default function App() {
   useLayoutEffect(() => {
     const element = ref.current;
     Animations({ element, gradRef, treeORef, treeTwRef, treeThRef, waveORef, waveTwRef, waveThRef, mounORef, mounTwRef, mounThRef, sunRef, moonRef, jupRef, satRef });
-    console.log(element.querySelector("#scrollDiv").getBoundingClientRect().height)
     // Animate about section
     gsap.fromTo(
       element.querySelector("#aboutText"),

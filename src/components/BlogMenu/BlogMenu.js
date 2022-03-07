@@ -1,10 +1,19 @@
-import React from "react";
-import { Footer } from "..";
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import BlogContext from "../../context/BlogsContext";
+import useLazyFetch from "../../hooks/useLazyFetch";
 import { CodePen, GitHub, LinkedIn, Logo } from "../Icons";
 
 import styles from './BlogMenu.module.scss'
 
 export default function BlogMenu() {
+
+    const {blogs, setCurrentBlog} = useContext(BlogContext)
+
+    const setBlog = (post) => {
+        setCurrentBlog(blogs.filter(blog => blog.id === post.id)[0])
+    }
+
     return (
         <ul className={styles.blogMenu}>
             <header>
@@ -16,18 +25,15 @@ export default function BlogMenu() {
             <li className={styles.nav}>
                 <nav>
                     <ul>
-                        <li>
-                            <a>this</a>
-                        </li>
-                        <li>
-                            <a>is</a>
-                        </li>
-                        <li>
-                            <a>a</a>
-                        </li>
-                        <li>
-                            <a>test</a>
-                        </li>
+                        {!blogs ? <li>loading posts...</li> :
+                            blogs.map((post, index) => {
+                                return (
+                                    <Link key={index} className={styles.link} onClick={() => setBlog(post)} to={`/blog/${post.title.split(' ').join('-')}`}>
+                                        {post.title}
+                                    </Link>
+                                )
+                            })
+                        }
                     </ul>
                 </nav>
             </li>
