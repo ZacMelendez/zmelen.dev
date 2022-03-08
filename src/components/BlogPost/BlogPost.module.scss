@@ -124,6 +124,7 @@
         }
 
         pre {
+            margin: 25px 0;
             width: 100%;
             background: #363636;
             border-radius: 10px;
@@ -131,6 +132,7 @@
             font-size: 14px;
             line-height: 18px;
             font-family: Menlo, Monaco, "Courier New", monospace;
+            font-style: none;
         }
     }
 }

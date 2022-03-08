@@ -5,6 +5,8 @@ import useLazyFetch from "../../hooks/useLazyFetch";
 import { v4 as uuidv4 } from 'uuid';
 import TurndownService from "turndown";
 import { Prism } from "@mantine/prism";
+import { marked } from "marked";
+
 
 export default function BlogInput() {
 
@@ -20,6 +22,7 @@ export default function BlogInput() {
     useEffect(() => {
         const text = turndown.turndown(val)
         setMd(text)
+        // console.log([...val.split('```')])
     }, [val])
 
     const [makeFetch, { loading }] = useLazyFetch({
@@ -95,6 +98,9 @@ export default function BlogInput() {
                         onImageUpload={handleImageUpload}
                     />
                 </div>
+                    <div dangerouslySetInnerHTML={{__html: marked.parse(md)}}/>
+                <br/>
+                {md.split('\\`\\`\\`').filter(item => item.includes('language='))}
                 <div>
                     <p className={styles.label}>Blog Tags:</p>
                     <input ref={tagsRef} />
