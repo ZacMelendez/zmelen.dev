@@ -4,4 +4,3 @@ export * from './Hamburger';
 export * from './ScrollDiv';
 export * from './CarouselItem';
 export * from './Carousel';
-export * from './BlogMenu';

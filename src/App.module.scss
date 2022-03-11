@@ -1,28 +1,13 @@
-@import "./sassStyles/animations.scss";
-@import "./sassStyles/variables.scss";
-@import "./sassStyles/breakpoints.scss";
+@import "./styles/animations.scss";
+@import "./styles/variables.scss";
+@import "./styles/breakpoints.scss";
 
 * {
-  font-family: $montserrat;
   -ms-overflow-style: none;
-  scroll-behavior: smooth;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
   }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-svg,
-a {
-  color: $white;
-  fill: $white;
 }
 
 .App {
@@ -31,16 +16,13 @@ a {
   width: 100vw;
   position: relative;
   overflow: hidden;
-  @include sm-max {
-    padding-bottom: 0px;
-  }
 }
 
 .content {
   position: relative;
-  scroll-snap-type: y proximity;
-  width: 44%;
-  left: 50%;
+  width: 55%;
+  margin-left: auto; 
+  margin-right: 0;
   height: auto;
 
   @include hi-res {
@@ -48,9 +30,9 @@ a {
     left: 45%;
   }
 
-  @include sm-max {
-    left: 7.5%;
-    width: 85%;
+  @include lg-max {
+    width: 100%;
+    margin: 0;
     height: auto;
   }
 }

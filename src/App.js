@@ -1,5 +1,5 @@
 import styles from './App.module.scss';
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import { Home, About, Contact, Work } from './pages/pages';
 import { Header, Footer, ScrollDiv, Animations } from './components/';
 
@@ -23,6 +23,18 @@ export default function App() {
   const moonRef = useRef(null);
   const jupRef = useRef(null);
   const satRef = useRef(null);
+
+  useEffect(() => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  }, [])
 
 
   useLayoutEffect(() => {

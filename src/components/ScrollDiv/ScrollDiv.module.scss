@@ -1,5 +1,5 @@
-@import "../../sassStyles/variables.scss";
-@import "../../sassStyles/breakpoints.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/breakpoints.scss";
 
 .scrollDiv {
     position: fixed;
@@ -43,7 +43,7 @@
         width: 400px;
     }
 
-    @include sm-max {
+    @include lg-max {
         top: 50%;
         left: 50%;
         opacity: 0.3;

@@ -1,25 +1,28 @@
-@import "../../sassStyles/variables.scss";
-@import "../../sassStyles/breakpoints.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/breakpoints.scss";
 
 .card {
-    width: 100%;
+    width: auto;
     height: 100%;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     align-items: center;
     .image {
         overflow: hidden;
         margin: 0;
+        box-sizing: border-box;
         padding: 0;
 
         img {
             border-radius: 15px;
             overflow: hidden;
-            width: calc(100% - 6px);
+            max-width: calc(100% - 6px);
             margin: 0 3px;
             height: auto;
+            max-height: 60vh;
             object-fit: cover;
         }
     }
@@ -28,38 +31,15 @@
         flex-direction: column;
         justify-content: center;
         height: 100px;
-        width: 80%;
+        // width: 90%;
         padding-top: 5px;
+        box-sizing: border-box;
         @include sm-max {
             padding-top: 15px;
-            height: 85px;
-            width: 95%;
+            // max-width: 80%;
         }
-        h2 {
-            font-family: $montserrat;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 36px;
-            line-height: 44px;
+        * {
             text-align: center;
-            letter-spacing: -0.015em;
-            @include sm-max {
-                font-size: 24px;
-                line-height: 29px;
-            }
-        }
-        p {
-            font-family: $montserrat;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 24px;
-            line-height: 29px;
-            text-align: center;
-            letter-spacing: -0.015em;
-            @include sm-max {
-                font-size: 18px;
-                line-height: 26px;
-            }
         }
     }
 }

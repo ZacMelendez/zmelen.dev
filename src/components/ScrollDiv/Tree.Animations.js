@@ -1,5 +1,4 @@
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 
 export default function Trees(element, treeORef, treeTwRef, treeThRef) {
     const { innerWidth: width } = window

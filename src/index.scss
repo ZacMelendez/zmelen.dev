@@ -1,3 +1,6 @@
+@import "./styles/variables.scss";
+@import "./styles/breakpoints.scss";
+
 body {
   margin: 0;
   padding: 0;
@@ -5,17 +8,148 @@ body {
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: $blue;
 }
 
-* {
-  list-style-type: none;
-  font-size: 30px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+svg {
   margin: 0;
   padding: 0;
+  color: $white;
+  fill: $white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+h1,
+h2,
+h3,
+h4,
+p {
+  font-family: $montserrat;
+}
+
+h1 {
+  font-size: 144px;
+  line-height: 126px;
+  letter-spacing: -0.065em;
+  font-weight: 700;
+
+  @include xl-max {
+    font-size: 120px;
+    line-height: 104px;
+    letter-spacing: -0.065em;
+  }
+  @include hi-res {
+    font-size: 120px;
+    line-height: 104px;
+    letter-spacing: -0.065em;
+  }
+  @include lg-max {
+    font-size: 86px;
+    line-height: 70px;
+    letter-spacing: -0.065em;
+  }
+  @include sm-max {
+    font-size: 64px;
+    line-height: 60px;
+    letter-spacing: -0.065em;
+  }
+}
+
+h2 {
+  font-size: 64px;
+  line-height: 78px;
+  letter-spacing: -0.035em;
+
+  @include xl-max {
+    font-size: 56px;
+    line-height: 64px;
+    letter-spacing: -0.065em;
+  }
+  @include hi-res {
+    font-size: 56px;
+    line-height: 64px;
+    letter-spacing: -0.065em;
+  }
+  @include lg-max {
+    font-size: 46px;
+    line-height: 40px;
+    letter-spacing: -0.065em;
+  }
+  @include sm-max {
+    font-size: 36px;
+    line-height: 30px;
+    letter-spacing: -0.065em;
+  }
+}
+
+h4 {
+  font-size: 64px;
+  line-height: 78px;
+  letter-spacing: -0.035em;
+
+  @include xl-max {
+    font-size: 44px;
+    line-height: 48px;
+    letter-spacing: -0.065em;
+  }
+  @include hi-res {
+    font-size: 38px;
+    line-height: 42px;
+    letter-spacing: -0.065em;
+  }
+  @include lg-max {
+    font-size: 30px;
+    line-height: 35px;
+    letter-spacing: -0.065em;
+  }
+  @include sm-max {
+    font-size: 26px;
+    line-height: 26px;
+    letter-spacing: -0.065em;
+  }
+}
+
+p {
+  font-size: 38px;
+  line-height: 38px;
+  letter-spacing: -0.035em;
+  height: auto;
+
+  @include xl-max {
+    font-size: 26px;
+    line-height: 26px;
+    letter-spacing: -0.065em;
+  }
+
+  @include hi-res {
+    font-size: 26px;
+    line-height: 26px;
+    letter-spacing: -0.065em;
+  }
+
+  @include lg-max {
+    font-size: 25px;
+    line-height: 25px;
+    letter-spacing: -0.065em;
+  }
+
+  @include sm-max {
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: -0.065em;
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 @media screen and (max-width: 600px) {
@@ -41,9 +175,9 @@ code {
   li {
     border-radius: 50%;
     overflow: hidden;
-    background: radial-gradient(50% 50% at 50% 50%, rgba(62, 91, 121, 0) 71.8%, #3E5B79 100%);
+    background: radial-gradient(50% 50% at 50% 50%, rgba(62, 91, 121, 0) 71.8%, #3e5b79 100%);
     &.slick-active {
-      background: #E3B13E;
+      background: #e3b13e;
     }
 
     button::before {

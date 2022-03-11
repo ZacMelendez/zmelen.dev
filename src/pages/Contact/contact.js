@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import useLazyFetch from '../../hooks/useLazyFetch';
 import useRecaptcha from '../../hooks/useRecaptcha';
+import container from '../../styles/container.module.scss';
 
 
-const emailReg = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
+const emailReg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 const phoneReg = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
 
 const randInputs = () => {
@@ -45,7 +46,7 @@ const randInputs = () => {
 export default function Contact() {
     const { ReCAPTCHA, ref: recaptchaRef, siteKey, validate } = useRecaptcha();
     const { register, handleSubmit, reset, formState: { errors } } = useForm({
-        reValidateMode: 'onSubmit'
+        reValidateMode: 'onChange'
     });
 
     const [isSuccessfullySubmitted, setIsSuccessfullySubmitted] = useState(false);
@@ -93,91 +94,85 @@ export default function Contact() {
     const [randInfo,] = useState(randInputs());
 
     return (
-        <div className={styles.contact} id="contact">
+        <div className={container.container} id="contact">
             <div className={styles.inner} id="formDiv">
-                <h1>Contact</h1>
+                <h2>Contact</h2>
                 <ReCAPTCHA
                     ref={recaptchaRef}
                     size="invisible"
                     sitekey={siteKey}
                 />
-                {!error && !isSuccessfullySubmitted ? <form className={styles.entryForm} onSubmit={handleSubmit(onSubmit)} >
-                    <div>
-                        <div className={styles.fnameEntry}>
-                            <label id="label" className='entry_prompt' htmlFor="fname">First Name: </label>
-                            <div>
+                {!error && !isSuccessfullySubmitted ?
+                    <form className={styles.entryForm} onSubmit={handleSubmit(onSubmit)} >
+                        <div className={styles.formRow}>
+                            <div className={styles.formGroup}>
+                                <label id="label" className='entry_prompt' htmlFor="fname">First Name: </label>
                                 <input id="input"
                                     name='fname'
                                     type="text"
                                     placeholder={randInfo.fname}
                                     autoComplete='given-name'
+                                    style={errors.fname && { borderBottom: '5px #d13f3f solid' }}
                                     {...register('fname', { required: true, maxLength: 18 })}
                                 />
                                 {errors.fname && <p className={styles.error}>First name is required</p>}
                             </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div className={styles.lnameEntry}>
-                            <label id="label" className='entry_prompt' htmlFor="lname">Last Name: </label>
-                            <div>
+                            <div className={styles.formGroup}>
+                                <label id="label" className='entry_prompt' htmlFor="lname">Last Name: </label>
                                 <input id="input"
                                     name='lname'
                                     type="text"
                                     placeholder={randInfo.lname}
                                     autoComplete='family-name'
+                                    style={errors.lname && { borderBottom: '5px #d13f3f solid' }}
                                     {...register('lname', { required: true, maxLength: 18 })}
                                 />
                                 {errors.lname && <p className={styles.error}>Last name is required</p>}
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <div className={styles.emailEntry}>
-                            <label id="label" className='entry_prompt' htmlFor="email">E-Mail: </label>
-                            <div>
+                        <div className={styles.formRow}>
+                            <div className={styles.formGroup}>
+                                <label id="label" className='entry_prompt' htmlFor="email">E-Mail: </label>
                                 <input id="input"
                                     name='email'
                                     type="text"
                                     placeholder={randInfo.email}
                                     autoComplete='email'
+                                    style={errors.email && { borderBottom: '5px #d13f3f solid' }}
                                     {...register('email', { required: true, maxLength: 100, pattern: emailReg })}
                                 />
                                 {errors.email && <p className={styles.error}>Ensure e-mail is correct</p>}
                             </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div className={styles.phoneEntry}>
-                            <label id="label" className='entry_prompt' htmlFor="phone">Phone Number: </label>
-                            <div>
+                            <div className={styles.formGroup}>
+                                <label id="label" className='entry_prompt' htmlFor="phone">Phone Number: </label>
                                 <input id="input"
                                     name='phone'
                                     type="text"
                                     placeholder={randInfo.phone}
                                     autoComplete='phone'
+                                    style={errors.phone && { borderBottom: '5px #d13f3f solid' }}
                                     {...register('phone', { required: true, pattern: phoneReg })}
                                 />
                                 {errors.phone && <p className={styles.error}>Ensure phone # is correct</p>}
                             </div>
                         </div>
-                    </div>
-                    <div className={styles.msgEntry}>
-                        <label id="label" className='entry_prompt' htmlFor="msg" >Enter your desired services: </label>
-                        <div className='caret_input'>
+                        <div className={styles.formGroup}>
+                            <label id="label" className='entry_prompt' htmlFor="msg" >Enter your desired services: </label>
                             <textarea
                                 id="textarea"
                                 type="text"
                                 name='msg'
                                 placeholder={randInfo.msg}
                                 autoComplete='off'
+                                style={errors.msg && { borderBottom: '5px #d13f3f solid' }}
                                 {...register('msg', { required: true, maxLength: 300 })}
                             />
                             {errors.msg && <p className={styles.error}>Please leave a message!</p>}
                         </div>
-                    </div>
-                        <button className={styles.submit} type="submit">{loading ? "sending" : "submit"}</button>
-                </form> :
+                        <div className={styles.submit}>
+                            <button type="submit"><p>{loading ? "sending" : "submit"}</p></button>
+                        </div>
+                    </form> :
                     error ?
                         <div className={styles.error}>
                             <h2>There was an error procesing your request</h2>

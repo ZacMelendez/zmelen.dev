@@ -1,5 +1,5 @@
-@import "../../sassStyles/variables.scss";
-@import "../../sassStyles/breakpoints.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/breakpoints.scss";
 
 .contact {
   position: relative;
@@ -25,486 +25,276 @@
     align-items: flex-start;
     padding: 75px 0 90px 0;
   }
+}
 
-  .inner {
-    @include sm-max {
-      // padding-top: 75px;
-      width: 100%;
+.inner {
+  width: 100%;
+
+  h2 {
+    padding-bottom: 5px;
+  }
+
+  .success {
+    padding: 35px 0;
+    width: 100%;
+  }
+
+  .entryForm {
+    display: flex;
+    flex-direction: column;
+    .formGroup {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      flex: 1;
+      overflow: hidden;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.0625);
+
     }
-    h1 {
-      font-size: 64px;
-      line-height: 78px;
-      letter-spacing: -0.035em;
-      padding: 0 0 30px 0;
-      justify-self: flex-start;
-
-      @include xl-max {
-        font-size: 54px;
-        line-height: 50px;
-        letter-spacing: -0.065em;
-        padding: 0;
-      }
-      @include hi-res {
-        font-size: 54px;
-        line-height: 50px;
-        letter-spacing: -0.065em;
-        padding: 0;
-      }
-      @include md-max {
-        font-size: 36px;
-        line-height: 30px;
-        letter-spacing: -0.065em;
-        padding: 0;
-      }
+    .formRow {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
       @include sm-max {
-        font-size: 36px;
-        line-height: 30px;
-        letter-spacing: -0.065em;
-        padding: 0;
+        flex-direction: column;
+        // gap: 15pxpx;
       }
     }
 
-    h2 {
-      font-size: 56px;
-      line-height: 64px;
-      letter-spacing: -0.035em;
-      color: $yellow;
-
-      @include xl-max {
-        font-size: 36px;
-        line-height: 30px;
-        letter-spacing: -0.065em;
-      }
-      @include hi-res {
-        font-size: 36px;
-        line-height: 30px;
-        letter-spacing: -0.065em;
-      }
-      @include sm-max {
-        font-size: 36px;
-        line-height: 30px;
-        letter-spacing: -0.065em;
-      }
+    @include xl-max {
+      row-gap: 5px;
     }
 
-    p {
-      font-size: 38px;
+    @include hi-res {
+      row-gap: 5px;
+    }
+
+    label {
+      font-family: $montserrat;
+      font-size: 24px;
       line-height: 38px;
-      letter-spacing: -0.035em;
-      height: auto;
+      color: $white;
+      overflow-wrap: break-word;
 
       @include xl-max {
-        font-size: 26px;
-        line-height: 26px;
-        letter-spacing: -0.065em;
-      }
-
-      @include hi-res {
-        font-size: 26px;
-        line-height: 26px;
-        letter-spacing: -0.065em;
-      }
-
-      @include lg-max {
-        font-size: 25px;
-        line-height: 25px;
-        letter-spacing: -0.065em;
-      }
-
-      @include sm-max {
-        font-size: 24px;
+        font-size: 18px;
         line-height: 24px;
         letter-spacing: -0.065em;
       }
-    }
-    .error {
-      height: auto;
-      width: 100%;
-    }
-
-    .success {
-      padding: 35px 0;
-      width: 100%;
-    }
-
-    .entryForm {
-      display: grid;
-      row-gap: 25px;
-      column-gap: 35px;
-      grid-template-columns: auto;
-      grid-template-rows: auto;
-      grid-template-areas:
-        "fname lname"
-        "email phone"
-        "message message"
-        "submit submit";
-
-      @include xl-max {
-        row-gap: 5px;
-      }
 
       @include hi-res {
-        row-gap: 5px;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: -0.065em;
       }
 
       @include sm-max {
-        grid-template-areas:
-          "fname"
-          "lname"
-          "email"
-          "phone"
-          "message"
-          "submit";
-        row-gap: 5px;
-        width: 100%;
+        font-size: 18px;
+        line-height: 20px;
+        letter-spacing: -0.065em;
       }
+    }
 
-      label {
-        font-size: 24px;
-        line-height: 38px;
-        color: $white;
-        overflow-wrap: break-word;
-        @include xl-max {
-          font-size: 18px;
-          line-height: 0.2;
-          letter-spacing: -0.065em;
-        }
+    .submit {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding-top: 10px;
 
-        @include hi-res {
-          font-size: 18px;
-          line-height: 0.2;
-          letter-spacing: -0.065em;
-        }
-
-        @include sm-max {
-          font-size: 18px;
-          line-height: 0.2;
-          letter-spacing: -0.065em;
-        }
-      }
-
-      .submit {
-        box-shadow: 0px 8px 7px 2px rgba(0, 0, 0, 0.125);
+      button {
         position: relative;
+
+        box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.0625);
         background-color: $yellow;
-        border-radius: 20px;
+
         display: flex;
         justify-content: center;
         align-items: center;
-        justify-self: center;
-        grid-area: submit;
-        width: auto;
+
+        width: 300px;
         height: 62px;
         padding: 0 35px;
+        border-radius: 31px;
+        border: none;
+
         transition: all 0.25s linear;
         cursor: pointer;
+
+        color: $white;
 
         &:hover,
         &:focus {
-          transform: scale(1.05);
+          transform: scale(1.025);
+        }
+
+        @include sm-max {
+          width: 200px;
+          height: 50px;
+          border-radius: 25px;
         }
       }
+    }
 
-      @keyframes ldio-wqiqdcunxe {
-        0% {
-          opacity: 1;
-          backface-visibility: hidden;
-          transform: translateZ(0) scale(1.5, 1.5);
-        }
-        100% {
-          opacity: 0;
-          backface-visibility: hidden;
-          transform: translateZ(0) scale(1, 1);
-        }
+    input {
+      height: 62px;
+      padding: 5px 16px 0 16px;
+
+      @include xl-max {
+        height: 45px;
       }
-      .ldioWqiqdcunxe div > div {
-        position: absolute;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background: $white;
-        animation: ldio-wqiqdcunxe 1s linear infinite;
+      @include hi-res {
+        height: 45px;
       }
-      .ldioWqiqdcunxe div:nth-child(1) > div {
-        left: 148px;
-        top: 88px;
-        animation-delay: -0.875s;
+      @include sm-max {
+        height: 45px;
+        width: calc(100% - 25px);
       }
-      .ldioWqiqdcunxe > div:nth-child(1) {
-        transform: rotate(0deg);
-        transform-origin: 160px 100px;
+      &:hover {
+        padding: 5px 12px 0 20px;
       }
-      .ldioWqiqdcunxe div:nth-child(2) > div {
-        left: 130px;
-        top: 130px;
-        animation-delay: -0.75s;
-      }
-      .ldioWqiqdcunxe > div:nth-child(2) {
-        transform: rotate(45deg);
-        transform-origin: 142px 142px;
-      }
-      .ldioWqiqdcunxe div:nth-child(3) > div {
-        left: 88px;
-        top: 148px;
-        animation-delay: -0.625s;
-      }
-      .ldioWqiqdcunxe > div:nth-child(3) {
-        transform: rotate(90deg);
-        transform-origin: 100px 160px;
-      }
-      .ldioWqiqdcunxe div:nth-child(4) > div {
-        left: 46px;
-        top: 130px;
-        animation-delay: -0.5s;
-      }
-      .ldioWqiqdcunxe > div:nth-child(4) {
-        transform: rotate(135deg);
-        transform-origin: 58px 142px;
-      }
-      .ldioWqiqdcunxe div:nth-child(5) > div {
-        left: 28px;
-        top: 88px;
-        animation-delay: -0.375s;
-      }
-      .ldioWqiqdcunxe > div:nth-child(5) {
-        transform: rotate(180deg);
-        transform-origin: 40px 100px;
-      }
-      .ldioWqiqdcunxe div:nth-child(6) > div {
-        left: 46px;
-        top: 46px;
-        animation-delay: -0.25s;
-      }
-      .ldioWqiqdcunxe > div:nth-child(6) {
-        transform: rotate(225deg);
-        transform-origin: 58px 58px;
-      }
-      .ldioWqiqdcunxe div:nth-child(7) > div {
-        left: 88px;
-        top: 28px;
-        animation-delay: -0.125s;
-      }
-      .ldioWqiqdcunxe > div:nth-child(7) {
-        transform: rotate(270deg);
-        transform-origin: 100px 40px;
-      }
-      .ldioWqiqdcunxe div:nth-child(8) > div {
-        left: 130px;
-        top: 46px;
-        animation-delay: 0s;
-      }
-      .ldioWqiqdcunxe > div:nth-child(8) {
-        transform: rotate(315deg);
-        transform-origin: 142px 58px;
-      }
-      .spinner {
-        width: 50px;
-        height: 50px;
-        display: inline-block;
-        overflow: hidden;
-        background: rgba(0, 0, 0, 0);
-      }
-      .ldioWqiqdcunxe {
-        width: auto;
-        height: 100%;
-        position: relative;
-        transform: translateZ(0) scale(0.25);
-        backface-visibility: hidden;
-        transform-origin: 0 0; /* see note above */
-      }
-      .ldioWqiqdcunxe div {
-        box-sizing: content-box;
+    }
+
+    textarea {
+      height: 300px;
+      padding: 10px 16px;
+      box-sizing: border-box;
+      resize: none;
+
+      @include xl-max {
+        height: 200px;
       }
 
-      button {
-        width: 95%;
-        height: 87%;
+      @include hi-res {
+        height: 200px;
+      }
 
+      @include md-max {
+      }
+
+      @include sm-max {
+        padding: 16px;
+        height: 200px;
+      }
+
+      &:hover {
+        padding: 10px 12px 10px 20px;
+      }
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background: rgba(239, 237, 228, 0.2);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.0625);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border: none;
+      border-bottom: 5px rgba(0, 0, 0, 0) solid;
+      box-sizing: border-box;
+
+      color: $white;
+      font-family: $montserrat;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 29px;
+      letter-spacing: -0.035em;
+
+      transition: all 0.25s linear;
+
+      &::placeholder {
+        color: #efede45b;
         font-family: $montserrat;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 24px;
-        line-height: 29px;
-        text-align: center;
-        letter-spacing: -0.035em;
-        color: $white;
-
-        background: $yellow;
-        border-radius: 15px;
-        border: none;
-        transition: all 0.25s linear;
-
-        z-index: 2;
-
-        cursor: pointer;
-      }
-
-      input {
-        height: 62px;
-
-        @include xl-max {
-          height: 45px;
-        }
-        @include hi-res {
-          height: 45px;
-        }
-        @include sm-max {
-          height: 45px;
-          width: calc(100% - 25px);
-        }
-      }
-
-      textarea {
-        height: 300px;
-        padding: 18px 19px !important;
-        box-sizing: border-box;
-        width: 100%;
-        resize: none;
-
-        @include xl-max {
-          padding: 12px !important;
-          height: 200px;
-        }
-
-        @include hi-res {
-          padding: 12px !important;
-          height: 200px;
-        }
-
-        @include md-max {
-        }
-
-        @include sm-max {
-          padding: 12px !important;
-          height: 200px;
-        }
-      }
-
-      input,
-      textarea {
-        padding: 0 19px;
-        background: rgba(239, 237, 228, 0.2);
-        box-shadow: 0px 8px 7px 2px rgba(0, 0, 0, 0.125);
-        border-radius: 15px;
-        border: none;
-
-        color: #efede4;
-        font-family: Montserrat;
         font-style: normal;
         font-weight: 300;
         font-size: 24px;
         line-height: 29px;
         letter-spacing: -0.035em;
+      }
 
+      &:hover,
+      &:focus {
+        outline: none;
+        border-bottom: 5px $yellow solid;
+      }
+
+      @include xl-max {
+        background: $blueOpaq;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: -0.035em;
         &::placeholder {
           color: #efede45b;
           font-family: Montserrat;
           font-style: normal;
           font-weight: 300;
-          font-size: 24px;
-          line-height: 29px;
-          letter-spacing: -0.035em;
-        }
-
-        &:hover,
-        &:focus {
-          outline: none;
-        }
-
-        @include xl-max {
-          padding: 0 12px;
-          border-radius: 6px;
-          background: $blueOpaq;
           font-size: 20px;
           line-height: 24px;
           letter-spacing: -0.035em;
-          &::placeholder {
-            color: #efede45b;
-            font-family: Montserrat;
-            font-style: normal;
-            font-weight: 300;
-            font-size: 20px;
-            line-height: 24px;
-            letter-spacing: -0.035em;
-          }
-        }
-        @include hi-res {
-          padding: 0 12px;
-          border-radius: 6px;
-          background: $blueOpaq;
-          font-size: 20px;
-          line-height: 24px;
-          letter-spacing: -0.035em;
-          &::placeholder {
-            color: #efede45b;
-            font-family: Montserrat;
-            font-style: normal;
-            font-weight: 300;
-            font-size: 20px;
-            line-height: 24px;
-            letter-spacing: -0.035em;
-          }
-        }
-        @include sm-max {
-          padding: 0 12px;
-          border-radius: 6px;
-          background: $blueOpaq;
-          font-size: 20px;
-          line-height: 24px;
-          letter-spacing: -0.035em;
-          &::placeholder {
-            color: #efede45b;
-            font-family: Montserrat;
-            font-style: normal;
-            font-weight: 300;
-            font-size: 20px;
-            line-height: 24px;
-            letter-spacing: -0.035em;
-          }
         }
       }
-
-      .fnameEntry {
-        grid-area: fname;
-      }
-      .lnameEntry {
-        grid-area: lname;
-      }
-      .emailEntry {
-        grid-area: email;
-      }
-      .phoneEntry {
-        grid-area: phone;
-      }
-      .msgEntry {
-        grid-area: message;
-      }
-      .error {
-        color: $yellow;
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 300;
-        font-size: 24px;
-        line-height: 29px;
+      @include hi-res {
+        background: $blueOpaq;
+        font-size: 20px;
+        line-height: 24px;
         letter-spacing: -0.035em;
-
-        @include sm-max {
+        &::placeholder {
+          color: #efede45b;
+          font-family: Montserrat;
+          font-style: normal;
+          font-weight: 300;
           font-size: 20px;
           line-height: 24px;
           letter-spacing: -0.035em;
         }
-
-        @include xl-max {
+      }
+      @include sm-max {
+        padding: 5px 16px 0 16px;
+        background: $blueOpaq;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: -0.035em;
+        &::placeholder {
+          color: #efede45b;
+          font-family: Montserrat;
+          font-style: normal;
+          font-weight: 300;
           font-size: 20px;
           line-height: 24px;
           letter-spacing: -0.035em;
         }
+      }
+    }
 
-        @include hi-res {
-          font-size: 20px;
-          line-height: 24px;
-          letter-spacing: -0.035em;
-        }
+    .error {
+      height: auto;
+      width: 100%;
+      color: $red;
+      font-family: $montserrat;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 29px;
+      letter-spacing: -0.035em;
+
+      @include sm-max {
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: -0.035em;
+      }
+
+      @include xl-max {
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: -0.035em;
+      }
+
+      @include hi-res {
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: -0.035em;
       }
     }
   }

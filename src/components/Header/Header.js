@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import styles from './Header.module.scss'
 import { Hamburger } from '../'
 
-import { HashLink as Link } from 'react-router-hash-link'
-
 import { Logo } from '../Icons';
 
 
@@ -19,24 +17,24 @@ export default function Header() {
         <header className={styles.header}>
             <ul className={styles.nav}>
                 <li>
-                    <Link to='#home' className={styles.logo}>
+                    <a href='#home' className={styles.logo}>
                         <Logo />
-                    </Link>
+                    </a>
                 </li>
                 <li>
                     <div className={`${styles.navWrapper} ${hamburgerOpen ? styles.navWrapperOpen : ''}`}>
                         <ul className={styles.navList}>
                             <li onClick={toggleHamburger}>
-                                <Link to="#home">home</Link>
+                                <a href="#home">home</a>
                             </li>
                             <li onClick={toggleHamburger}>
-                                <Link to="#about">about</Link>
+                                <a href="#about">about</a>
                             </li>
                             <li onClick={toggleHamburger}>
-                                <Link to="#work">work</Link>
+                                <a href="#work">work</a>
                             </li>
                             <li onClick={toggleHamburger}>
-                                <Link to="#contact">contact</Link>
+                                <a href="#contact">contact</a>
                             </li>
                         </ul>
                     </div>

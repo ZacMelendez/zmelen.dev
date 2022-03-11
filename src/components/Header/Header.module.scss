@@ -1,6 +1,6 @@
-@import "../../sassStyles/variables.scss";
-@import "../../sassStyles/breakpoints.scss";
-@import "../../sassStyles/animations.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/breakpoints.scss";
+@import "../../styles/animations.scss";
 
 .header {
     position: fixed;
@@ -49,8 +49,9 @@
         align-items: center;
         a {
             display: flex;
-        align-items: center;
-
+            align-items: center;
+            text-decoration: none;
+            color: $white;
         }
     }
 }

@@ -1,5 +1,5 @@
-@import '../../sassStyles/breakpoints.scss';
-@import '../../sassStyles/variables.scss';
+@import "../../styles/breakpoints.scss";
+@import "../../styles/variables.scss";
 
 .footer {
     position: fixed;
@@ -17,13 +17,13 @@
         margin-top: 2px;
         width: 25px;
         height: 100%;
-        path {
+        transition: all 0.25s ease-in-out;
+        svg {
             fill: $white;
             transition: all 0.25s ease-in-out;
-  
         }
         &:hover {
-            path {
+            svg {
                 fill: $hover;
             }
         }
@@ -44,9 +44,9 @@
             height: 100%;
             cursor: pointer;
             transition: all 0.5s linear;
-        };
+        }
     }
-  }
+}
 
 @media screen and (max-width: 600px) {
     .footer {
@@ -58,7 +58,7 @@
 @media screen and (min-width: 600px) {
     .footer {
         ul {
-            margin-left: 5%
+            margin-left: 5%;
         }
     }
 }

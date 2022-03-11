@@ -1,0 +1,21 @@
+@import './variables.scss';
+@import './breakpoints.scss';
+
+.container {
+    box-sizing: border-box;
+    min-height: 100vh;
+    width: 100%;
+    padding: 75px 100px;
+    right: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include sm-max {
+        padding: 75px 35px 80px 35px;
+    }
+    @include lg-max {
+        padding: 75px 150px 85px;
+    }
+}

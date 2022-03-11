@@ -1,5 +1,4 @@
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 
 export default function Planets(element, satRef, jupRef) {
     const { innerWidth: width } = window

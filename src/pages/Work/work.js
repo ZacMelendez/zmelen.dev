@@ -1,11 +1,10 @@
 import styles from './work.module.scss';
-import React, { useRef } from 'react';
+import React from 'react';
+import container from '../../styles/container.module.scss';
 
 import { Carousel } from '../../components/';
 
 export default function Work() {
-
-
     const settings = {
         dots: false,
         infinite: true,
@@ -13,6 +12,11 @@ export default function Work() {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
+        lazyLoad: true,
+        // autoplay: true,
+        // autoplaySpeed: 5000,
+        cssEase: "ease-in-out",
+        pauseOnHover: true,
     }
 
     const slideInfo = [
@@ -32,9 +36,9 @@ export default function Work() {
     ]
 
     return (
-        <div className={styles.work} id="work">
+        <div className={container.container} id="work">
             <div className={styles.inner} id="workContents">
-                <h1>Work</h1>
+                <h2>Work</h2>
                 <div className={styles.carousel}>
                     <Carousel settings={settings} slideInfo={slideInfo} />
                 </div>
