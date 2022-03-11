@@ -1,29 +1,40 @@
-import React, { useEffect, useRef, useState } from "react";
-import { RichTextEditor } from '@mantine/rte';
+import React, { useRef, useState } from "react";
 import styles from './BlogInput.module.scss';
 import useLazyFetch from "../../hooks/useLazyFetch";
 import { v4 as uuidv4 } from 'uuid';
-import TurndownService from "turndown";
-import { Prism } from "@mantine/prism";
-import { marked } from "marked";
+import { RichTextEditor } from '@mantine/rte';
+import TurndownService from 'turndown'
+
+let turndownService = new TurndownService()
+
+turndownService.addRule('codeBlock', {
+    filter: ['pre'],
+    replacement: function (content) {
+      return '```\n' + content + '```'
+    }
+  })
+
+  turndownService.addRule('code', {
+    filter: ['code'],
+    replacement: function (content) {
+      return '```\n' + content + '\n```'
+    }
+  })
+
+  turndownService.addRule('codeBlock', {
+    filter: ['\\'],
+    replacement: function (content) {
+      return content
+    }
+  })
 
 
 export default function BlogInput() {
-
-    const turndown = TurndownService();
-
     const [submitted, setSubmitted] = useState({ status: false })
     const [val, setVal] = useState('Enter text here!')
-    const [md, setMd] = useState('')
 
     const titleRef = useRef(null);
     const tagsRef = useRef(null);
-
-    useEffect(() => {
-        const text = turndown.turndown(val)
-        setMd(text)
-        // console.log([...val.split('```')])
-    }, [val])
 
     const [makeFetch, { loading }] = useLazyFetch({
         onSuccess: (result) => {
@@ -39,7 +50,7 @@ export default function BlogInput() {
     }
     )
 
-    const handleImageUpload = (file) => 
+    const handleImageUpload = (file) =>
         new Promise((resolve, reject) => {
             const formData = new FormData();
             formData.append('file', file);
@@ -52,9 +63,10 @@ export default function BlogInput() {
                 .then((response) => response.json())
                 .then((result) => {
                     console.log(result)
-                    resolve(result.url)})
+                    resolve(result.url)
+                })
                 .catch(() => reject(new Error('Upload failed')))
-            
+
         })
 
     const onSubmit = () => {
@@ -71,14 +83,13 @@ export default function BlogInput() {
                     id: uuidv4(),
                     title: titleRef.current.value,
                     created_at: new Date(),
-                    content: val.toString(),
+                    content: turndownService.turndown(val),
                     tag_list: tagsRef.current.value.replace(/\s+/g, '').split(',')
                 })
             }
         })
+        console.log(turndownService.turndown(val))
     }
-
-
 
     return (
         <div className={styles.outer}>
@@ -89,18 +100,23 @@ export default function BlogInput() {
                 </div>
                 <div>
                     <p className={styles.label}>Blog Content:</p>
-                    <RichTextEditor classNames={{
-                        root: styles.rte,
-                        toolbar: styles.toolbar
-                    }}
+                    <RichTextEditor
+                        controls={[
+                            ['bold', 'italic', 'underline', 'link', 'image'],
+                            ['code', 'codeBlock'],
+                            ['unorderedList', 'h1', 'h2', 'h3'],
+                            ['sup', 'sub'],
+                            ['alignLeft', 'alignCenter', 'alignRight'],
+                        ]}
+                        onImageUpload={handleImageUpload}
                         value={val}
                         onChange={setVal}
-                        onImageUpload={handleImageUpload}
+                        classNames={{
+                            root: styles.rte,
+                            toolbar: styles.toolbar,
+                        }}
                     />
                 </div>
-                    <div dangerouslySetInnerHTML={{__html: marked.parse(md)}}/>
-                <br/>
-                {md.split('\\`\\`\\`').filter(item => item.includes('language='))}
                 <div>
                     <p className={styles.label}>Blog Tags:</p>
                     <input ref={tagsRef} />

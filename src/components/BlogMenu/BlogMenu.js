@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import BlogContext from "../../context/BlogsContext";
-import useLazyFetch from "../../hooks/useLazyFetch";
 import { CodePen, GitHub, LinkedIn, Logo } from "../Icons";
 
 import styles from './BlogMenu.module.scss'

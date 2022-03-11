@@ -11,7 +11,6 @@ function BlogContextProvider({ children }) {
             let blogItems = result.Items
             blogItems.sort((a, b) => new Date(b['created_at']) - new Date(a['created_at']));
             setBlogs(blogItems.reverse())
-            console.log(blogItems)
         },
         onError: (err) => {
             console.log(err)
