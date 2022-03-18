@@ -22,6 +22,16 @@
         min-width: 500px;
     }
 
+    @include lg-max {
+        height: 400px;
+        width: 400px;
+        top: 50%;
+        left: 50%;
+        opacity: 0.3;
+        min-height: 500px;
+        min-width: 500px;
+    }
+
     @include xl-max {
         min-height: 500px;
         min-width: 500px;
@@ -36,26 +46,11 @@
         width: 500px;
     }
 
-    @include lg-max {
-        min-height: 400px;
-        min-width: 400px;
-        height: 400px;
-        width: 400px;
-    }
-
-    @include lg-max {
-        top: 50%;
-        left: 50%;
-        opacity: 0.3;
-        min-height: 500px;
-        min-width: 500px;
-    }
-
     .inner {
         position: absolute;
         height: 100%;
         width: 100%;
-        display : flex;
+        display: flex;
         justify-content: center;
         align-items: center;
         svg {

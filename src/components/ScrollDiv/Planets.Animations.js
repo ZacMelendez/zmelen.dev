@@ -7,8 +7,8 @@ export default function Planets(element, satRef, jupRef) {
     gsap.fromTo(
         jupRef.current,
         {
-            y: () => pctToPx(-60),
-            x: () => pctToPx(-60),
+            y: () => pctToPx(-70),
+            x: () => pctToPx(-70),
             width: () => pctToPx(60),
             height: () => pctToPx(60)
         },

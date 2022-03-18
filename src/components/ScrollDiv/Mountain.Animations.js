@@ -6,7 +6,7 @@ export default function Mountains(element, mounORef, mounTwRef, mounThRef) {
     const pctToPx = (pct) => parseInt((width > 500 ? 0.4*width : 500) * (pct / 100))
 
     gsap.set(mounORef.current, {
-        height: () => pctToPx(95),
+        height: () => pctToPx(115),
         width: () => pctToPx(300),
         y: () => pctToPx(80),
         zIndex: 4,
@@ -60,7 +60,7 @@ export default function Mountains(element, mounORef, mounTwRef, mounThRef) {
             x: () => pctToPx(100)
         },
         {
-            y: () => pctToPx(30),
+            y: () => pctToPx(40),
             ease: 'none',
             x: () => pctToPx(0)
         }
@@ -69,12 +69,12 @@ export default function Mountains(element, mounORef, mounTwRef, mounThRef) {
     mounOne.fromTo(
         mounORef.current,
         {
-            y: () => pctToPx(30),
+            y: () => pctToPx(40),
             ease: 'none',
             x: () => pctToPx(0)
         },
         {
-            y: () => pctToPx(80),
+            y: () => pctToPx(90),
             x: () => pctToPx(-100)
         }
     )

@@ -6,7 +6,7 @@ export default function Trees(element, treeORef, treeTwRef, treeThRef) {
 
     gsap.set(treeORef.current,
         {
-            height: () => pctToPx(100),
+            height: () => pctToPx(120),
             width: 'auto',
             y: () => pctToPx(-20),
             zIndex: 10,
@@ -15,16 +15,16 @@ export default function Trees(element, treeORef, treeTwRef, treeThRef) {
 
     gsap.set(treeTwRef.current,
         {
-            height: () => pctToPx(100),
+            height: () => pctToPx(130),
             width: 'auto',
             y: () => pctToPx(-35),
             zIndex: 9,
-            x: 0
+            x: () => pctToPx(-35)
         })
 
     gsap.set(treeThRef.current,
         {
-            height: () => pctToPx(100),
+            height: () => pctToPx(130),
             width: 'auto',
             x: () => pctToPx(-10),
             y: () => pctToPx(-20),

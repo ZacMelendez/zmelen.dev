@@ -12,10 +12,15 @@
     align-items: center;
     justify-content: center;
 
-    @include sm-max {
-        padding: 75px 35px 80px 35px;
-    }
     @include lg-max {
         padding: 75px 150px 85px;
     }
+    @include md-max {
+        padding: 75px 35px 80px 35px;
+    }
+    @include sm-max {
+        padding: 75px 35px 80px 35px;
+    }
+    
+    
 }

@@ -74,6 +74,7 @@
     li {
         display: inline-flex;
         align-items: center;
+
         a {
             text-decoration: none;
             text-align: center;
@@ -84,9 +85,16 @@
             font-size: 18px;
             transition: all 0.25s ease-in-out;
             cursor: pointer;
+
+            background: linear-gradient($yellow, $yellow);
+            background-size: 0% 3px;
+            background-repeat: no-repeat;
+            background-position: left bottom;
+            box-sizing: border-box;
         }
         a:hover {
             color: $hover;
+            background-size: 100% 3px;
         }
     }
 }

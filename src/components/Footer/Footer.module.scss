@@ -18,11 +18,13 @@
         width: 25px;
         height: 100%;
         transition: all 0.25s ease-in-out;
+
         svg {
             fill: $white;
             transition: all 0.25s ease-in-out;
         }
         &:hover {
+
             svg {
                 fill: $hover;
             }

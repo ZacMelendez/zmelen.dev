@@ -18,13 +18,13 @@ export default function Waves(element, waveORef, waveTwRef, waveThRef) {
     waveOne.fromTo(
         waveORef.current,
         {
-            height: () => pctToPx(35),
-            width: () => pctToPx(300),
+            height: () => pctToPx(55),
+            width: () => pctToPx(400),
             y: () => pctToPx(75),
             zIndex: 7,
         },
         {
-            y: () => pctToPx(45),
+            y: () => pctToPx(60),
             ease: 'none',
         }
     )
@@ -32,7 +32,7 @@ export default function Waves(element, waveORef, waveTwRef, waveThRef) {
     waveOne.fromTo(
         waveORef.current,
         {
-            y: () => pctToPx(45),
+            y: () => pctToPx(60),
         },
         {
             y: () => pctToPx(100),
